@@ -88,12 +88,38 @@ networking-mastery/
 └── .github/workflows/     # markdown lint, link check, Mermaid validation, Python tests
 ```
 
-## Day 1
+## Day 1 (about 1.5 hours)
 
-1. Run `bash labs/setup/install.sh` (about 20 minutes).
-2. Read [modules/01-osi-tcpip/README.md](modules/01-osi-tcpip/README.md) (40 minutes).
+1. Run `bash labs/setup/install.sh`, then `bash labs/setup/verify.sh` (20 minutes, mostly waiting).
+2. Read [modules/01-osi-tcpip/README.md](modules/01-osi-tcpip/README.md) sections 1-2 (40 minutes).
 3. Do steps 1-4 of [modules/01-osi-tcpip/lab.md](modules/01-osi-tcpip/lab.md) (30 minutes).
-4. Import `cert/ccna-200-301/flashcards.csv` into Anki. Do 20 cards per day from today.
+4. Import [cert/ccna-200-301/flashcards.csv](cert/ccna-200-301/flashcards.csv) into Anki and review 20 cards. Do 20 per day from now on.
+
+## What is in the box
+
+| Item | Count |
+|---|---|
+| Modules (README, lab, quiz, cheatsheet, video script) | 18 |
+| Module quiz questions | 270 |
+| Subnetting practice problems | 50 (+ unlimited generator) |
+| Containerlab / Compose topologies | 9 |
+| Capstone projects | 5 |
+| CCNA practice exams | 3 × 100 questions |
+| CCNA simulations | 9 |
+| Flashcards | 401 |
+| Glossary terms | 269 |
+| Interview questions with model answers | 100 |
+| Mermaid diagrams (all validated) | 114 |
+
+## Tools
+
+| Tool | Command |
+|---|---|
+| Subnet calculator / drills | `python3 tools/subnet_calc.py info 10.1.2.3/20` · `practice --count 20` |
+| Quiz runner | `python3 tools/quiz_runner.py modules/05-switching` · `modules --all --limit 50` |
+| Practice exam builder | `python3 tools/build_practice_exams.py` |
+| Flashcard generator | `python3 tools/flashcard_gen.py` |
+| Checks | `python3 tools/validate_quizzes.py` · `python3 tools/check_links.py` · `(cd tools && npm ci) && node tools/validate_mermaid.mjs` |
 
 ## Conventions
 
