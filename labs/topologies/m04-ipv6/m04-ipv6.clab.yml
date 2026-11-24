@@ -1,0 +1,38 @@
+# Module 04 lab: SLAAC, NDP and static IPv6 routing between two FRR routers.
+# Deploy: sudo containerlab deploy -t m04-ipv6.clab.yml
+name: m04-ipv6
+
+topology:
+  defaults:
+    kind: linux
+  nodes:
+    r1:
+      image: quay.io/frrouting/frr:10.2.1
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - r1.conf:/etc/frr/frr.conf
+      exec:
+        - sysctl -w net.ipv6.conf.all.disable_ipv6=0
+        - sysctl -w net.ipv6.conf.all.forwarding=1
+    r2:
+      image: quay.io/frrouting/frr:10.2.1
+      binds:
+        - ../common/daemons:/etc/frr/daemons
+        - r2.conf:/etc/frr/frr.conf
+      exec:
+        - sysctl -w net.ipv6.conf.all.disable_ipv6=0
+        - sysctl -w net.ipv6.conf.all.forwarding=1
+    h1:
+      image: nicolaka/netshoot:latest
+      exec:
+        - sysctl -w net.ipv6.conf.all.disable_ipv6=0
+        - sysctl -w net.ipv6.conf.eth1.accept_ra=2
+    h2:
+      image: nicolaka/netshoot:latest
+      exec:
+        - sysctl -w net.ipv6.conf.all.disable_ipv6=0
+        - sysctl -w net.ipv6.conf.eth1.accept_ra=2
+  links:
+    - endpoints: ["h1:eth1", "r1:eth1"]
+    - endpoints: ["r1:eth2", "r2:eth2"]
+    - endpoints: ["r2:eth1", "h2:eth1"]
