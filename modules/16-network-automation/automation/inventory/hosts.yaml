@@ -1,0 +1,19 @@
+---
+srl1:
+  hostname: 172.20.16.11
+  groups: [srlinux]
+  data:
+    role: leaf
+    loopback: 10.255.0.1/32
+    p2p:
+      interface: ethernet-1/1
+      ip: 10.0.12.0/31
+srl2:
+  hostname: 172.20.16.12
+  groups: [srlinux]
+  data:
+    role: leaf
+    loopback: 10.255.0.2/32
+    p2p:
+      interface: ethernet-1/1
+      ip: 10.0.12.1/31

@@ -1,0 +1,39 @@
+---
+# Idempotent SR Linux config with the nokia.srlinux collection (JSON-RPC over HTTPS).
+# Install: ansible-galaxy collection install nokia.srlinux
+# Run:     ansible-playbook -i inventory.yml playbook.yml --diff
+- name: Configure loopbacks and a banner on SR Linux
+  hosts: srlinux
+  gather_facts: false
+  tasks:
+    - name: Ensure loopback lo1 exists with the intended IP
+      nokia.srlinux.config:
+        update:
+          - path: /interface[name=lo1]
+            value:
+              admin-state: enable
+              description: managed-by-ansible
+              subinterface:
+                - index: 0
+                  admin-state: enable
+                  ipv4:
+                    admin-state: enable
+                    address:
+                      - ip-prefix: "{{ loopback1 }}/32"
+          - path: /network-instance[name=default]/interface[name=lo1.0]
+      register: cfg
+
+    - name: Show whether anything changed
+      ansible.builtin.debug:
+        msg: "{{ inventory_hostname }} changed={{ cfg.changed }}"
+
+    - name: Read back the interface state
+      nokia.srlinux.get:
+        paths:
+          - path: /interface[name=lo1]/subinterface[index=0]/ipv4/address
+            datastore: state
+      register: state
+
+    - name: Print the address
+      ansible.builtin.debug:
+        var: state.result

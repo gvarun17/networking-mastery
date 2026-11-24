@@ -1,0 +1,22 @@
+# Module 16 lab: two Nokia SR Linux routers managed by Nornir, NETCONF, gNMI and Ansible.
+# Deploy: sudo containerlab deploy -t m16-automation.clab.yml
+# Default SR Linux credentials: admin / NokiaSrl1!
+name: m16-automation
+
+mgmt:
+  network: m16-mgmt
+  ipv4-subnet: 172.20.16.0/24
+
+topology:
+  kinds:
+    nokia_srlinux:
+      image: ghcr.io/nokia/srlinux:24.10
+  nodes:
+    srl1:
+      kind: nokia_srlinux
+      mgmt-ipv4: 172.20.16.11
+    srl2:
+      kind: nokia_srlinux
+      mgmt-ipv4: 172.20.16.12
+  links:
+    - endpoints: ["srl1:e1-1", "srl2:e1-1"]

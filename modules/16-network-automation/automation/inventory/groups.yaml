@@ -1,0 +1,8 @@
+---
+srlinux:
+  platform: nokia_srl
+  connection_options:
+    netmiko:
+      platform: nokia_srl
+      extras:
+        fast_cli: false

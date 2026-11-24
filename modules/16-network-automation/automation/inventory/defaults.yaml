@@ -1,0 +1,4 @@
+---
+# Lab credentials only. In production, load them from the environment or a secrets manager.
+username: admin
+password: NokiaSrl1!
