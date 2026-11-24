@@ -9,3 +9,6 @@ __pycache__/
 clab-*/
 *.pcap
 .DS_Store
+labs/capstones/05-automation-pipeline/build/*
+!labs/capstones/05-automation-pipeline/build/.gitkeep
+.venv/
