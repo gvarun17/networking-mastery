@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+"""Generate modules/03-ipv4-subnetting/practice-problems.md.
+
+All answers are computed with tools/subnet_calc.py, so they are correct by construction.
+Run: python3 tools/gen_subnet_problems.py
+"""
+from __future__ import annotations
+
+import ipaddress
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import subnet_calc as sc  # noqa: E402
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "modules/03-ipv4-subnetting/practice-problems.md"
+
+
+def main() -> None:
+    probs: list[tuple[str, str, str]] = []  # (section, question, answer)
+
+    # A. Network / broadcast / range (12)
+    for cidr in ["192.168.1.130/26", "10.20.33.200/27", "172.16.45.130/21", "10.0.77.19/28",
+                 "192.168.100.66/29", "172.31.200.1/20", "10.10.10.10/30", "203.0.113.97/25",
+                 "10.255.3.250/22", "172.20.129.4/17", "192.168.7.255/23", "10.1.1.1/31"]:
+        s = sc.info(cidr)
+        bc = s.broadcast or "none (/31 point-to-point)"
+        probs.append(("A. Network, broadcast, host range",
+                      f"For **{cidr}**, find the network, broadcast and usable host range.",
+                      f"Network {s.network}/{s.prefix}; broadcast {bc}; hosts {s.first_host} - {s.last_host} ({s.usable_hosts} usable)."))
+
+    # B. Host counts and prefix sizing (10)
+    for p in [19, 23, 26, 28, 29]:
+        n = ipaddress.ip_network(f"0.0.0.0/{p}")
+        probs.append(("B. Host counts and sizing", f"How many usable hosts does a **/{p}** give?",
+                      f"{sc.usable_hosts(n):,} (2^{32 - p} − 2). Mask {n.netmask}."))
+    for h in [5, 30, 31, 500, 1000]:
+        p = sc.prefix_for_hosts(h)
+        probs.append(("B. Host counts and sizing", f"What is the longest prefix (smallest subnet) for **{h} hosts**?",
+                      f"/{p} ({2 ** (32 - p) - 2} usable)."))
+
+    # C. Same subnet? (8)
+    pairs = [("10.1.1.10/25", "10.1.1.130/25"), ("192.168.5.33/27", "192.168.5.62/27"),
+             ("172.16.8.1/21", "172.16.15.254/21"), ("172.16.8.1/21", "172.16.16.1/21"),
+             ("10.0.0.5/30", "10.0.0.6/30"), ("10.0.0.6/30", "10.0.0.9/30"),
+             ("192.168.0.200/23", "192.168.1.10/23"), ("10.100.64.1/18", "10.100.128.1/18")]
+    for a, b in pairs:
+        same = sc.same_subnet(a, b)
+        na, nb = ipaddress.ip_interface(a).network, ipaddress.ip_interface(b).network
+        probs.append(("C. Same subnet?", f"Are **{a}** and **{b}** in the same subnet?",
+                      f"{'Yes' if same else 'No'}. {a} is in {na}; {b} is in {nb}."))
+
+    # D. Split a block (6)
+    for parent, newp, idx in [("10.0.0.0/22", 24, 3), ("192.168.10.0/24", 27, 5), ("172.16.0.0/16", 20, 10),
+                              ("10.50.0.0/20", 23, 7), ("192.168.0.0/24", 30, 40), ("10.0.0.0/8", 12, 3)]:
+        subs = sc.split(parent, newp)
+        s = subs[idx - 1]
+        probs.append(("D. Splitting a block",
+                      f"Split **{parent}** into /{newp} subnets. How many subnets, and what is subnet number {idx}?",
+                      f"{len(subs)} subnets. Subnet {idx} = {s} (range {s[0]} - {s[-1]})."))
+
+    # E. VLSM (4)
+    for parent, hosts in [("192.168.50.0/24", [60, 28, 12, 2]), ("10.10.0.0/22", [500, 200, 100, 50, 2]),
+                          ("172.16.100.0/24", [100, 50, 20, 2, 2]), ("10.0.0.0/23", [250, 120, 60, 30])]:
+        alloc = sc.vlsm(parent, hosts)
+        ans = "; ".join(f"{h} hosts → {n}" for h, n in alloc)
+        probs.append(("E. VLSM design", f"Allocate **{parent}** for hosts {hosts}, largest first.", ans + "."))
+
+    # F. Summarization (5)
+    for nets in [["10.1.4.0/24", "10.1.5.0/24", "10.1.6.0/24", "10.1.7.0/24"],
+                 ["172.16.32.0/24", "172.16.33.0/24", "172.16.34.0/24", "172.16.35.0/24",
+                  "172.16.36.0/24", "172.16.37.0/24", "172.16.38.0/24", "172.16.39.0/24"],
+                 ["192.168.8.0/24", "192.168.9.0/24"],
+                 ["10.0.1.0/24", "10.0.2.0/24"],
+                 ["192.168.16.0/22", "192.168.20.0/22"]]:
+        exact = ", ".join(map(str, sc.summarize(nets)))
+        sup = sc.supernet(nets)
+        probs.append(("F. Summarization", f"Summarize: {', '.join(nets)}.",
+                      f"Smallest single summary: {sup}. Exact (no extra space): {exact}."))
+
+    # G. Wildcards (3)
+    for mask in ["255.255.255.0", "255.255.240.0", "255.255.255.252"]:
+        probs.append(("G. Wildcard masks", f"What is the wildcard mask for **{mask}**?", f"{sc.wildcard(mask)}."))
+
+    # H. AWS (2)
+    for p in [24, 28]:
+        n = 2 ** (32 - p)
+        probs.append(("H. AWS VPC", f"How many usable IPs does an AWS subnet **/{p}** have?",
+                      f"{n - 5}. AWS reserves 5 per subnet (network, +1 router, +2 DNS, +3 future, broadcast)."))
+
+    assert len(probs) == 50, len(probs)
+    lines = ["# Module 03 — 50 Subnetting Practice Problems", "",
+             "Generated by `python3 tools/gen_subnet_problems.py`. Answers are computed, not typed.",
+             "Cover the answers. Target: 45/50 in under 40 minutes.", ""]
+    section = None
+    for i, (sec, q, a) in enumerate(probs, 1):
+        if sec != section:
+            lines += [f"## {sec}", ""]
+            section = sec
+        lines += [f"**{i}.** {q}", "", "<details><summary>Answer</summary>", "", a, "", "</details>", ""]
+    OUT.write_text("\n".join(lines), encoding="utf-8")
+    print(f"wrote {OUT.relative_to(ROOT)} ({len(probs)} problems)")
+
+
+if __name__ == "__main__":
+    main()
