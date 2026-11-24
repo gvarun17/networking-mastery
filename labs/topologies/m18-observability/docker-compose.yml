@@ -1,0 +1,40 @@
+# Module 18 lab: Prometheus + Grafana + node_exporter + blackbox_exporter + goflow2 (NetFlow/IPFIX/sFlow).
+# Start: docker compose up -d   Grafana: http://localhost:3000 (admin / admin)
+services:
+  prometheus:
+    image: prom/prometheus:v3.0.1
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.retention.time=2d"]
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./alerts.yml:/etc/prometheus/alerts.yml:ro
+    ports: ["9090:9090"]
+    extra_hosts: ["host.docker.internal:host-gateway"]   # lets Prometheus reach node_exporter on the host
+
+  grafana:
+    image: grafana/grafana:11.3.0
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - ./grafana-datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml:ro
+    ports: ["3000:3000"]
+
+  node-exporter:
+    image: prom/node-exporter:v1.8.2
+    network_mode: host
+    pid: host
+    command: ["--path.rootfs=/host", "--collector.netdev.device-exclude=^(veth.*|br-.*|docker.*)$"]
+    volumes: ["/:/host:ro,rslave"]
+
+  blackbox:
+    image: prom/blackbox-exporter:v0.25.0
+    volumes: ["./blackbox.yml:/etc/blackbox_exporter/config.yml:ro"]
+    ports: ["9115:9115"]
+    cap_add: [NET_RAW]
+
+  goflow2:
+    image: netsampler/goflow2:v2.2.1
+    command: ["-listen=sflow://:6343,netflow://:2055", "-format=json"]
+    ports:
+      - "2055:2055/udp"   # NetFlow v5/v9 and IPFIX
+      - "6343:6343/udp"   # sFlow
+      - "8080:8080"       # goflow2 own metrics at /metrics

@@ -1,0 +1,21 @@
+groups:
+  - name: network
+    rules:
+      - alert: ProbeFailed
+        expr: probe_success == 0
+        for: 2m
+        labels: { severity: page }
+        annotations:
+          summary: "Probe {{ $labels.job }} to {{ $labels.instance }} failing for 2m"
+      - alert: HighRTT
+        expr: probe_icmp_duration_seconds{phase="rtt"} > 0.15
+        for: 5m
+        labels: { severity: warning }
+        annotations:
+          summary: "RTT to {{ $labels.instance }} above 150 ms for 5m"
+      - alert: InterfaceErrors
+        expr: rate(node_network_receive_errs_total[5m]) > 0
+        for: 10m
+        labels: { severity: warning }
+        annotations:
+          summary: "{{ $labels.device }} on {{ $labels.instance }} is receiving errors"
