@@ -1,0 +1,402 @@
+front,back,tags
+What is 5-tuple?,"Protocol, source IP, source port, destination IP and destination port that identify a flow",glossary module-08
+What is 802.1Q?,IEEE standard that inserts a 4-byte VLAN tag into Ethernet frames on trunks,glossary module-05
+What is 802.1X?,"Port-based network access control using EAP between supplicant, authenticator and RADIUS server",glossary module-11
+What is AAA?,"Authentication, authorization and accounting framework for access control",glossary module-11
+What is ABR?,OSPF area border router: connects area 0 to another area and creates type 3 LSAs,glossary module-07
+What is Access port?,Switch port that carries one untagged VLAN for an end device,glossary module-05
+What is ACL?,"Ordered permit/deny list that filters packets; first match wins, implicit deny at the end",glossary module-11
+What is Administrative distance?,Trust value that ranks route sources for the same prefix; lower wins,glossary module-06
+What is Agentic AI?,AI system that plans steps and calls tools to reach a goal,glossary module-16
+What is AH?,IPsec Authentication Header (IP 51): integrity without encryption,glossary module-11
+What is ALB?,AWS Application Load Balancer: layer 7 HTTP/HTTPS/gRPC load balancing,glossary module-12
+What is ALPN?,"TLS extension that negotiates the application protocol (h2, http/1.1)",glossary module-12
+What is Alternate port?,RSTP role: backup path to the root bridge through another switch,glossary module-05
+What is Anycast?,One address advertised from many locations; routing picks the nearest,glossary module-04
+What is Anycast gateway?,Same gateway IP and MAC configured on every leaf in an EVPN fabric,glossary module-17
+What is APIPA?,Automatic Private IP Addressing (169.254.0.0/16) used when DHCP fails,glossary module-03
+What is Appliance mode?,TGW attachment setting that keeps both directions of a flow in one AZ,glossary module-14
+What is ARP?,Address Resolution Protocol: maps an IPv4 address to a MAC address on a link,glossary module-02
+What is AS?,"Autonomous system: network under one routing policy, identified by an ASN",glossary module-07
+What is AS_PATH?,BGP attribute listing the ASes a route has crossed; shorter is preferred,glossary module-07
+What is ASBR?,OSPF router that redistributes external routes (type 5 LSAs),glossary module-07
+What is Autonegotiation?,IEEE mechanism for two Ethernet ports to agree on speed and duplex,glossary module-02
+What is BDP?,Bandwidth-delay product: bandwidth × RTT; data needed in flight to fill a path,glossary module-08
+What is BFD?,Bidirectional Forwarding Detection: sub-second link/path failure detection for routing protocols,glossary module-06
+What is BGP?,Border Gateway Protocol: path-vector EGP over TCP 179,glossary module-07
+What is BGP unnumbered?,"BGP peering over IPv6 link-local addresses, carrying IPv4 routes (RFC 5549)",glossary module-17
+What is Blackbox exporter?,"Prometheus exporter that runs ICMP, TCP, HTTP and DNS probes",glossary module-18
+What is Broadcast domain?,Set of devices that receive each other's broadcasts; one VLAN or subnet,glossary module-05
+What is BPDU?,Bridge protocol data unit: STP message exchanged between switches,glossary module-05
+What is BPDU guard?,Err-disables an edge port that receives a BPDU,glossary module-05
+What is Bridge ID?,STP priority plus MAC address; lowest becomes root,glossary module-05
+What is CAPWAP?,Control and Provisioning of Wireless Access Points: AP–WLC tunnel (UDP 5246/5247),glossary module-10
+What is CDN?,Content delivery network: caches content at edge locations near users,glossary module-12
+What is CDP?,"Cisco Discovery Protocol: layer 2 neighbor discovery, on by default",glossary module-05
+What is CIDR?,Classless Inter-Domain Routing: prefix-length notation such as /24,glossary module-03
+What is Cilium?,"eBPF-based Kubernetes CNI with policy, load balancing and observability",glossary module-15
+What is ClusterIP?,Kubernetes Service type with a virtual IP reachable inside the cluster,glossary module-15
+What is CNAME?,DNS alias record that points one name to a canonical name,glossary module-09
+What is CNI?,Container Network Interface: plugin standard that wires pod networking,glossary module-15
+What is Collision domain?,Segment where frames can collide; each switch port is its own,glossary module-02
+What is Conntrack?,Linux connection-tracking table used by stateful filtering and NAT,glossary module-11
+What is Container?,Isolated process with its own filesystem that shares the host kernel,glossary module-01
+What is Control plane?,"Part of a device that builds forwarding tables (routing protocols, STP)",glossary module-16
+What is CoreDNS?,DNS server that provides service discovery in Kubernetes,glossary module-15
+What is CRC?,Cyclic redundancy check in the Ethernet FCS; errors indicate damaged frames,glossary module-02
+What is CSMA/CA?,Collision avoidance access method used by Wi-Fi,glossary module-10
+What is CSMA/CD?,Collision detection access method used by half-duplex Ethernet,glossary module-02
+What is CUBIC?,Default Linux TCP congestion control algorithm (loss-based),glossary module-08
+What is Data plane?,Part of a device that forwards packets using the forwarding tables,glossary module-16
+What is DAI?,Dynamic ARP Inspection: validates ARP against DHCP snooping bindings,glossary module-11
+What is Decapsulation?,Removing headers layer by layer at the receiver,glossary module-01
+What is Default route?,0.0.0.0/0 or ::/0; matches any destination with no more specific route,glossary module-06
+What is Designated port?,STP port that forwards toward a segment; one per segment,glossary module-05
+What is DHCP?,Dynamic Host Configuration Protocol: assigns IP settings (UDP 67/68),glossary module-09
+What is DHCP relay?,Router function that forwards client DHCP broadcasts as unicast (ip helper-address),glossary module-09
+What is DHCP snooping?,Switch feature that blocks rogue DHCP servers and builds a binding table,glossary module-11
+What is Direct Connect?,AWS dedicated private connection from on-premises to AWS,glossary module-14
+What is Distance vector?,Routing that shares distances to destinations with neighbors,glossary module-07
+What is DNS?,Domain Name System: resolves names to records (UDP/TCP 53),glossary module-09
+What is DORA?,"DHCP sequence: Discover, Offer, Request, Acknowledge",glossary module-09
+What is DR/BDR?,OSPF designated and backup designated routers on broadcast segments,glossary module-07
+What is DSCP?,6-bit QoS marking in the IP header,glossary module-08
+What is DTP?,Cisco Dynamic Trunking Protocol that negotiates trunking,glossary module-05
+What is Dual stack?,Running IPv4 and IPv6 at the same time on the same network,glossary module-04
+What is Duplex mismatch?,"One end full duplex, the other half; causes late collisions and CRC errors",glossary module-02
+What is DX gateway?,AWS Direct Connect gateway that connects VIFs to VGWs or TGWs across Regions,glossary module-14
+What is E2 route?,OSPF external type 2 route whose metric does not add internal cost,glossary module-07
+What is eBGP?,BGP between different ASes; AD 20,glossary module-07
+What is eBPF?,"Linux in-kernel virtual machine used for fast networking, security and tracing",glossary module-15
+What is ECMP?,Equal-cost multipath: load sharing over multiple equal routes,glossary module-06
+What is Egress-only IGW?,AWS gateway that allows outbound-only IPv6 internet traffic,glossary module-04
+What is EIGRP?,Cisco advanced distance-vector routing protocol using DUAL,glossary module-07
+What is Encapsulation?,Adding headers at each layer as data goes down the stack,glossary module-01
+What is ENI?,AWS elastic network interface: a virtual NIC attached to an instance,glossary module-14
+What is Ephemeral port?,Temporary client source port chosen by the OS,glossary module-08
+What is Err-disabled?,"Port state where a feature (BPDU guard, port security) shut the port",glossary module-05
+What is ESP?,IPsec Encapsulating Security Payload (IP 50): encryption and integrity,glossary module-11
+What is EtherChannel?,Bundle of physical links acting as one logical link,glossary module-05
+What is EtherType?,Ethernet field that identifies the payload protocol (0x0800 IPv4),glossary module-01
+What is EUI-64?,Method that builds a 64-bit IPv6 interface ID from a MAC address,glossary module-04
+What is EVPN?,BGP-based control plane that advertises MAC and IP reachability for overlays,glossary module-17
+What is Extended ACL?,"ACL that matches protocol, source, destination and ports",glossary module-11
+What is externalTrafficPolicy?,Kubernetes Service setting; Local keeps client source IP,glossary module-15
+What is FCS?,Frame check sequence: 4-byte Ethernet trailer containing the CRC,glossary module-02
+What is FHRP?,First-hop redundancy protocol such as HSRP or VRRP,glossary module-06
+What is Flexible NetFlow?,"Cisco configurable flow export (records, exporters, monitors)",glossary module-18
+What is Floating static route?,Static route with a high AD used only when the primary disappears,glossary module-06
+What is Flow log?,"Record of accepted/rejected flows, e.g. AWS VPC Flow Logs",glossary module-18
+What is Forward proxy?,Proxy that acts for clients to reach external servers,glossary module-12
+What is Forward secrecy?,Property where stolen long-term keys cannot decrypt past sessions,glossary module-12
+What is Frame?,Layer 2 PDU,glossary module-01
+What is Gateway API?,"Role-oriented Kubernetes API for L4/L7 routing, successor to Ingress",glossary module-15
+What is Gateway endpoint?,AWS VPC endpoint for S3/DynamoDB added as a route table target,glossary module-14
+What is Geneve?,Overlay encapsulation over UDP 6081 used by GWLB and some CNIs,glossary module-17
+What is giaddr?,DHCP field set by the relay to identify the client subnet,glossary module-09
+What is gNMI?,gRPC Network Management Interface for config and streaming telemetry,glossary module-16
+What is GRE?,Generic Routing Encapsulation tunnel (IP protocol 47),glossary module-11
+What is Gratuitous ARP?,Unsolicited ARP announcing the sender's own IP-to-MAC mapping,glossary module-02
+What is GWLB?,AWS Gateway Load Balancer that inserts appliances using GENEVE,glossary module-12
+What is Half duplex?,"Send or receive, not both at the same time",glossary module-02
+What is Headless Service?,Kubernetes Service without a ClusterIP; DNS returns pod IPs,glossary module-15
+What is Host route?,"Route to one address (/32 IPv4, /128 IPv6)",glossary module-06
+What is HSRP?,Cisco Hot Standby Router Protocol for gateway redundancy,glossary module-06
+What is HTTP/2?,HTTP version with binary framing and multiplexed streams over TCP,glossary module-12
+What is HTTP/3?,HTTP mapped onto QUIC over UDP,glossary module-12
+What is Hubble?,Cilium's flow observability tool,glossary module-15
+What is Hypervisor?,Software that runs virtual machines on physical hardware,glossary module-01
+What is iBGP?,BGP inside one AS; AD 200,glossary module-07
+What is ICMP?,"Internet Control Message Protocol: errors and diagnostics (ping, unreachable)",glossary module-01
+What is Idempotency?,Running an operation again makes no further change,glossary module-16
+What is IGP?,"Interior gateway protocol used inside one organization (OSPF, IS-IS, EIGRP)",glossary module-07
+What is IKE?,Internet Key Exchange: negotiates IPsec keys (UDP 500/4500),glossary module-11
+What is Implicit deny?,Invisible final ACL entry that drops unmatched packets,glossary module-11
+What is Infrastructure as code?,"Managing infrastructure through versioned, declarative files and pipelines",glossary module-16
+What is Ingress?,Kubernetes HTTP routing resource implemented by a controller,glossary module-15
+What is Inside global?,NAT term: public address that represents an inside host,glossary module-09
+What is Inside local?,NAT term: real private address of an inside host,glossary module-09
+What is Interface endpoint?,AWS PrivateLink ENI that gives private access to a service,glossary module-14
+What is Internet gateway?,AWS VPC gateway for public internet access,glossary module-14
+What is IPAM?,IP address management; AWS VPC IPAM allocates non-overlapping CIDRs,glossary module-03
+What is IPFIX?,"IETF standard flow export protocol (UDP 4739), NetFlow v10",glossary module-18
+What is IPsec?,"Suite that secures IP traffic with IKE, ESP and AH",glossary module-11
+What is IPVS?,Linux kernel L4 load balancer used by one kube-proxy mode,glossary module-15
+What is kube-proxy?,Kubernetes component that programs Service load balancing on nodes,glossary module-15
+What is LACP?,Link Aggregation Control Protocol (IEEE 802.3ad) for EtherChannel,glossary module-05
+What is Late collision?,Collision after the first 64 bytes; often a duplex mismatch,glossary module-02
+What is Leaf?,Spine-leaf access switch that connects servers and uplinks to every spine,glossary module-17
+What is Link state?,Routing where routers flood link information and run SPF,glossary module-07
+What is Link-local address?,IPv6 fe80::/10 address valid only on one link,glossary module-04
+What is LLDP?,IEEE 802.1AB vendor-neutral neighbor discovery,glossary module-05
+What is Load balancer?,Device that spreads connections or requests across backends,glossary module-12
+What is LOCAL_PREF?,BGP attribute shared in an AS; highest is preferred for outbound traffic,glossary module-07
+What is Longest prefix match?,Rule that the most specific matching route forwards a packet,glossary module-06
+What is Loop guard?,STP feature that blocks a port when expected BPDUs stop arriving,glossary module-05
+What is Loopback interface?,"Virtual always-up interface, often used for router IDs and management",glossary module-07
+What is LSA?,OSPF link-state advertisement,glossary module-07
+What is MAC address?,48-bit layer 2 hardware address,glossary module-02
+What is MAC address table?,Switch table that maps MAC addresses to ports per VLAN,glossary module-02
+What is Management plane?,"Functions used to configure and monitor a device (SSH, SNMP, APIs)",glossary module-16
+What is MED?,"BGP multi-exit discriminator; lower is preferred, compared between routes from one AS",glossary module-07
+What is MIB?,SNMP management information base of objects addressed by OIDs,glossary module-09
+What is MSS?,TCP maximum segment size: largest payload per segment,glossary module-08
+What is MTU?,Largest packet a link carries without fragmentation,glossary module-02
+What is Multicast?,One-to-many delivery to a group address,glossary module-04
+What is Multimode fiber?,Fiber with a wide core for short distances,glossary module-02
+What is NACL?,AWS network ACL: stateless subnet-level filter,glossary module-11
+What is NAPALM?,Python library with vendor-neutral getters and config replace,glossary module-16
+What is NAT?,Network address translation of IP addresses at a boundary,glossary module-09
+What is NAT gateway?,AWS managed NAT for private subnets to reach the internet,glossary module-14
+What is Native VLAN?,VLAN sent untagged on an 802.1Q trunk,glossary module-05
+What is NDP?,"IPv6 Neighbor Discovery Protocol (RS, RA, NS, NA, redirect)",glossary module-04
+What is NETCONF?,XML-based network configuration protocol over SSH (TCP 830),glossary module-16
+What is NetFlow?,Cisco flow export technology,glossary module-18
+What is Netmiko?,Python library for SSH/CLI automation of network devices,glossary module-16
+What is Network Firewall?,AWS managed stateful firewall with Suricata-compatible rules,glossary module-14
+What is NetworkPolicy?,"Kubernetes resource that allows pod traffic by label, namespace or CIDR",glossary module-15
+What is Next hop?,Next router address used to forward a packet toward its destination,glossary module-06
+What is NLB?,AWS Network Load Balancer: layer 4 TCP/UDP/TLS,glossary module-12
+What is NodePort?,Kubernetes Service type exposing a port 30000-32767 on every node,glossary module-15
+What is Nornir?,Python automation framework with inventory and parallel tasks,glossary module-16
+What is NTP?,Network Time Protocol (UDP 123),glossary module-09
+What is OID?,Object identifier: numeric address of an SNMP MIB object,glossary module-09
+What is OSPF?,Open Shortest Path First: link-state IGP (IP protocol 89),glossary module-07
+What is Outside global?,NAT term: real address of an outside host,glossary module-09
+What is Overlay?,Virtual network built on top of an underlay by encapsulation,glossary module-17
+What is Oversubscription?,Ratio of downlink capacity to uplink capacity,glossary module-17
+What is Packet?,Layer 3 PDU,glossary module-01
+What is PAT?,Port address translation: many inside hosts share one public IP (NAT overload),glossary module-09
+What is PDU?,Protocol data unit: the data unit at a given layer,glossary module-01
+What is Peering (VPC)?,Non-transitive private connection between two VPCs,glossary module-14
+What is PMF?,"Protected Management Frames (802.11w), mandatory in WPA3",glossary module-10
+What is PMTUD?,"Path MTU discovery using ICMP ""fragmentation needed""/""packet too big""",glossary module-02
+What is Port security?,Switch feature that limits which MAC addresses may use a port,glossary module-05
+What is PortFast?,STP edge feature that moves a host port straight to forwarding,glossary module-05
+What is Prefix list?,Ordered list that matches route prefixes and lengths,glossary module-07
+What is PrivateLink?,"AWS service exposure through interface endpoints, one-way, overlap-tolerant",glossary module-14
+What is Private hosted zone?,Route 53 zone that answers only inside associated VPCs,glossary module-14
+What is Promiscuous mode?,"NIC mode that receives all frames, not only its own",glossary module-13
+What is Propagation (TGW)?,Attachment routes learned into a TGW route table,glossary module-14
+What is Proxy ARP?,Router answering ARP on behalf of hosts on another network,glossary module-02
+What is PTR record?,DNS record mapping an IP address back to a name,glossary module-09
+What is QUIC?,"Encrypted, multiplexed transport over UDP (RFC 9000)",glossary module-08
+What is RA guard?,Switch feature that blocks rogue IPv6 Router Advertisements,glossary module-11
+What is RADIUS?,AAA protocol over UDP 1812/1813 used for network access,glossary module-11
+What is Rapid PVST+?,Cisco per-VLAN implementation of RSTP,glossary module-05
+What is Reachability Analyzer?,AWS tool that checks paths through VPC configuration without sending traffic,glossary module-13
+What is Receive window?,TCP field that advertises how much data the receiver can accept,glossary module-08
+What is Recursive resolver?,DNS server that resolves queries on behalf of clients and caches answers,glossary module-09
+What is RESTCONF?,HTTP-based protocol for YANG data (JSON/XML),glossary module-16
+What is Reverse proxy?,Proxy in front of servers that receives client requests,glossary module-12
+What is RFC 1918?,"Private IPv4 ranges 10/8, 172.16/12, 192.168/16",glossary module-03
+What is Root bridge?,STP reference switch with the lowest bridge ID,glossary module-05
+What is Root guard?,STP feature that blocks a port receiving superior BPDUs,glossary module-05
+What is Root port?,Port on a non-root switch with the best path to the root,glossary module-05
+What is Route 53 Resolver?,AWS DNS resolver in each VPC with inbound/outbound endpoints,glossary module-14
+What is Route map?,Policy tool that matches and sets route attributes,glossary module-07
+What is Route reflector?,iBGP router that reflects routes so a full mesh is not needed,glossary module-07
+What is Router ID?,32-bit identifier for an OSPF or BGP router,glossary module-07
+What is Router on a stick?,Inter-VLAN routing through router subinterfaces on one trunk,glossary module-05
+What is Routing table?,"Table of prefixes, next hops and metrics used to forward packets",glossary module-06
+What is RSSI?,Received signal strength indicator in dBm,glossary module-10
+What is RST?,TCP flag that aborts a connection,glossary module-08
+What is RSTP?,Rapid Spanning Tree Protocol (802.1w),glossary module-05
+What is RTT?,Round-trip time,glossary module-08
+What is SAE?,WPA3-Personal key exchange that resists offline dictionary attacks,glossary module-10
+What is Security group?,"AWS stateful, allow-only filter on an ENI",glossary module-11
+What is Segment?,TCP layer 4 PDU,glossary module-01
+What is Service (Kubernetes)?,Stable virtual IP and DNS name in front of pods selected by labels,glossary module-15
+What is Service mesh?,Sidecar or node proxies that add mTLS and L7 policy between services,glossary module-15
+What is sFlow?,Packet-sampling flow export standard (UDP 6343),glossary module-18
+What is Single-mode fiber?,Fiber with a narrow core for long distances,glossary module-02
+What is SLAAC?,IPv6 stateless address autoconfiguration from Router Advertisements,glossary module-04
+What is SLI?,Service level indicator: a measured aspect of service quality,glossary module-18
+What is SLO?,Service level objective: target for an SLI,glossary module-18
+What is SNI?,TLS extension carrying the requested hostname,glossary module-12
+What is SNMP?,Simple Network Management Protocol (UDP 161/162),glossary module-09
+What is SNR?,Signal-to-noise ratio in dB,glossary module-10
+What is Solicited-node multicast?,IPv6 multicast ff02::1:ffXX:XXXX used by Neighbor Solicitation,glossary module-04
+What is Source of truth?,"Authoritative data (e.g. NetBox, YAML) from which configs are generated",glossary module-16
+What is SPAN?,Switch port mirroring to a monitoring port,glossary module-13
+What is SD-WAN?,Centrally managed WAN overlay with application-aware path selection,glossary module-17
+What is SDN?,"Software-defined networking: centralized, programmable control plane",glossary module-17
+What is Spine?,Spine-leaf core switch connected to every leaf,glossary module-17
+What is SSH?,Secure Shell remote access (TCP 22),glossary module-11
+What is Standard ACL?,ACL that matches source address only,glossary module-11
+What is Stateful filtering?,Filtering that tracks connections and allows return traffic,glossary module-11
+What is Stateless filtering?,Filtering that judges each packet alone,glossary module-11
+What is Static NAT?,Fixed one-to-one mapping of an inside and an outside address,glossary module-09
+What is Storm control?,"Limits broadcast, multicast or unknown unicast traffic on a port",glossary module-11
+What is STP?,Spanning Tree Protocol (802.1D) that blocks layer 2 loops,glossary module-05
+What is Stratum?,NTP distance from a reference clock,glossary module-09
+What is Subinterface?,"Logical interface on a physical interface, often per VLAN",glossary module-05
+What is Subnet mask?,32-bit value marking the network bits of an IPv4 address,glossary module-03
+What is Summarization?,Advertising one prefix that covers several networks,glossary module-03
+What is SVI?,Switch virtual interface: layer 3 interface for a VLAN,glossary module-05
+What is SYN?,TCP flag that starts a connection,glossary module-08
+What is Syslog?,Standard logging protocol (UDP 514) with severities 0-7,glossary module-09
+What is TACACS+?,AAA protocol over TCP 49 used for device administration,glossary module-11
+What is TCP?,"Reliable, ordered, connection-oriented transport",glossary module-08
+What is Telemetry (streaming)?,Device pushes structured operational data continuously (gNMI),glossary module-18
+What is TIME_WAIT?,TCP state on the active closer that waits 2×MSL,glossary module-08
+What is TLS?,Transport Layer Security for encryption and authentication,glossary module-12
+What is Transit Gateway?,"AWS regional router that connects VPCs, VPNs and Direct Connect",glossary module-14
+What is Transit VIF?,Direct Connect virtual interface to a DX gateway attached to a TGW,glossary module-14
+What is Trunk?,Switch link that carries many VLANs with 802.1Q tags,glossary module-05
+What is TTL?,IPv4 hop limit decremented by each router,glossary module-01
+What is Tunnel mode?,IPsec mode that encapsulates the whole original packet,glossary module-11
+What is UDP?,Connectionless transport with an 8-byte header,glossary module-08
+What is Underlay?,Physical routed network that carries overlay tunnels,glossary module-17
+What is Unique local address?,IPv6 fc00::/7 private addressing,glossary module-04
+What is Unknown unicast?,Frame to a MAC the switch has not learned; it is flooded,glossary module-02
+What is VIF?,"Direct Connect virtual interface: private, public or transit",glossary module-14
+What is VLAN?,Logical layer 2 broadcast domain,glossary module-05
+What is VLSM?,Variable-length subnet masking: different prefix sizes from one block,glossary module-03
+What is VNI?,24-bit VXLAN network identifier,glossary module-17
+What is VPC?,AWS virtual private cloud: isolated software-defined network,glossary module-14
+What is VPC CNI?,AWS EKS CNI that gives pods VPC IP addresses,glossary module-15
+What is VPN?,Encrypted tunnel over an untrusted network,glossary module-11
+What is VRF?,Virtual routing and forwarding: separate routing table instance,glossary module-17
+What is VRRP?,Virtual Router Redundancy Protocol (IETF FHRP),glossary module-06
+What is VTEP?,VXLAN tunnel endpoint that encapsulates and decapsulates traffic,glossary module-17
+What is VXLAN?,Layer 2 overlay over UDP 4789 with a 24-bit VNI,glossary module-17
+What is WAF?,Web application firewall that filters HTTP requests,glossary module-11
+What is Wildcard mask?,Inverse mask used in ACLs and OSPF network statements,glossary module-11
+What is Window scaling?,TCP option that multiplies the 16-bit window for high BDP paths,glossary module-08
+What is WireGuard?,Modern UDP-based VPN with cryptokey routing,glossary module-11
+What is WLC?,Wireless LAN controller that manages lightweight APs,glossary module-10
+What is WPA3?,Current Wi-Fi security standard with SAE and mandatory PMF,glossary module-10
+What is YANG?,Data modelling language for network configuration and state,glossary module-16
+What is Zero trust?,Security model that verifies every request regardless of network location,glossary module-11
+Port/protocol for FTP data / control?,TCP 20 / 21 — Clear text; avoid,ports
+Port/protocol for SSH / SCP / SFTP?,TCP 22 — Secure remote access and file transfer,ports
+Port/protocol for Telnet?,TCP 23 — Clear text; disable,ports
+Port/protocol for SMTP?,TCP 25 — Mail transfer (587 submission),ports
+Port/protocol for DNS?,UDP/TCP 53 — TCP for large answers and zone transfers,ports
+Port/protocol for DHCP server / client?,UDP 67 / 68 — DHCPv4,ports
+Port/protocol for TFTP?,"UDP 69 — Clear text file transfer (PXE, old IOS upgrades)",ports
+Port/protocol for HTTP?,"TCP 80 — Web, clear text",ports
+Port/protocol for Kerberos?,TCP/UDP 88 — Active Directory authentication,ports
+Port/protocol for POP3?,TCP 110 — Mail retrieval,ports
+Port/protocol for NTP?,UDP 123 — Time sync,ports
+Port/protocol for IMAP?,TCP 143 — Mail retrieval,ports
+Port/protocol for SNMP poll?,UDP 161 — Manager to agent,ports
+Port/protocol for SNMP trap/inform?,UDP 162 — Agent to manager,ports
+Port/protocol for BGP?,TCP 179 — Routing between ASes,ports
+Port/protocol for LDAP?,TCP 389 — Directory,ports
+Port/protocol for HTTPS / QUIC?,TCP / UDP 443 — TLS web; HTTP/3 over UDP,ports
+Port/protocol for SMB?,TCP 445 — Windows file sharing,ports
+Port/protocol for Syslog?,UDP 514 — Logging (TCP 6514 with TLS),ports
+Port/protocol for IKE?,UDP 500 — IPsec key exchange,ports
+Port/protocol for DHCPv6 client / server?,UDP 546 / 547 — IPv6,ports
+Port/protocol for LDAPS?,TCP 636 — LDAP over TLS,ports
+Port/protocol for NETCONF?,TCP 830 — NETCONF over SSH,ports
+Port/protocol for DNS over TLS?,TCP 853 — Encrypted DNS,ports
+Port/protocol for OpenVPN?,UDP/TCP 1194 — VPN,ports
+Port/protocol for L2TP?,UDP 1701 — Usually with IPsec,ports
+Port/protocol for RADIUS auth / acct?,UDP 1812 / 1813 — Legacy 1645/1646,ports
+Port/protocol for NFS?,TCP/UDP 2049 — File sharing,ports
+Port/protocol for NetFlow (common)?,UDP 2055 — Also 9995/9996,ports
+Port/protocol for MySQL?,TCP 3306 — Database,ports
+Port/protocol for RDP?,TCP 3389 — Remote desktop,ports
+Port/protocol for IPFIX?,UDP 4739 — IETF flow export,ports
+Port/protocol for IPsec NAT-T?,UDP 4500 — IKE and ESP behind NAT,ports
+Port/protocol for VXLAN?,UDP 4789 — IANA VXLAN port,ports
+Port/protocol for CAPWAP control / data?,UDP 5246 / 5247 — AP to WLC,ports
+Port/protocol for PostgreSQL?,TCP 5432 — Database,ports
+Port/protocol for Kubernetes API?,TCP 6443 — kube-apiserver,ports
+Port/protocol for Geneve?,"UDP 6081 — GWLB, some CNIs",ports
+Port/protocol for sFlow?,UDP 6343 — Packet sampling,ports
+Port/protocol for Redis?,TCP 6379 — Cache,ports
+Port/protocol for VXLAN (Linux default)?,"UDP 8472 — Flannel, Cilium",ports
+Port/protocol for Prometheus?,TCP 9090 — Metrics server,ports
+Port/protocol for node_exporter?,TCP 9100 — Host metrics,ports
+Port/protocol for kubelet?,TCP 10250 — Node agent API,ports
+Port/protocol for WireGuard?,UDP 51820 — VPN (default),ports
+Port/protocol for gNMI (common)?,TCP 57400 — Streaming telemetry (IANA 9339),ports
+Port/protocol for TACACS+?,TCP 49 — Device AAA,ports
+CCNA v2.0 domain weights?,"D1 Infrastructure 25%, D2 Switching/Access 25%, D3 IP Routing 20%, D4 Services/Security 20%, D5 AI/Ops/Mgmt 10%",ccna exam blueprint
+First test date of CCNA 200-301 v2.0?,3 February 2027 (v1.1 last day: 2 February 2027),ccna exam blueprint
+CCNA exam duration and price?,120 minutes; US$300 plus local tax,ccna exam
+"AD: connected, static, eBGP, EIGRP, OSPF, IS-IS, RIP, EIGRP ext, iBGP?","0, 1, 20, 90, 110, 115, 120, 170, 200",ccna d3 routing
+Route selection order?,Longest prefix match → lowest AD → lowest metric → ECMP,ccna d3 routing
+OSPF neighbor states in order?,"Down, Init, 2-Way, ExStart, Exchange, Loading, Full",ccna d3 ospf
+OSPF stuck in ExStart/Exchange: usual cause?,MTU mismatch (or duplicate router ID),ccna d3 ospf
+OSPF router ID selection order?,router-id command → highest up loopback IP → highest up physical interface IP,ccna d3 ospf
+OSPF DR election?,"Highest interface priority (0 = never), then highest RID; non-preemptive",ccna d3 ospf
+OSPF hello/dead on broadcast and P2P?,10 / 40 seconds,ccna d3 ospf
+OSPF cost formula and default reference bandwidth?,Reference BW / interface BW; default reference 100 Mbps,ccna d3 ospf
+OSPF multicast addresses?,224.0.0.5 all OSPF routers; 224.0.0.6 DR/BDR (IPv6 ff02::5 / ff02::6),ccna d3 ospf
+HSRP vs VRRP preemption default?,HSRP: off. VRRP: on,ccna d3 fhrp
+HSRPv2 virtual MAC for group 1?,0000.0c9f.f001,ccna d3 fhrp
+VRRP virtual MAC format?,0000.5e00.01XX (XX = group in hex),ccna d3 fhrp
+Floating static route?,Static route with an AD higher than the primary route's AD,ccna d3 routing
+IPv6 static route with link-local next hop needs…?,The exit interface: ipv6 route ::/0 g0/1 fe80::2,ccna d3 routing
+STP root bridge election?,Lowest bridge ID: priority (+ VLAN ID) then MAC,ccna d2 stp
+STP priority increments?,Multiples of 4096 (0-61440),ccna d2 stp
+Short STP costs for 10M/100M/1G/10G?,100 / 19 / 4 / 2,ccna d2 stp
+RSTP port states?,"Discarding, learning, forwarding",ccna d2 stp
+RSTP port roles?,"Root, designated, alternate, backup, disabled",ccna d2 stp
+BPDU guard action?,Err-disables the port when a BPDU is received,ccna d2 stp
+Root guard action?,Root-inconsistent (blocks) when a superior BPDU arrives,ccna d2 stp
+Loop guard action?,Loop-inconsistent when BPDUs stop arriving on a root/alternate port,ccna d2 stp
+LACP mode pairs that form a bundle?,"active/active, active/passive",ccna d2 etherchannel
+PAgP mode pairs that form a bundle?,"desirable/desirable, desirable/auto",ccna d2 etherchannel
+Command to add a VLAN to a trunk without replacing the list?,switchport trunk allowed vlan add <id>,ccna d2 trunk
+What does show vlan brief NOT show?,Trunk ports,ccna d2 trunk
+Native VLAN mismatch symptom?,CDP %NATIVE_VLAN_MISMATCH log; untagged traffic leaks between VLANs,ccna d2 trunk
+CDP vs LLDP default timers?,CDP 60/180 s; LLDP 30/120 s,ccna d2 discovery
+Enable LLDP globally?,lldp run,ccna d2 discovery
+Port for a local-mode AP?,Access port in the AP management VLAN,ccna d2 edge
+Port for a FlexConnect AP with local switching?,802.1Q trunk (native = mgmt VLAN),ccna d2 edge
+IP phone + PC port config?,switchport access vlan <data> + switchport voice vlan <voice>,ccna d2 edge
+Port security violation modes?,"protect (drop), restrict (drop+log), shutdown (err-disable, default)",ccna d4 l2sec
+DHCP snooping: which ports are trusted?,Only ports toward legitimate DHCP servers (uplinks); all others untrusted by default,ccna d4 l2sec
+DAI validates ARP against…?,The DHCP snooping binding table (or ARP ACLs),ccna d4 l2sec
+RA guard purpose?,Drop rogue IPv6 Router Advertisements on host ports,ccna d4 l2sec
+Storm control purpose?,Limit broadcast/multicast/unknown unicast traffic on a port,ccna d4 l2sec
+Standard ACL placement?,Near the destination,ccna d4 acl
+Extended ACL placement?,Near the source,ccna d4 acl
+ACL processing rules?,"Top-down, first match wins, implicit deny any at the end",ccna d4 acl
+Standard / extended ACL number ranges?,"1-99, 1300-1999 / 100-199, 2000-2699",ccna d4 acl
+Apply an ACL to VTY lines?,access-class <acl> in,ccna d4 acl
+NAT terms: inside local vs inside global?,Inside local = real private IP; inside global = translated public IP,ccna d4 nat
+PAT keyword in IOS?,overload,ccna d4 nat
+Show NAT entries?,show ip nat translations,ccna d4 nat
+RADIUS vs TACACS+ transport?,RADIUS UDP 1812/1813; TACACS+ TCP 49,ccna d4 aaa
+When is 'local' used in 'group tacacs+ local'?,Only if no TACACS+ server responds (not on a rejected password),ccna d4 aaa
+Strongest local password hash in IOS XE?,algorithm-type scrypt secret (type 9),ccna d4 aaa
+Enable SCP server on IOS?,ip scp server enable (requires SSH + AAA authorization),ccna d4 files
+IPsec ESP vs AH protocol numbers?,"ESP 50 (encrypts), AH 51 (integrity only)",ccna d4 vpn
+IKE ports?,UDP 500; UDP 4500 with NAT traversal,ccna d4 vpn
+DNS record for mail?,MX,ccna d4 dns
+DNS record for reverse lookup?,PTR,ccna d4 dns
+DHCP ports?,"Server UDP 67, client UDP 68",ccna d1 dhcp
+DHCP relay command?,ip helper-address <server> on the client-facing interface,ccna d1 dhcp
+Exclude addresses from a Cisco DHCP pool?,ip dhcp excluded-address <first> <last> (global config),ccna d1 dhcp
+APIPA range?,169.254.0.0/16,ccna d1 ipv4
+IPv6 LAN prefix length?,/64,ccna d1 ipv6
+IPv6 P2P link prefix (RFC 6164)?,/127,ccna d1 ipv6
+EUI-64 steps?,"Split MAC, insert FFFE, flip bit 7 (U/L) of the first byte",ccna d1 ipv6
+Enable IPv6 routing and RAs on IOS?,ipv6 unicast-routing,ccna d1 ipv6
+2.4 GHz non-overlapping channels?,"1, 6, 11",ccna d1 wireless
+WPA3-Personal key exchange?,SAE (Simultaneous Authentication of Equals),ccna d1 wireless
+Which Wi-Fi band requires WPA3?,6 GHz (Wi-Fi 6E/7),ccna d1 wireless
+Good RSSI and SNR targets for voice?,RSSI ≥ −67 dBm; SNR ≥ 25 dB,ccna d1 wireless
+Late collisions usually mean…?,Duplex mismatch (half-duplex side) or cable too long,ccna d1 cabling
+CRC/input errors usually mean…?,Bad cable/optic/EMI or the full-duplex side of a mismatch,ccna d1 cabling
+Max copper Ethernet segment?,100 m,ccna d1 cabling
+Type 1 vs Type 2 hypervisor?,"Type 1 runs on hardware (ESXi, KVM); Type 2 runs on a host OS (VirtualBox)",ccna d1 virtualization
+Container vs VM?,Containers share the host kernel; VMs run a full guest OS,ccna d1 virtualization
+Syslog severities 0-7?,"Emergency, Alert, Critical, Error, Warning, Notification, Informational, Debugging",ccna d5 syslog
+logging trap warnings sends which levels?,0 through 4,ccna d5 syslog
+Cisco syslog message format?,%FACILITY-SEVERITY-MNEMONIC: description,ccna d5 syslog
+SNMP trap vs inform?,Trap: unacknowledged. Inform: acknowledged by the manager,ccna d5 snmp
+SNMPv3 security level with auth and encryption?,authPriv,ccna d5 snmp
+Ansible connection plugin for IOS CLI?,ansible.netcommon.network_cli,ccna d5 ansible
+Ansible dry run flags?,--check --diff,ccna d5 ansible
+Is Ansible agent-based?,"No: agentless, pushes over SSH/APIs",ccna d5 ansible
+Northbound vs southbound API?,Northbound: apps ↔ controller. Southbound: controller ↔ devices,ccna d5 mgmt
+Four elements of a good generative AI prompt (CCNA)?,"Data classification, persona, instructions, output format",ccna d5 ai
+Agentic AI safety basics?,"Least privilege, read-only default, human approval for changes, audit logs",ccna d5 ai
