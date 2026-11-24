@@ -1,0 +1,26 @@
+# Module 12 lab: HAProxy as an L4 and an L7 load balancer with TLS termination.
+# Start: ./gen-cert.sh && docker compose up -d
+services:
+  web1:
+    image: python:3.12-alpine
+    command: ["python", "/app/backend.py", "web1"]
+    volumes: ["./backend.py:/app/backend.py:ro"]
+  web2:
+    image: python:3.12-alpine
+    command: ["python", "/app/backend.py", "web2"]
+    volumes: ["./backend.py:/app/backend.py:ro"]
+  api1:
+    image: python:3.12-alpine
+    command: ["python", "/app/backend.py", "api1"]
+    volumes: ["./backend.py:/app/backend.py:ro"]
+  lb:
+    image: haproxy:3.0-alpine
+    depends_on: [web1, web2, api1]
+    ports:
+      - "8080:8080"   # L7 HTTP (path routing)
+      - "8081:8081"   # L4 TCP (round robin)
+      - "8443:8443"   # L7 HTTPS (TLS termination, h2)
+      - "8404:8404"   # stats page
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ./certs:/certs:ro
