@@ -1,6 +1,9 @@
 # Quiz 15 — Kubernetes Networking
 
+## Questions
+
 ### Q1. Which statement is part of the Kubernetes network model?
+
 - A) Pods on different nodes must use NAT to communicate
 - B) Every pod gets its own IP and can reach every other pod without NAT
 - C) Pods share the node's IP address
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. What does a CNI plugin do when a pod starts?
+
 - A) Pulls the container image
 - B) Creates the pod's network interface, assigns an IP and programs routes
 - C) Schedules the pod to a node
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. A Service of type ClusterIP has no endpoints. What is the most common cause?
+
 - A) The Service port is above 1024
 - B) The Service selector does not match the pod labels, or the pods are not Ready
 - C) CoreDNS is down
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. In iptables mode, how does kube-proxy implement a ClusterIP?
+
 - A) It runs a userspace proxy process per Service
 - B) It writes NAT rules that DNAT the ClusterIP to a randomly chosen backend pod IP
 - C) It assigns the ClusterIP to a network interface
@@ -44,11 +50,12 @@
 
 <details><summary>Answer</summary>
 
-**Answer: B.** KUBE-SERVICES → KUBE-SVC-* → KUBE-SEP-* chains with random probability DNAT.
+**Answer: B.** `KUBE-SERVICES` → `KUBE-SVC-*` → `KUBE-SEP-*` chains with random probability DNAT.
 
 </details>
 
 ### Q5. Which Service type exposes a port in the range 30000-32767 on every node?
+
 - A) ClusterIP
 - B) NodePort
 - C) ExternalName
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. A namespace has a NetworkPolicy with `podSelector: {}` and `policyTypes: [Ingress, Egress]` and no rules. What happens?
+
 - A) All traffic is allowed
 - B) All ingress and egress for every pod in the namespace is denied
 - C) Only DNS is allowed
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. In a NetworkPolicy `from:` list, a single item contains both `namespaceSelector` and `podSelector`. How is it evaluated?
+
 - A) As OR
 - B) As AND: pods matching the podSelector inside namespaces matching the namespaceSelector
 - C) The podSelector is ignored
@@ -85,6 +94,7 @@
 </details>
 
 ### Q8. Scenario: After applying a default-deny policy, pods can reach other pods by IP but not by Service name. What is missing?
+
 - A) A LoadBalancer Service
 - B) An egress allow to CoreDNS (kube-dns) on UDP/TCP 53
 - C) kube-proxy
@@ -97,6 +107,7 @@
 </details>
 
 ### Q9. With `ndots:5`, how is the name `api.github.com` resolved?
+
 - A) Directly as an absolute name first
 - B) With each search domain appended first, then as an absolute name
 - C) Only through /etc/hosts
@@ -109,6 +120,7 @@
 </details>
 
 ### Q10. Which TWO are advantages of Gateway API over Ingress? (Choose two.)
+
 - A) Role-oriented resources (GatewayClass, Gateway, Routes) for infra, platform and app teams
 - B) Native traffic splitting and header matching without vendor annotations
 - C) It requires no controller
@@ -122,6 +134,7 @@
 </details>
 
 ### Q11. What does Cilium's kube-proxy replacement use instead of iptables rules for Services?
+
 - A) IPVS only
 - B) eBPF maps and programs
 - C) Userspace proxies
@@ -134,6 +147,7 @@
 </details>
 
 ### Q12. On EKS with the AWS VPC CNI, what IP does a pod get?
+
 - A) An overlay IP from 10.244.0.0/16
 - B) A real VPC IP from the node's ENIs (secondary IP or prefix)
 - C) The node's IP
@@ -146,6 +160,7 @@
 </details>
 
 ### Q13. Scenario: Same-node pod traffic works, but cross-node pod traffic fails in an overlay cluster. What do you check first?
+
 - A) Ingress controller logs
 - B) That the overlay port (e.g. VXLAN UDP 8472 or 4789) is allowed between nodes and the MTU leaves room for encapsulation
 - C) CoreDNS replicas
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. What does `externalTrafficPolicy: Local` do on a LoadBalancer Service?
+
 - A) Sends traffic only to pods on the node that received it, preserving the client source IP
 - B) Blocks external traffic
 - C) Enables mTLS
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Which feature is the main reason to adopt a service mesh?
+
 - A) Assigning pod IPs
 - B) Automatic mTLS and L7 traffic policy (retries, timeouts, splits) with per-service telemetry
 - C) Replacing CoreDNS

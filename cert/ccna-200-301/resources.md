@@ -6,14 +6,14 @@ Only issuer documentation, standards and free courses. No brain dumps.
 
 | Resource | Link | Use |
 |---|---|---|
-| CCNA v2.0 exam topics (PDF) | https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf | The source of truth |
-| Cisco Learning Network – CCNA exam topics | https://learningnetwork.cisco.com/s/ccna-exam-topics | Topic pages, community |
-| Exam pricing and policies FAQ | https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/faq.html | Price, recertification, policies |
-| Pearson VUE for Cisco | https://home.pearsonvue.com/cisco | Booking, OnVUE requirements |
-| Cisco U. (free tier, tutorials, exam topic videos) | https://u.cisco.com/ | Free tutorials and some free paths |
-| Cisco Networking Academy (free courses, Packet Tracer) | https://www.netacad.com/ | Packet Tracer download, free courses |
-| Cisco DevNet sandboxes (free IOS XE/NX-OS labs) | https://developer.cisco.com/site/sandbox/ | Real IOS XE for sims and Ansible |
-| CCNA Automation (follow-up) exam topics | https://learningcontent.cisco.com/documents/marketing/exam-topics/200-901-CCNAAUTO_v.1.1.pdf | Next certification |
+| CCNA v2.0 exam topics (PDF) | <https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf> | The source of truth |
+| Cisco Learning Network – CCNA exam topics | <https://learningnetwork.cisco.com/s/ccna-exam-topics> | Topic pages, community |
+| Exam pricing and policies FAQ | <https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/faq.html> | Price, recertification, policies |
+| Pearson VUE for Cisco | <https://home.pearsonvue.com/cisco> | Booking, OnVUE requirements |
+| Cisco U. (free tier, tutorials, exam topic videos) | <https://u.cisco.com/> | Free tutorials and some free paths |
+| Cisco Networking Academy (free courses, Packet Tracer) | <https://www.netacad.com/> | Packet Tracer download, free courses |
+| Cisco DevNet sandboxes (free IOS XE/NX-OS labs) | <https://developer.cisco.com/site/sandbox/> | Real IOS XE for sims and Ansible |
+| CCNA Automation (follow-up) exam topics | <https://learningcontent.cisco.com/documents/marketing/exam-topics/200-901-CCNAAUTO_v.1.1.pdf> | Next certification |
 
 ## Standards (RFCs)
 
@@ -32,13 +32,13 @@ The full annotated list is in [reference/rfc-reading-list.md](../../reference/rf
 
 | Resource | Link | Notes |
 |---|---|---|
-| Cisco NetAcad "Networking Basics", "CCNA: Introduction to Networks" (where offered free) | https://www.netacad.com/ | Structured, with Packet Tracer activities |
-| Jeremy's IT Lab – free CCNA course (YouTube + Packet Tracer labs) | https://www.youtube.com/@JeremysITLab | Popular free video course; check it covers v2.0 topics |
-| Containerlab documentation and lab examples | https://containerlab.dev/ | For the FRR/SR Linux labs |
-| FRRouting documentation | https://docs.frrouting.org/ | OSPF, BGP, EVPN configuration |
-| Nokia SR Linux learn portal | https://learn.srlinux.dev/ | Free tutorials, gNMI, automation |
-| Ansible network automation docs | https://docs.ansible.com/ansible/latest/network/ | Network modules and connection types |
-| Wireshark user guide | https://www.wireshark.org/docs/wsug_html_chunked/ | Capture and display filters |
+| Cisco NetAcad "Networking Basics", "CCNA: Introduction to Networks" (where offered free) | <https://www.netacad.com/> | Structured, with Packet Tracer activities |
+| Jeremy's IT Lab – free CCNA course (YouTube + Packet Tracer labs) | <https://www.youtube.com/@JeremysITLab> | Popular free video course; check it covers v2.0 topics |
+| Containerlab documentation and lab examples | <https://containerlab.dev/> | For the FRR/SR Linux labs |
+| FRRouting documentation | <https://docs.frrouting.org/> | OSPF, BGP, EVPN configuration |
+| Nokia SR Linux learn portal | <https://learn.srlinux.dev/> | Free tutorials, gNMI, automation |
+| Ansible network automation docs | <https://docs.ansible.com/ansible/latest/network/> | Network modules and connection types |
+| Wireshark user guide | <https://www.wireshark.org/docs/wsug_html_chunked/> | Capture and display filters |
 
 ## Practice in this repo
 

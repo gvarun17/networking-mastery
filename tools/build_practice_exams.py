@@ -372,14 +372,14 @@ def to_markdown(n: int, questions: list[dict]) -> str:
     ]
     for d, (name, total) in DOMAINS.items():
         lines.append(f"| {d}.0 {name} | {total} |")
-    lines += ["", "Rules: no notes, one sitting, mark questions to revisit, never leave a question blank.", ""]
+    lines += ["", "Rules: no notes, one sitting, mark questions to revisit, never leave a question blank.", "", "## Questions", ""]
     for i, q in enumerate(questions, 1):
         answers = [a.strip() for a in str(q["a"]).split(",")]
         multi = len(answers) > 1
         text = q["q"].strip().replace("\n", " ")
         if multi and "Choose" not in text:
             text += f" (Choose {len(answers)}.)"
-        lines.append(f"### Q{i}. {text}")
+        lines += [f"### Q{i}. {text}", ""]
         for k, opt in enumerate(q["o"]):
             lines.append(f"- {LETTERS[k]}) {opt}")
         lines += ["", "<details><summary>Answer</summary>", "",

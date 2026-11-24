@@ -1,6 +1,9 @@
 # Quiz 02 — Physical and Data Link
 
+## Questions
+
 ### Q1. What is the maximum segment length for 1000BASE-T over Cat6 copper?
+
 - A) 55 m
 - B) 100 m
 - C) 185 m
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. Which fiber type uses a 9 µm core and lasers for long distances?
+
 - A) Multimode OM3
 - B) Multimode OM4
 - C) Single-mode
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. Scenario: A switch port shows many late collisions. The PC is set to 100/full. What is the most likely cause?
+
 - A) The switch port is autonegotiating and fell back to half duplex
 - B) A bad VLAN assignment
 - C) An ARP cache timeout
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. A switch receives a frame for a destination MAC that is not in its MAC table. What does it do?
+
 - A) Drops the frame
 - B) Sends an ARP request
 - C) Floods the frame out all ports in the VLAN except the ingress port
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. Which MAC address is an IPv4 multicast MAC?
+
 - A) ff:ff:ff:ff:ff:ff
 - B) 01:00:5e:00:00:05
 - C) 33:33:00:00:00:01
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Host 10.1.1.10/24 sends a packet to 8.8.8.8. Which MAC address does it put in the destination field?
+
 - A) The MAC of 8.8.8.8
 - B) ff:ff:ff:ff:ff:ff
 - C) The MAC of its default gateway
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. Which message does a host send to announce its own IP-to-MAC mapping without being asked?
+
 - A) Proxy ARP
 - B) Reverse ARP
 - C) Gratuitous ARP
@@ -85,6 +94,7 @@
 </details>
 
 ### Q8. What is the minimum Ethernet frame size, including the FCS?
+
 - A) 46 bytes
 - B) 60 bytes
 - C) 64 bytes
@@ -97,6 +107,7 @@
 </details>
 
 ### Q9. A host uses `ping -M do -s 1472`. What total IPv4 packet size does this test?
+
 - A) 1472 bytes
 - B) 1480 bytes
 - C) 1500 bytes
@@ -109,6 +120,7 @@
 </details>
 
 ### Q10. Scenario: SSH to a server works, but `cat` of a large log file freezes. Small HTTP requests work, but large downloads stall. A firewall in the path blocks all ICMP. What is the most likely cause?
+
 - A) DNS failure
 - B) A path MTU black hole
 - C) A duplicate IP address
@@ -121,6 +133,7 @@
 </details>
 
 ### Q11. What is the default MAC address table aging time on Cisco switches?
+
 - A) 30 seconds
 - B) 120 seconds
 - C) 300 seconds
@@ -133,6 +146,7 @@
 </details>
 
 ### Q12. Which TWO counters suggest a physical cable or optic problem? (Choose two.)
+
 - A) CRC errors
 - B) Input errors
 - C) Output drops caused by congestion
@@ -146,6 +160,7 @@
 </details>
 
 ### Q13. In AWS, why does keepalived VIP failover with gratuitous ARP not work?
+
 - A) AWS blocks UDP
 - B) The VPC answers ARP itself and ignores guest GARP messages
 - C) AWS uses IPv6 only
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. What does the U/L bit in a MAC address indicate when it is set to 1?
+
 - A) The address is multicast
 - B) The address is locally administered (not assigned by the vendor)
 - C) The address is a broadcast
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Which statement about full-duplex Ethernet is true?
+
 - A) It uses CSMA/CD to detect collisions
 - B) It can be used on hub ports
 - C) It sends and receives at the same time, with no collisions

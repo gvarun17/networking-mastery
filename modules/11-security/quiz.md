@@ -1,6 +1,9 @@
 # Quiz 11 — Security
 
+## Questions
+
 ### Q1. Where should you place a standard ACL?
+
 - A) As close to the source as possible
 - B) As close to the destination as possible
 - C) On every interface
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. What does the wildcard mask 0.0.0.255 match with 10.10.10.0?
+
 - A) Only 10.10.10.0
 - B) 10.10.10.0 through 10.10.10.255
 - C) 10.10.0.0 through 10.10.255.255
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. An extended ACL contains only `deny tcp any host 10.50.0.80 eq 23`. It is applied inbound on the LAN interface. What happens to HTTPS traffic to 10.50.0.80?
+
 - A) It is permitted
 - B) It is denied by the implicit deny
 - C) It is permitted only from the LAN
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. Which statement about AWS security groups and NACLs is correct?
+
 - A) Both are stateless
 - B) Security groups are stateful; NACLs are stateless
 - C) Security groups are stateless; NACLs are stateful
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. Which IPsec component encrypts the payload and is IP protocol 50?
+
 - A) AH
 - B) ESP
 - C) IKE
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Which UDP ports does IKEv2 use when a NAT device is between the peers?
+
 - A) 500 then 4500
 - B) 1812 and 1813
 - C) 1701
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. Which TWO statements about TACACS+ compared with RADIUS are true? (Choose two.)
+
 - A) TACACS+ uses TCP port 49
 - B) TACACS+ encrypts the entire payload
 - C) TACACS+ combines authentication and authorization
@@ -86,6 +95,7 @@
 </details>
 
 ### Q8. In 802.1X, which device is the authenticator?
+
 - A) The laptop
 - B) The switch or WLC
 - C) The RADIUS server
@@ -98,6 +108,7 @@
 </details>
 
 ### Q9. Scenario: After you enable DHCP snooping on an access switch, no client gets an IP address. The DHCP server is reached through the uplink G1/0/48. What did you forget?
+
 - A) `ip dhcp snooping trust` on G1/0/48
 - B) Port security on G1/0/48
 - C) `ip arp inspection` on all ports
@@ -110,6 +121,7 @@
 </details>
 
 ### Q10. What does Dynamic ARP Inspection use to validate ARP packets?
+
 - A) The MAC address table
 - B) The DHCP snooping binding table (or ARP ACLs)
 - C) The routing table
@@ -122,6 +134,7 @@
 </details>
 
 ### Q11. Which feature drops rogue IPv6 Router Advertisements on host-facing ports?
+
 - A) DHCP snooping
 - B) RA guard
 - C) Storm control
@@ -134,6 +147,7 @@
 </details>
 
 ### Q12. Scenario: `aaa authentication login default group tacacs+ local` is configured. The TACACS+ server is reachable but rejects the admin's password. What happens?
+
 - A) The router tries the local user database
 - B) Login fails; local is used only if the server does not respond
 - C) The router allows login without a password
@@ -146,6 +160,7 @@
 </details>
 
 ### Q13. Which VPN type usually works through restrictive firewalls because it uses TCP or UDP 443?
+
 - A) IPsec with AH
 - B) SSL/TLS VPN
 - C) GRE
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. Which principle best describes zero trust?
+
 - A) Trust everything inside the corporate network
 - B) Authenticate and authorize every request based on identity, device and context, regardless of network location
 - C) Use only one large firewall at the perimeter
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Scenario: A named extended ACL has entry 10 `permit ip any any` and entry 20 `deny tcp any any eq 23`. Telnet traffic still passes. Why?
+
 - A) Telnet uses UDP
 - B) The first matching entry (10) permits it, so entry 20 is never checked
 - C) Named ACLs process from the bottom up

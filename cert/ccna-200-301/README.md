@@ -57,13 +57,13 @@ Full mapping to the modules: [blueprint.md](blueprint.md).
 
 ## Sources
 
-- Cisco CCNA v2.0 exam topics (PDF): https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf
-- Cisco Learning Network, CCNA exam topics: https://learningnetwork.cisco.com/s/ccna-exam-topics
-- Cisco blog, CCNA v2.0 dates and v1.1 last day: https://blogs.cisco.com/learning/ai-updates-ccna-ccie-automation and https://blogs.cisco.com/learning/stay-on-track-get-certified-before-the-ccna-refresh
-- Cisco exam pricing: https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/faq.html
-- Cisco CCNA Automation exam and price: https://www.cisco.com/site/us/en/learn/training-certifications/certifications/automation/ccna-automation/exams-and-training.html and exam topics https://learningcontent.cisco.com/documents/marketing/exam-topics/200-901-CCNAAUTO_v.1.1.pdf
-- CompTIA Network+ (V9, N10-009): https://www.comptia.org/en-us/certifications/network/
-- Juniper JNCIA-Junos: https://www.juniper.net/us/en/training/certification/tracks/junos/jncia-junos.html
-- AWS Advanced Networking – Specialty: https://aws.amazon.com/certification/certified-advanced-networking-specialty/ and exam guide https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html
-- Fortinet NSE certification program: https://www.fortinet.com/training-certification
-- Cisco Networking Academy: https://www.netacad.com/
+- Cisco CCNA v2.0 exam topics (PDF): <https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301_CCNA_v2.0_Exam_Topics_PDF.pdf>
+- Cisco Learning Network, CCNA exam topics: <https://learningnetwork.cisco.com/s/ccna-exam-topics>
+- Cisco blog, CCNA v2.0 dates and v1.1 last day: <https://blogs.cisco.com/learning/ai-updates-ccna-ccie-automation> and <https://blogs.cisco.com/learning/stay-on-track-get-certified-before-the-ccna-refresh>
+- Cisco exam pricing: <https://www.cisco.com/c/en/us/training-events/training-certifications/certifications/faq.html>
+- Cisco CCNA Automation exam and price: <https://www.cisco.com/site/us/en/learn/training-certifications/certifications/automation/ccna-automation/exams-and-training.html> and exam topics <https://learningcontent.cisco.com/documents/marketing/exam-topics/200-901-CCNAAUTO_v.1.1.pdf>
+- CompTIA Network+ (V9, N10-009): <https://www.comptia.org/en-us/certifications/network/>
+- Juniper JNCIA-Junos: <https://www.juniper.net/us/en/training/certification/tracks/junos/jncia-junos.html>
+- AWS Advanced Networking – Specialty: <https://aws.amazon.com/certification/certified-advanced-networking-specialty/> and exam guide <https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.html>
+- Fortinet NSE certification program: <https://www.fortinet.com/training-certification>
+- Cisco Networking Academy: <https://www.netacad.com/>

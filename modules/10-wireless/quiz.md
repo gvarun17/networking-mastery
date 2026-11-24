@@ -1,6 +1,9 @@
 # Quiz 10 — Wireless
 
+## Questions
+
 ### Q1. Which 2.4 GHz channels do not overlap in North America and India?
+
 - A) 1, 5, 9
 - B) 1, 6, 11
 - C) 2, 7, 12
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. Which media access method does 802.11 use?
+
 - A) CSMA/CD
 - B) CSMA/CA
 - C) Token passing
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. What does WPA3-Personal use instead of the WPA2 pre-shared key handshake?
+
 - A) TKIP
 - B) SAE (Simultaneous Authentication of Equals)
 - C) WEP
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. Which statement about 6 GHz Wi-Fi (Wi-Fi 6E) is correct?
+
 - A) It allows WEP
 - B) It requires WPA3 (or OWE) security
 - C) It has only three channels
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. Which ports does CAPWAP use between a lightweight AP and a WLC?
+
 - A) TCP 5246 and 5247
 - B) UDP 5246 (control) and UDP 5247 (data)
 - C) UDP 1812 and 1813
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Which AP mode switches client traffic locally at a branch and can keep working if the WAN link to the WLC fails?
+
 - A) Local
 - B) Monitor
 - C) FlexConnect
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. Scenario: A local-mode AP connects to an access switch. How should the switch port be configured?
+
 - A) Trunk with all client VLANs
 - B) Access port in the AP management VLAN
 - C) Routed port
@@ -85,6 +94,7 @@
 </details>
 
 ### Q8. Which RSSI value indicates the best signal?
+
 - A) −85 dBm
 - B) −72 dBm
 - C) −60 dBm
@@ -97,6 +107,7 @@
 </details>
 
 ### Q9. An AP increases transmit power by 3 dB. What happens to its power?
+
 - A) It increases by 3%
 - B) It doubles
 - C) It increases tenfold
@@ -109,8 +120,9 @@
 </details>
 
 ### Q10. Which TWO are ways a lightweight AP can discover a WLC? (Choose two.)
+
 - A) DHCP option 43
-- B) DNS lookup of CISCO-CAPWAP-CONTROLLER.<domain>
+- B) DNS lookup of `CISCO-CAPWAP-CONTROLLER.<domain>`
 - C) OSPF LSA type 5
 - D) SNMP trap
 - E) BGP community
@@ -122,6 +134,7 @@
 </details>
 
 ### Q11. Scenario: Clients connect to the SSID and authenticate, but get 169.254.x.x addresses. Other WLANs work. What is the most likely cause?
+
 - A) Wrong PSK
 - B) The WLAN's VLAN is not allowed on the WLC uplink trunk or has no DHCP relay
 - C) The AP is in monitor mode
@@ -134,6 +147,7 @@
 </details>
 
 ### Q12. Which security combination is recommended for corporate laptops today?
+
 - A) WPA2-Personal with TKIP
 - B) WEP 128-bit
 - C) WPA3-Enterprise with 802.1X EAP-TLS
@@ -146,6 +160,7 @@
 </details>
 
 ### Q13. What does management frame protection (802.11w/PMF) prevent?
+
 - A) Co-channel interference
 - B) Spoofed deauthentication and disassociation attacks
 - C) DHCP starvation
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. Which source commonly interferes with the 2.4 GHz band?
+
 - A) Radar
 - B) Microwave ovens
 - C) Fiber optic cables
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Which Wi-Fi generation is 802.11ax?
+
 - A) Wi-Fi 4
 - B) Wi-Fi 5
 - C) Wi-Fi 6

@@ -71,8 +71,8 @@
   o: ["NS", "SOA", "CNAME", "AAAA"]
   a: A
   e: "NS records point to the authoritative servers for a zone or subdomain."
-- q: "www.example.com is a CNAME to web.example.net. What must exist for the name to resolve to an address?"
-  o: ["A PTR for www.example.com", "An A or AAAA record for web.example.net", "An MX for web.example.net", "Nothing else"]
+- q: "`www.example.com` is a CNAME to `web.example.net`. What must exist for the name to resolve to an address?"
+  o: ["A PTR for `www.example.com`", "An A or AAAA record for `web.example.net`", "An MX for `web.example.net`", "Nothing else"]
   a: B
   e: "A CNAME is an alias; the canonical name must resolve to A/AAAA."
 - q: "Which command on a Cisco router enables DNS resolution of hostnames using server 10.99.0.53?"

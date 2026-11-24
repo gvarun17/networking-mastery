@@ -110,7 +110,7 @@ $ sysctl net.ipv4.tcp_congestion_control
 net.ipv4.tcp_congestion_control = cubic
 $ ss -tin dst 93.184.215.14
 ESTAB 0 0 192.168.1.20:53122 93.184.215.14:443
-	 cubic wscale:7,7 rto:308 rtt:104.2/2.1 mss:1448 cwnd:42 ssthresh:30 bytes_acked:812345 retrans:0/3 rcv_space:14480
+     cubic wscale:7,7 rto:308 rtt:104.2/2.1 mss:1448 cwnd:42 ssthresh:30 bytes_acked:812345 retrans:0/3 rcv_space:14480
 ```
 
 `ss -ti` is the single best command for TCP performance: RTT, cwnd, retransmits and congestion algorithm per socket.

@@ -1,6 +1,9 @@
 # Quiz 05 — Switching
 
+## Questions
+
 ### Q1. How many bits identify the VLAN in an 802.1Q tag?
+
 - A) 8
 - B) 10
 - C) 12
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. Which frames does a trunk send without a tag?
+
 - A) Frames in VLAN 1 always
 - B) Frames in the native VLAN
 - C) Frames in the voice VLAN
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. Three switches have these bridge IDs for VLAN 10: SW1 32778.0011.1111.1111, SW2 32778.0011.0000.0001, SW3 28682.00aa.ffff.ffff. Which switch is the root bridge?
+
 - A) SW1
 - B) SW2
 - C) SW3
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. Scenario: A non-root switch has two paths to the root: via Gi0/1 with cost 4 + 4 and via Gi0/2 with cost 19. Which port becomes the root port?
+
 - A) Gi0/1 with total cost 8
 - B) Gi0/2 with total cost 19
 - C) Both, load balanced
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. Which RSTP port role is a backup path to the root bridge through a different switch?
+
 - A) Designated
 - B) Alternate
 - C) Backup
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. What does BPDU guard do when a BPDU arrives on an enabled port?
+
 - A) Ignores the BPDU
 - B) Places the port in err-disabled state
 - C) Makes the port the root port
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. Which feature puts a port in a root-inconsistent state if a superior BPDU arrives?
+
 - A) Loop guard
 - B) BPDU filter
 - C) Root guard
@@ -85,6 +94,7 @@
 </details>
 
 ### Q8. Which pair of LACP modes forms an EtherChannel?
+
 - A) passive / passive
 - B) active / passive
 - C) auto / auto
@@ -97,6 +107,7 @@
 </details>
 
 ### Q9. Scenario: `show etherchannel summary` shows `Po1(SD)` and both members show `(s)` (suspended). What is a likely cause?
+
 - A) The port-channel has an IP address
 - B) Member ports have mismatched settings, such as different allowed VLANs or speed
 - C) STP is disabled
@@ -109,6 +120,7 @@
 </details>
 
 ### Q10. Which port security violation mode drops offending traffic, increments the violation counter and sends a log, but keeps the port up?
+
 - A) protect
 - B) restrict
 - C) shutdown
@@ -121,6 +133,7 @@
 </details>
 
 ### Q11. Which command shows which VLANs are allowed and active on each trunk?
+
 - A) show vlan brief
 - B) show interfaces trunk
 - C) show mac address-table
@@ -133,6 +146,7 @@
 </details>
 
 ### Q12. Scenario: Users in VLAN 10 on SW1 can reach VLAN 10 users on SW2, but VLAN 30 users on SW1 cannot reach VLAN 30 users on SW2. VLAN 30 exists on both switches. What do you check first?
+
 - A) The default gateway on the PCs
 - B) The allowed VLAN list on the trunk between SW1 and SW2
 - C) The OSPF configuration
@@ -145,6 +159,7 @@
 </details>
 
 ### Q13. Which TWO statements about LLDP are correct? (Choose two.)
+
 - A) It is an IEEE standard (802.1AB)
 - B) It is enabled by default on all Cisco IOS switches
 - C) It works with multi-vendor devices
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. What is the purpose of the command `spanning-tree vlan 10 root primary`?
+
 - A) It disables STP on VLAN 10
 - B) It sets the priority low enough for the switch to become root for VLAN 10
 - C) It makes all ports designated
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Scenario: A Layer 3 switch has SVIs for VLAN 10 and VLAN 20, but hosts in different VLANs cannot ping each other. Both SVIs are up/up. What global command is probably missing?
+
 - A) `vlan routing`
 - B) `ip routing`
 - C) `ip default-gateway`

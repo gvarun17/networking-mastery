@@ -117,16 +117,16 @@ sequenceDiagram
 Useful display filters: `tcp.analysis.retransmission`, `tcp.analysis.zero_window`, `tcp.flags.reset == 1`, `dns.flags.rcode != 0`, `tls.handshake.type == 1` (ClientHello), `http.response.code >= 500`, `icmp.type == 3`. Statistics → Conversations and IO Graphs show who talks to whom and when.
 
 ```text
-$ tshark -r /tmp/case.pcap -Y "tcp.analysis.retransmission" -T fields -e frame.time_relative -e ip.src -e ip.dst | head
+tshark -r /tmp/case.pcap -Y "tcp.analysis.retransmission" -T fields -e frame.time_relative -e ip.src -e ip.dst | head
 ```
 
 ### ss and ip
 
 ```text
-$ ss -tlnp                         # who listens on which port
-$ ss -tnp state established '( dport = :5432 )'
-$ ss -s                            # summary counts per state
-$ ip -br addr; ip route; ip route get 10.2.0.10; ip -s link show eth0; ip neigh
+ss -tlnp                         # who listens on which port
+ss -tnp state established '( dport = :5432 )'
+ss -s                            # summary counts per state
+ip -br addr; ip route; ip route get 10.2.0.10; ip -s link show eth0; ip neigh
 ```
 
 ### nmap (only on systems you own or are authorized to test)

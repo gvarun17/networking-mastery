@@ -1,6 +1,9 @@
 # Quiz 18 — Network Observability
 
+## Questions
+
 ### Q1. Which signal best answers "which hosts are sending the most traffic to the database subnet?"
+
 - A) Interface counters
 - B) Flow records (NetFlow/IPFIX/sFlow or VPC Flow Logs)
 - C) Syslog
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. What is the main difference between sFlow and NetFlow v9?
+
 - A) sFlow uses TCP
 - B) sFlow samples packets (1 in N) and counters; NetFlow builds flow records from a flow cache
 - C) NetFlow cannot carry IPv6
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. Which UDP port is the IANA default for IPFIX?
+
 - A) 2055
 - B) 4739
 - C) 6343
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. Why must you use `rate()` when graphing `node_network_receive_bytes_total`?
+
 - A) The metric is a gauge
 - B) The metric is a cumulative counter; utilisation is its per-second rate of change
 - C) Prometheus requires it for all metrics
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. A 1 Gbps interface is monitored with the 32-bit `ifInOctets` counter every 5 minutes. What problem occurs?
+
 - A) None
 - B) The counter wraps in about 34 seconds at line rate, so polling every 5 minutes gives wrong results; use 64-bit `ifHCInOctets`
 - C) SNMP cannot read it
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Which TWO are advantages of gNMI streaming telemetry over SNMP polling? (Choose two.)
+
 - A) Higher-frequency data with lower device CPU cost
 - B) Structured data based on YANG models
 - C) It works on every legacy device
@@ -74,6 +82,7 @@
 </details>
 
 ### Q7. What does a VPC Flow Log record contain?
+
 - A) Full packet payloads
 - B) Per-ENI flow metadata: addresses, ports, protocol, packets, bytes, action (ACCEPT/REJECT) and optional fields
 - C) HTTP URLs
@@ -86,6 +95,7 @@
 </details>
 
 ### Q8. How does Datadog Network Performance Monitoring collect flow data on hosts and Kubernetes nodes?
+
 - A) SNMP polling of switches only
 - B) An eBPF-based system-probe in the Datadog Agent that observes connections in the kernel
 - C) Packet capture to disk
@@ -98,6 +108,7 @@
 </details>
 
 ### Q9. Which Prometheus exporter runs synthetic ICMP, HTTP, DNS and TCP probes?
+
 - A) node_exporter
 - B) snmp_exporter
 - C) blackbox_exporter
@@ -110,6 +121,7 @@
 </details>
 
 ### Q10. Scenario: Users report slowness, but 5-minute average link utilisation is only 40%. What could hide the problem?
+
 - A) DNS caching
 - B) Microbursts that fill buffers for milliseconds; check queue drops and use finer-grained telemetry
 - C) Too many dashboards
@@ -122,6 +134,7 @@
 </details>
 
 ### Q11. Why is `for: 5m` important in a Prometheus alert rule?
+
 - A) It delays scrapes
 - B) The condition must stay true for 5 minutes before the alert fires, which reduces flapping and noise
 - C) It sets the retention period
@@ -134,6 +147,7 @@
 </details>
 
 ### Q12. Flow totals from a sampled sFlow collector are 1000× lower than interface counters. What is the most likely cause?
+
 - A) The link is down
 - B) The collector did not multiply by the sampling rate (1:1000)
 - C) Flows are encrypted
@@ -146,6 +160,7 @@
 </details>
 
 ### Q13. Which is a good network SLI?
+
 - A) Number of routers
 - B) Percentage of successful synthetic probes from user locations to the service
 - C) Number of VLANs
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. Which signal type is best for proving exactly why a TLS handshake fails between two hosts?
+
 - A) Flow records
 - B) Interface metrics
 - C) Packet capture
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Scenario: Your AWS bill shows high NAT gateway data processing charges. Which observability data helps you find the cause fastest?
+
 - A) EC2 CPU metrics
 - B) VPC Flow Logs (or Datadog NPM) grouped by destination, to find large flows to S3/ECR that could use VPC endpoints
 - C) CloudTrail only

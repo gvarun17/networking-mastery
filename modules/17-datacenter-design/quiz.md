@@ -1,6 +1,9 @@
 # Quiz 17 — Data Center and Modern Design
 
+## Questions
+
 ### Q1. In a spine-leaf fabric, how many hops does traffic take between servers on different leaves?
+
 - A) One (leaf to leaf)
 - B) Two switch hops (leaf → spine → leaf)
 - C) It varies with STP
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. A leaf has 48 × 25 Gbps server ports and 4 × 100 Gbps uplinks. What is the oversubscription ratio?
+
 - A) 1:1
 - B) 2:1
 - C) 3:1
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. How many bits does the VXLAN Network Identifier have?
+
 - A) 12
 - B) 16
 - C) 24
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. Which UDP destination port does VXLAN use (IANA)?
+
 - A) 4789
 - B) 6081
 - C) 8472
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. How many bytes of overhead does VXLAN add to an untagged inner frame over IPv4?
+
 - A) 8
 - B) 20
 - C) 50
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Which EVPN route type advertises a host MAC (and optionally IP) behind a VTEP?
+
 - A) Type 1
 - B) Type 2
 - C) Type 3
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. Why does the VXLAN UDP source port vary per flow?
+
 - A) To avoid NAT
 - B) To give entropy so underlay ECMP hashing spreads traffic across paths
 - C) To identify the VNI
@@ -85,6 +94,7 @@
 </details>
 
 ### Q8. What is a distributed anycast gateway?
+
 - A) One gateway router in the core
 - B) Every leaf hosts the same gateway IP and MAC for a subnet, so hosts route at their local leaf
 - C) A gateway that uses anycast DNS
@@ -97,6 +107,7 @@
 </details>
 
 ### Q9. Which TWO statements describe the RFC 7938 eBGP underlay design? (Choose two.)
+
 - A) Each leaf (or leaf pair) uses its own private ASN
 - B) Spines typically share one ASN
 - C) STP is required between spines
@@ -110,6 +121,7 @@
 </details>
 
 ### Q10. What does BGP unnumbered (RFC 5549) allow?
+
 - A) BGP without TCP
 - B) Peering over IPv6 link-local addresses and advertising IPv4 routes with IPv6 next hops, so no /31 plan is needed
 - C) BGP without ASNs
@@ -122,6 +134,7 @@
 </details>
 
 ### Q11. Scenario: Hosts on different leaves can ping with default sizes, but file transfers between them stall. What do you check first?
+
 - A) EVPN route type 5
 - B) Underlay MTU (must be at least 1550 for 1500-byte host frames)
 - C) The anycast gateway MAC
@@ -134,6 +147,7 @@
 </details>
 
 ### Q12. In SD-WAN, what does application-aware routing do?
+
 - A) Routes only by destination IP
 - B) Chooses the WAN path per application based on measured latency, loss and jitter against an SLA
 - C) Blocks all applications except web
@@ -146,6 +160,7 @@
 </details>
 
 ### Q13. Which Cisco Catalyst SD-WAN component handles onboarding and NAT traversal for new edges?
+
 - A) SD-WAN Manager
 - B) SD-WAN Controller
 - C) SD-WAN Validator
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. What is the core idea of SDN?
+
 - A) Every device runs its own independent control plane only
 - B) Separate the control plane from the data plane and centralize control in software with programmable APIs
 - C) Replace switches with hubs
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Which EVPN route type builds the list of VTEPs that receive broadcast, unknown unicast and multicast (BUM) traffic for a VNI?
+
 - A) Type 2
 - B) Type 3
 - C) Type 4

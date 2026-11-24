@@ -1,6 +1,9 @@
 # Quiz 09 — Network Services
 
+## Questions
+
 ### Q1. In what order are DHCP messages exchanged when a client joins a network?
+
 - A) Request, Offer, Discover, Ack
 - B) Discover, Offer, Request, Ack
 - C) Discover, Request, Offer, Ack
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. Scenario: Clients in VLAN 30 get 169.254.x.x addresses. The DHCP server is on another subnet. The router's VLAN 30 SVI has no special DHCP configuration. What is missing?
+
 - A) `ip dhcp excluded-address` on the router
 - B) `ip helper-address <server>` on the VLAN 30 SVI
 - C) A DNS server option
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. Which field does a DHCP relay agent set so the server can select the correct pool?
+
 - A) ciaddr
 - B) yiaddr
 - C) giaddr
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. Which DNS record type maps an IP address back to a name?
+
 - A) A
 - B) CNAME
 - C) PTR
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. Scenario: Email for example.com bounces, but the website works. Which record do you check first?
+
 - A) A
 - B) AAAA
 - C) MX
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Why can you not put a CNAME record at the zone apex (example.com)?
+
 - A) CNAMEs only work for IPv6
 - B) A CNAME cannot coexist with other records, and the apex must have SOA and NS records
 - C) The apex must be a PTR record
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. What does `status: SERVFAIL` in dig output usually mean?
+
 - A) The name does not exist
 - B) The resolver could not complete the query, for example due to a DNSSEC failure or unreachable authoritative servers
 - C) The answer is authoritative
@@ -85,6 +94,7 @@
 </details>
 
 ### Q8. In Cisco NAT terminology, what is the "inside global" address?
+
 - A) The private address of the inside host
 - B) The public address that represents the inside host to the outside
 - C) The address of the outside server
@@ -97,6 +107,7 @@
 </details>
 
 ### Q9. Scenario: PAT is configured with `ip nat inside source list 1 interface g0/0 overload`. No translations appear. Users have no internet. `ip nat outside` is on G0/0. What is the most likely cause?
+
 - A) `overload` should be removed
 - B) The LAN interface lacks `ip nat inside`, or ACL 1 does not match the inside subnet
 - C) NAT requires OSPF
@@ -109,6 +120,7 @@
 </details>
 
 ### Q10. Which TWO statements about SNMPv3 are true? (Choose two.)
+
 - A) It supports authentication and encryption
 - B) It uses community strings only
 - C) The authPriv level provides both authentication and privacy
@@ -122,6 +134,7 @@
 </details>
 
 ### Q11. A router has `logging trap warnings`. Which messages go to the syslog server?
+
 - A) Severity 4 only
 - B) Severity 0 through 4
 - C) Severity 4 through 7
@@ -134,6 +147,7 @@
 </details>
 
 ### Q12. In the message `%OSPF-5-ADJCHG: Process 1, Nbr 2.2.2.2 ... from FULL to DOWN`, what is the severity?
+
 - A) 2 Critical
 - B) 4 Warning
 - C) 5 Notification
@@ -146,6 +160,7 @@
 </details>
 
 ### Q13. What is an NTP stratum 1 server?
+
 - A) A server with no time source
 - B) A server directly connected to a reference clock (stratum 0)
 - C) A server that is one hop from a stratum 2 server
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. Which ports do DHCP server and client use?
+
 - A) UDP 67 server, UDP 68 client
 - B) UDP 68 server, UDP 67 client
 - C) TCP 67 and TCP 68
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Scenario: Pods in Kubernetes see random 5-second delays on DNS lookups for external names. What is a well-known cause?
+
 - A) MTU 9001
 - B) Parallel A/AAAA queries over one UDP socket hit a conntrack race, so one reply is lost and the resolver retries after 5 seconds
 - C) Pods use DHCP

@@ -1,6 +1,9 @@
 # Quiz 12 — Application Layer
 
+## Questions
+
 ### Q1. Which HTTP status code does a load balancer return when the backend sends an invalid response or resets the connection?
+
 - A) 404
 - B) 502
 - C) 503
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. What problem did HTTP/2 solve compared with HTTP/1.1?
+
 - A) It removed TCP
 - B) It multiplexes many requests as streams over one connection, with header compression
 - C) It removed TLS
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. Which transport does HTTP/3 use?
+
 - A) TCP
 - B) SCTP
 - C) QUIC over UDP
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. How many round trips does a full TLS 1.3 handshake add before application data (without 0-RTT)?
+
 - A) 0
 - B) 1
 - C) 2
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. What is the purpose of SNI in the TLS ClientHello?
+
 - A) It chooses the cipher suite
 - B) It tells the server which hostname the client wants, so the server can present the right certificate
 - C) It encrypts the certificate
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Scenario: `curl` reports `unable to get local issuer certificate` for your site, but browsers work. What is the most likely cause?
+
 - A) The certificate expired
 - B) The server does not send the intermediate certificate; browsers fetch it themselves but curl does not
 - C) DNS is wrong
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. Which TWO features require an L7 load balancer? (Choose two.)
+
 - A) Routing by URL path
 - B) Distributing TCP connections by 5-tuple hash
 - C) Inserting an X-Forwarded-For header
@@ -86,6 +95,7 @@
 </details>
 
 ### Q8. Which AWS load balancer preserves the client IP and supports UDP?
+
 - A) Application Load Balancer
 - B) Network Load Balancer
 - C) Classic Load Balancer
@@ -98,6 +108,7 @@
 </details>
 
 ### Q9. Scenario: Behind an ALB, a Node.js service shows random 502 errors under low traffic. Its keep-alive timeout is 5 seconds; the ALB idle timeout is 60 seconds. What is the fix?
+
 - A) Lower the ALB idle timeout to 1 second
 - B) Set the backend keep-alive timeout higher than the ALB idle timeout
 - C) Disable health checks
@@ -110,6 +121,7 @@
 </details>
 
 ### Q10. Which header shows how many seconds a response has been stored in a cache?
+
 - A) Cache-Control
 - B) ETag
 - C) Age
@@ -122,6 +134,7 @@
 </details>
 
 ### Q11. What is a reverse proxy?
+
 - A) A proxy that clients configure to reach the internet
 - B) A proxy in front of servers that receives client requests on their behalf
 - C) A proxy that only handles DNS
@@ -134,6 +147,7 @@
 </details>
 
 ### Q12. Which mechanism lets a client and server agree on HTTP/2 during the TLS handshake?
+
 - A) SNI
 - B) ALPN
 - C) OCSP stapling
@@ -146,6 +160,7 @@
 </details>
 
 ### Q13. Why does TLS 1.3 always provide forward secrecy?
+
 - A) It uses static RSA key exchange
 - B) It allows only ephemeral (EC)DHE key exchange
 - C) It disables encryption after the handshake
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. Scenario: Users still see an old version of a JavaScript file after a deployment. The file is served through CloudFront with `Cache-Control: max-age=86400`. What are the TWO best fixes? (Choose two.)
+
 - A) Create a CloudFront invalidation for the path
 - B) Use versioned file names (e.g. app.3f9a.js) in future deployments
 - C) Restart the origin server
@@ -171,6 +187,7 @@
 </details>
 
 ### Q15. Which command shows the TLS version, cipher and negotiated ALPN for a server?
+
 - A) `dig example.com`
 - B) `openssl s_client -connect example.com:443 -servername example.com -alpn h2`
 - C) `traceroute example.com`

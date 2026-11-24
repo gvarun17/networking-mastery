@@ -15,7 +15,10 @@ Run interactively: `python3 tools/quiz_runner.py cert/ccna-200-301/practice-exam
 
 Rules: no notes, one sitting, mark questions to revisit, never leave a question blank.
 
+## Questions
+
 ### Q1. Which command converts a Layer 3 switch port into a routed port?
+
 - A) switchport mode access
 - B) no switchport
 - C) ip routing
@@ -28,6 +31,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q2. Which RSTP port role provides an alternate path to the root through a different switch and is discarding?
+
 - A) Root
 - B) Designated
 - C) Alternate
@@ -40,6 +44,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q3. A wired PC can ping its gateway but not hosts on other subnets. Other PCs in the same VLAN work. What do you check first on the PC?
+
 - A) The DNS suffix
 - B) The configured default gateway and subnet mask
 - C) The NIC duplex
@@ -52,6 +57,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q4. A user reports no connectivity. `show interfaces status` shows the port as `err-disabled`. What is the next step?
+
 - A) Reload the switch
 - B) Find the cause (e.g. `show interfaces status err-disabled`, logs), fix it, then shut/no shut
 - C) Change the VLAN
@@ -64,6 +70,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q5. Where should a standard IPv4 ACL normally be placed?
+
 - A) Close to the source
 - B) Close to the destination
 - C) On every interface
@@ -76,6 +83,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q6. A non-root switch (short STP costs) has three uplinks. Port 1: FastEthernet (cost 19), neighbor advertises root path cost 19; Port 2: FastEthernet (cost 19), neighbor advertises root path cost 2; Port 3: TenGigabitEthernet (cost 2), neighbor advertises root path cost 23. Which port becomes the root port?
+
 - A) None; all three forward
 - B) Port 1
 - C) Port 2
@@ -88,6 +96,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q7. Rapid PVST+ for VLAN 20: SW1 priority 24596 MAC 0f34.5640.df6e; SW2 priority 32788 MAC 4043.f1fd.899b; SW3 priority 28692 MAC 6d33.31e3.bb81; SW4 priority 16404 MAC f714.f007.5595. Which switch becomes the root bridge?
+
 - A) SW3
 - B) SW4
 - C) SW2
@@ -100,6 +109,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q8. What is the default port cost for a 1 Gbps link in short-mode STP?
+
 - A) 1
 - B) 2
 - C) 4
@@ -112,6 +122,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q9. An interface with MAC 14:2d:77:b8:f0:0a uses EUI-64 with prefix 2001:db8:1:1::/64. What is its interface ID?
+
 - A) 142d:77ff:feb8:f00a
 - B) 162d:77fe:ffb8:f00a
 - C) 162d:77ff:feb8:f00a
@@ -124,6 +135,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q10. A router has these routes: S* 0.0.0.0/0 via 203.0.113.1; O 10.191.0.0/16 via 10.0.12.2; O 10.191.224.0/20 via 10.0.13.3; D 10.191.227.0/24 via 10.0.14.4; S 10.191.227.64/26 via 10.0.15.5. Which next hop is used for a packet to 10.191.139.38?
+
 - A) 203.0.113.1
 - B) 10.0.13.3
 - C) 10.0.12.2
@@ -136,6 +148,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q11. What is the correct shortest form of fd12:0db8:0000:0000:0000:0000:0000:0000?
+
 - A) fd12:db8:0:0:0:0:0:0
 - B) fd12:db8::
 - C) fd12:0db8::0000:0000:0000:0000
@@ -148,6 +161,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q12. A named extended ACL has `10 permit ip any any` and `20 deny tcp any any eq 23`. Telnet still works. Why?
+
 - A) Named ACLs are processed bottom-up
 - B) The first match (entry 10) permits all traffic
 - C) Telnet uses UDP
@@ -160,6 +174,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q13. What does `switchport port-security mac-address sticky` do?
+
 - A) Disables MAC learning
 - B) Dynamically learns MACs and adds them to the running configuration
 - C) Shuts the port
@@ -172,6 +187,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q14. Which command shows each switch port's status, VLAN, duplex, speed and type in one table?
+
 - A) show interfaces status
 - B) show ip interface brief
 - C) show running-config
@@ -184,6 +200,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q15. An ACL entry is `permit ip 10.163.211.0 0.0.0.31 any`. Which source address matches it?
+
 - A) 10.163.210.200
 - B) 10.163.211.66
 - C) 10.163.211.29
@@ -196,6 +213,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q16. In `show cdp neighbors`, what does the `Port ID` column show?
+
 - A) The local interface
 - B) The neighbor's interface that connects to you
 - C) The VLAN ID
@@ -208,6 +226,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q17. What is the severity of the syslog message `%SYS-5-CONFIG_I: ...`?
+
 - A) 5 (notifications)
 - B) 3 (errors)
 - C) 6 (informational)
@@ -220,6 +239,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q18. `show standby brief` on R1 shows `Gi0/0 10 110 P Active local 10.1.1.3 10.1.1.1`. What is the virtual IP?
+
 - A) 10.1.1.3
 - B) 10.1.1.1
 - C) 10.1.1.110
@@ -232,6 +252,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q19. OSPF uses auto-cost reference-bandwidth 100000 (Mbps). What is the cost of a 100 Mbps interface?
+
 - A) 100
 - B) 10000
 - C) 1000
@@ -244,6 +265,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q20. Which LACP mode pair fails to form an EtherChannel?
+
 - A) active / active
 - B) active / passive
 - C) passive / passive
@@ -256,6 +278,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q21. Which component is required for WPA2-Enterprise or WPA3-Enterprise authentication?
+
 - A) A TACACS+ server
 - B) An 802.1X authentication server such as RADIUS
 - C) A DHCP server
@@ -268,6 +291,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q22. A router has these routes: S* 0.0.0.0/0 via 203.0.113.1; O 10.90.0.0/16 via 10.0.12.2; O 10.90.16.0/20 via 10.0.13.3; D 10.90.21.0/24 via 10.0.14.4; S 10.90.21.128/26 via 10.0.15.5. Which next hop is used for a packet to 10.90.21.243?
+
 - A) 10.0.13.3
 - B) 203.0.113.1
 - C) 10.0.12.2
@@ -280,6 +304,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q23. Rapid PVST+ for VLAN 20: SW1 priority 32788 MAC 3a9d.30d5.2b7d; SW2 priority 24596 MAC 7ef4.20ea.66ef; SW3 priority 20 MAC ef15.cec3.3ea3; SW4 priority 32788 MAC ebdc.1e9f.6b82. Which switch becomes the root bridge?
+
 - A) SW1
 - B) SW4
 - C) SW2
@@ -292,6 +317,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q24. Host A is 192.168.10.30/27 with gateway 192.168.10.33. A cannot reach other subnets. What is wrong?
+
 - A) The mask is invalid
 - B) The gateway is outside Host A's subnet (192.168.10.0/27 ends at .31)
 - C) The gateway must be .1
@@ -304,6 +330,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q25. In the routing table entry `O 10.20.0.0/16 [110/30] via 10.0.12.2`, what is 110?
+
 - A) The metric
 - B) The administrative distance
 - C) The hop count
@@ -316,6 +343,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q26. What is the size of the 802.1Q tag inserted into an Ethernet frame?
+
 - A) 2 bytes
 - B) 4 bytes
 - C) 8 bytes
@@ -328,6 +356,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q27. An ACL entry is `permit ip 10.39.32.0 0.0.7.255 any`. Which source address matches it?
+
 - A) 10.39.40.21
 - B) 10.39.34.182
 - C) 10.39.31.203
@@ -340,6 +369,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q28. What is the maximum standard segment length for 1000BASE-T?
+
 - A) 55 m
 - B) 100 m
 - C) 185 m
@@ -352,6 +382,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q29. Host A is 192.168.200.23/28. Which host is in the same subnet as Host A (same mask)?
+
 - A) 192.168.200.38
 - B) 192.168.200.3
 - C) 192.168.200.55
@@ -364,6 +395,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q30. Which feature limits broadcast traffic on an access port to 5% of bandwidth?
+
 - A) storm-control broadcast level 5.00
 - B) switchport port-security maximum 5
 - C) ip dhcp snooping limit rate 5
@@ -376,6 +408,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q31. Which address can be assigned to a host in subnet 172.31.14.192/28?
+
 - A) 172.31.14.200
 - B) 172.31.14.208
 - C) 172.31.14.192
@@ -388,6 +421,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q32. Which syslog severity level number is 'debugging'?
+
 - A) 7
 - B) 6
 - C) 1
@@ -400,6 +434,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q33. Host A is 172.26.111.210/26. Which host is in the same subnet as Host A (same mask)?
+
 - A) 172.26.112.73
 - B) 172.26.111.148
 - C) 172.26.111.199
@@ -412,6 +447,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q34. `show spanning-tree vlan 10` on SW3 shows `Gi0/2 Altn BLK 4 128.26 P2p`. What does this mean?
+
 - A) Gi0/2 is the root port
 - B) Gi0/2 is an alternate port in the discarding/blocking state
 - C) Gi0/2 is err-disabled
@@ -424,6 +460,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q35. A router has `logging trap critical`. Which messages are sent to the syslog server?
+
 - A) All levels 0 through 7
 - B) Levels 2 through 7
 - C) Level 2 only
@@ -436,6 +473,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q36. You changed `router-id` under OSPF, but `show ip ospf` still shows the old ID. What must you do?
+
 - A) Nothing; it updates in 30 seconds
 - B) Run `clear ip ospf process` (or reload)
 - C) Change the area
@@ -447,10 +485,11 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 </details>
 
-### Q37. www.example.com is a CNAME to web.example.net. What must exist for the name to resolve to an address?
-- A) A PTR for www.example.com
-- B) An A or AAAA record for web.example.net
-- C) An MX for web.example.net
+### Q37. `www.example.com` is a CNAME to `web.example.net`. What must exist for the name to resolve to an address?
+
+- A) A PTR for `www.example.com`
+- B) An A or AAAA record for `web.example.net`
+- C) An MX for `web.example.net`
 - D) Nothing else
 
 <details><summary>Answer</summary>
@@ -460,6 +499,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q38. Which TWO features are best practice on a port connected to a desktop PC? (Choose 2.)
+
 - A) spanning-tree portfast
 - B) spanning-tree bpduguard enable
 - C) switchport mode trunk
@@ -473,6 +513,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q39. What is the role of a transceiver such as an SFP+ module?
+
 - A) It routes packets between VLANs
 - B) It converts electrical signals to optical (or copper) signals for a specific media type and distance
 - C) It stores the startup configuration
@@ -485,6 +526,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q40. Which Ansible characteristic is true?
+
 - A) It needs an agent on every network device
 - B) It is agentless and connects over SSH or APIs from a control node
 - C) It only works on Windows
@@ -497,6 +539,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q41. Which TWO statements describe a site-to-site IPsec VPN? (Choose 2.)
+
 - A) Gateways at each site build the tunnel; end hosts need no VPN software
 - B) Tunnel mode protects the entire original packet with a new outer IP header
 - C) Each user installs a VPN client
@@ -510,6 +553,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q42. Which SNMP version supports authentication and encryption?
+
 - A) v1
 - B) v2c
 - C) v3
@@ -522,6 +566,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q43. NAT is configured, but `show ip nat translations` is empty and users have no internet. Which TWO items do you check first? (Choose 2.)
+
 - A) `ip nat inside` and `ip nat outside` on the correct interfaces
 - B) The ACL matches the inside source addresses
 - C) The VTP domain
@@ -535,6 +580,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q44. A router learns 10.112.9.0/24 from OSPF, static, EIGRP (internal). Which source is installed in the routing table (default ADs)?
+
 - A) static
 - B) OSPF
 - C) All three, load-balanced
@@ -547,6 +593,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q45. What is the broadcast address of the subnet that contains 192.168.205.200/27?
+
 - A) 192.168.205.224
 - B) 192.168.205.223
 - C) 192.168.205.222
@@ -559,6 +606,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q46. Which prompt is best for getting a usable review of a routing change from a generative AI assistant?
+
 - A) 'Is this OK?'
 - B) 'You are a senior network engineer. Review this OSPF change for risks. Do not invent commands. Answer as a table: line, risk, fix.'
 - C) 'Write me a poem about OSPF.'
@@ -571,6 +619,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q47. Which command shows the root bridge ID, root port and root cost for every VLAN on a switch?
+
 - A) show spanning-tree root
 - B) show spanning-tree blockedports
 - C) show vlan brief
@@ -583,6 +632,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q48. A Cisco router must act as a SLAAC client on G0/0. Which interface command does this?
+
 - A) ipv6 address dhcp
 - B) ipv6 address autoconfig
 - C) ipv6 enable
@@ -595,6 +645,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q49. Which statement describes cloud-based network management (for example Meraki)?
+
 - A) Devices are managed from a cloud dashboard while user traffic stays local
 - B) All user traffic must traverse the cloud
 - C) It needs no internet connection
@@ -607,6 +658,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q50. Which field in a relayed DHCP DISCOVER tells the server which subnet the client is on?
+
 - A) ciaddr
 - B) giaddr
 - C) yiaddr
@@ -619,6 +671,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q51. Which pair of channel-group modes on two connected switches forms an EtherChannel?
+
 - A) auto / passive
 - B) auto / auto
 - C) active / desirable
@@ -631,6 +684,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q52. A router learns 10.241.47.0/24 from RIP, iBGP, eBGP. Which source is installed in the routing table (default ADs)?
+
 - A) All three, load-balanced
 - B) iBGP
 - C) eBGP
@@ -643,6 +697,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q53. After enabling DHCP snooping, no client gets an address. The DHCP server is reached through uplink G1/0/48. What is missing?
+
 - A) `ip dhcp snooping trust` on G1/0/48
 - B) `spanning-tree portfast` on G1/0/48
 - C) Port security on G1/0/48
@@ -655,6 +710,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q54. Which command makes a switch the root bridge for VLAN 10 by lowering its priority automatically?
+
 - A) spanning-tree vlan 10 root primary
 - B) spanning-tree vlan 10 priority 65535
 - C) spanning-tree root 10
@@ -667,6 +723,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q55. Which subnet mask supports 300 hosts on one subnet while wasting the fewest addresses?
+
 - A) 255.255.255.128
 - B) 255.255.252.0
 - C) 255.255.254.0
@@ -679,6 +736,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q56. What is the network address of host 10.243.135.67/20?
+
 - A) 10.243.143.255
 - B) 10.243.144.0
 - C) 10.243.112.0
@@ -691,6 +749,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q57. Which TWO statements about RSTP are correct? (Choose 2.)
+
 - A) It converges in about a second on point-to-point links using proposal/agreement
 - B) It defines edge ports as part of the standard
 - C) It uses five port states
@@ -704,6 +763,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q58. `show etherchannel summary` shows `Po1(SU)` and both members `(P)`. What does this mean?
+
 - A) The bundle is down
 - B) Layer 2 port-channel in use, both members bundled
 - C) Layer 3 port-channel, members suspended
@@ -716,6 +776,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q59. Which protocol is enabled by default on Cisco devices and shows the neighbor's device ID, platform, IP address and connected port?
+
 - A) LLDP
 - B) CDP
 - C) SNMP
@@ -728,6 +789,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q60. An ACL entry is `permit ip 10.103.15.0 0.0.0.7 any`. Which source address matches it?
+
 - A) 10.103.14.221
 - B) 10.103.15.129
 - C) 10.103.15.18
@@ -740,6 +802,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q61. A switch uplink is configured `switchport mode trunk`, and the neighbor is `switchport mode access`. What happens?
+
 - A) A trunk forms
 - B) The link is inconsistent: one side tags frames, the other does not, so traffic is misdelivered or dropped
 - C) EtherChannel forms
@@ -752,6 +815,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q62. Which command must be entered before AAA method lists can be configured on IOS?
+
 - A) aaa enable
 - B) aaa new-model
 - C) aaa authentication enable
@@ -764,6 +828,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q63. Why should every device have NTP configured before you rely on syslog?
+
 - A) NTP encrypts logs
 - B) Accurate, consistent timestamps let you correlate events across devices
 - C) Syslog requires NTP to start
@@ -776,6 +841,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q64. You must copy a new IOS XE image to a router securely. Which TWO protocols are appropriate? (Choose 2.)
+
 - A) SCP
 - B) SFTP
 - C) TFTP
@@ -789,6 +855,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q65. A non-root switch (short STP costs) has three uplinks. Port 1: GigabitEthernet (cost 4), neighbor advertises root path cost 0; Port 2: GigabitEthernet (cost 4), neighbor advertises root path cost 19; Port 3: TenGigabitEthernet (cost 2), neighbor advertises root path cost 0. Which port becomes the root port?
+
 - A) None; all three forward
 - B) Port 1
 - C) Port 2
@@ -801,6 +868,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q66. How many IPv4 ACLs can be applied to one interface?
+
 - A) One per interface
 - B) One per direction (in and out) per interface
 - C) Unlimited
@@ -813,6 +881,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q67. What happens when a port with BPDU guard enabled receives a BPDU?
+
 - A) The BPDU is ignored
 - B) The port goes to err-disabled
 - C) The port becomes root
@@ -825,6 +894,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q68. The primary default route is learned by eBGP. Which administrative distance makes a backup static default route float (used only if the eBGP route is lost)?
+
 - A) 19
 - B) 20
 - C) 1
@@ -837,6 +907,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q69. Which command creates a local user with the strongest password hashing available on modern IOS XE?
+
 - A) username admin password Cisco123
 - B) username admin secret 5 Cisco123
 - C) username admin privilege 15 algorithm-type scrypt secret Str0ng!Pass
@@ -849,6 +920,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q70. Which wildcard mask matches the same addresses as subnet mask 255.255.255.0 in an ACL?
+
 - A) 0.0.0.127
 - B) 0.0.0.255
 - C) 0.0.1.255
@@ -861,6 +933,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q71. Which TWO conditions must be true for two routers to form an OSPFv2 adjacency on an Ethernet link? (Choose 2.)
+
 - A) Same area ID
 - B) Same hello and dead intervals
 - C) Same process ID
@@ -874,6 +947,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q72. On a broadcast segment, router A has priority 1 and RID 3.3.3.3, router B priority 1 and RID 1.1.1.1, router C priority 0 and RID 9.9.9.9. All start at the same time. Which is DR?
+
 - A) Router A
 - B) Router B
 - C) Router C
@@ -886,6 +960,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q73. In the 2.4 GHz band, which channel set avoids overlap between neighbouring APs?
+
 - A) 1, 4, 8
 - B) 1, 6, 11
 - C) 2, 7, 12
@@ -898,6 +973,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q74. Which static route is a host route?
+
 - A) ip route 10.1.1.0 255.255.255.0 10.0.0.2
 - B) ip route 10.1.1.10 255.255.255.255 10.0.0.2
 - C) ip route 0.0.0.0 0.0.0.0 10.0.0.2
@@ -910,6 +986,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q75. A router has these routes: S* 0.0.0.0/0 via 203.0.113.1; O 10.77.0.0/16 via 10.0.12.2; O 10.77.128.0/20 via 10.0.13.3; D 10.77.139.0/24 via 10.0.14.4; S 10.77.139.0/26 via 10.0.15.5. Which next hop is used for a packet to 172.16.159.130?
+
 - A) 10.0.13.3
 - B) 10.0.12.2
 - C) 203.0.113.1
@@ -922,6 +999,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q76. A lightweight AP in local mode connects to an access switch. How should the port be configured?
+
 - A) Trunk carrying all client VLANs
 - B) Access port in the AP management VLAN
 - C) Routed port
@@ -934,6 +1012,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q77. A router has these routes: S* 0.0.0.0/0 via 203.0.113.1; O 10.124.0.0/16 via 10.0.12.2; O 10.124.176.0/20 via 10.0.13.3; D 10.124.181.0/24 via 10.0.14.4; S 10.124.181.128/26 via 10.0.15.5. Which next hop is used for a packet to 10.124.186.28?
+
 - A) 10.0.13.3
 - B) 203.0.113.1
 - C) 10.0.12.2
@@ -946,6 +1025,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q78. Which Ansible option shows what would change without applying it?
+
 - A) --check (with --diff)
 - B) --force
 - C) --verbose only
@@ -958,6 +1038,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q79. What best describes agentic AI in network operations?
+
 - A) A static script that runs one show command
 - B) An AI system that plans multi-step tasks and calls tools (show commands, telemetry queries, ticket APIs) to reach a goal
 - C) A replacement for routing protocols
@@ -970,6 +1051,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q80. What does `passive-interface g0/2` under OSPF do?
+
 - A) Removes the network from OSPF
 - B) Advertises the interface's network but stops sending hellos on it, so no neighbors form there
 - C) Makes the router DR
@@ -982,6 +1064,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q81. Mail to example.com is delivered to the wrong server. Which record do you check?
+
 - A) CNAME
 - B) MX
 - C) NS
@@ -994,6 +1077,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q82. Which statement correctly compares containers and virtual machines?
+
 - A) Containers each include a full guest operating system
 - B) Containers share the host kernel and package only the app and its dependencies; VMs include a full guest OS
 - C) VMs start faster than containers
@@ -1006,6 +1090,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q83. Which address can be assigned to a host in subnet 172.20.51.216/29?
+
 - A) 172.20.51.216
 - B) 172.20.51.219
 - C) 172.20.51.223
@@ -1018,6 +1103,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q84. How many usable host addresses does a /19 IPv4 subnet provide?
+
 - A) 8,192
 - B) 8,190
 - C) 4,094
@@ -1030,6 +1116,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q85. What is the network address of host 10.46.193.202/18?
+
 - A) 10.46.192.0
 - B) 10.47.0.0
 - C) 10.46.128.0
@@ -1042,6 +1129,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q86. Which virtual MAC format does VRRP use?
+
 - A) 0000.0c07.acXX
 - B) 0000.0c9f.fXXX
 - C) 0000.5e00.01XX
@@ -1054,6 +1142,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q87. Which tool on a Cisco router confirms the exact route used for a specific destination?
+
 - A) show ip route 10.2.3.4
 - B) show ip interface brief
 - C) show arp
@@ -1066,6 +1155,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q88. In Cisco NAT terminology, what is the inside local address?
+
 - A) The public address representing the inside host
 - B) The private address actually configured on the inside host
 - C) The outside server address
@@ -1078,6 +1168,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q89. Which command adds VLAN 50 to an existing trunk without removing the other allowed VLANs?
+
 - A) switchport trunk allowed vlan 50
 - B) switchport trunk allowed vlan add 50
 - C) switchport trunk vlan 50
@@ -1090,6 +1181,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q90. Clients in VLAN 40 on a Layer 3 switch receive no DHCP address. The server is 10.99.0.10 in another VLAN. Which command fixes this?
+
 - A) `ip helper-address 10.99.0.10` under interface vlan 40
 - B) `ip dhcp relay` globally
 - C) `ip default-gateway 10.99.0.10`
@@ -1102,6 +1194,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q91. Which command configures an IPv4 default static route to next hop 203.0.113.1?
+
 - A) ip route 0.0.0.0 255.255.255.255 203.0.113.1
 - B) ip route 0.0.0.0 0.0.0.0 203.0.113.1
 - C) ip default-network 203.0.113.1
@@ -1114,6 +1207,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q92. Which wildcard mask matches the same addresses as subnet mask 255.255.255.240 in an ACL?
+
 - A) 255.255.255.240
 - B) 0.0.0.7
 - C) 0.0.0.31
@@ -1126,6 +1220,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q93. What is the main advantage of a Type 1 (bare-metal) hypervisor over a Type 2 hypervisor?
+
 - A) It runs as an app on a desktop OS
 - B) It runs directly on the hardware with less overhead, suitable for data centers
 - C) It cannot run Linux guests
@@ -1138,6 +1233,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q94. A switch port shows a steadily rising CRC error count and input errors, but no late collisions. Both ends are set to auto. What is the most likely cause?
+
 - A) A duplex mismatch
 - B) A damaged cable, dirty fiber connector or failing transceiver
 - C) An STP loop
@@ -1150,6 +1246,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q95. OSPF uses auto-cost reference-bandwidth 100 (Mbps). What is the cost of a 10 Mbps interface?
+
 - A) 11
 - B) 1
 - C) 10
@@ -1162,6 +1259,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q96. OSPFv3 on an IPv6-only router fails to start. No IPv4 addresses exist. What is missing?
+
 - A) An IPv6 global address
 - B) A manually configured 32-bit router ID
 - C) A DR
@@ -1174,6 +1272,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q97. A host can ping its default gateway but traceroute to a remote server stops at the gateway. What does this indicate?
+
 - A) A Layer 1 problem on the host
 - B) A routing or filtering problem at or beyond the gateway
 - C) A duplex mismatch
@@ -1186,6 +1285,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q98. What is the broadcast address of the subnet that contains 172.22.190.28/19?
+
 - A) 172.22.192.0
 - B) 172.22.160.0
 - C) 172.22.191.254
@@ -1198,6 +1298,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q99. A client reports an RSSI of −82 dBm and an SNR of 8 dB. What is the likely user experience?
+
 - A) Excellent
 - B) Good enough for voice
 - C) Poor: low data rates, retries and disconnects
@@ -1210,6 +1311,7 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 </details>
 
 ### Q100. Which wildcard mask matches the same addresses as subnet mask 255.255.255.252 in an ACL?
+
 - A) 0.0.0.3
 - B) 0.0.0.7
 - C) 0.0.0.1

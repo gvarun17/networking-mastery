@@ -1,6 +1,9 @@
 # Quiz 03 — IPv4 Addressing and Subnetting
 
+## Questions
+
 ### Q1. What is the network address of 10.20.33.200/27?
+
 - A) 10.20.33.160
 - B) 10.20.33.192
 - C) 10.20.33.200
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. What is the broadcast address of 172.16.45.130/21?
+
 - A) 172.16.45.255
 - B) 172.16.47.255
 - C) 172.16.48.255
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. How many usable host addresses does a /23 provide?
+
 - A) 254
 - B) 510
 - C) 512
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. Which subnet mask gives at least 25 usable hosts with the fewest wasted addresses?
+
 - A) 255.255.255.192
 - B) 255.255.255.224
 - C) 255.255.255.240
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. Scenario: Host A is 192.168.5.33/27 and Host B is 192.168.5.65/27. They connect to the same switch and VLAN with no router. Can they ping each other?
+
 - A) Yes, because they are in the same VLAN
 - B) Yes, because they share the same first three octets
 - C) No, because they are in different subnets and need a router
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Which address is a valid host address in 10.0.77.16/28?
+
 - A) 10.0.77.16
 - B) 10.0.77.31
 - C) 10.0.77.30
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. What is the wildcard mask for 255.255.240.0?
+
 - A) 0.0.15.255
 - B) 0.0.16.255
 - C) 0.0.240.255
@@ -85,6 +94,7 @@
 </details>
 
 ### Q8. Which single route summarizes 172.16.32.0/24 through 172.16.39.0/24 exactly?
+
 - A) 172.16.32.0/20
 - B) 172.16.32.0/21
 - C) 172.16.32.0/22
@@ -97,6 +107,7 @@
 </details>
 
 ### Q9. Which range is reserved for carrier-grade NAT and often used for EKS secondary CIDRs?
+
 - A) 169.254.0.0/16
 - B) 100.64.0.0/10
 - C) 192.0.2.0/24
@@ -109,6 +120,7 @@
 </details>
 
 ### Q10. How many usable IP addresses does an AWS subnet of /28 have?
+
 - A) 16
 - B) 14
 - C) 11
@@ -121,6 +133,7 @@
 </details>
 
 ### Q11. You split 192.168.10.0/24 into /27 subnets. What is the fifth subnet?
+
 - A) 192.168.10.96/27
 - B) 192.168.10.128/27
 - C) 192.168.10.160/27
@@ -133,6 +146,7 @@
 </details>
 
 ### Q12. Which prefix should you use on a router-to-router point-to-point link to use only two addresses with no waste, as permitted by RFC 3021?
+
 - A) /29
 - B) /30
 - C) /31
@@ -145,6 +159,7 @@
 </details>
 
 ### Q13. Scenario: An engineer configures `ip address 10.1.1.64 255.255.255.192` on a router interface. IOS rejects it. Why?
+
 - A) 10.1.1.64 is the broadcast address of the /26
 - B) 10.1.1.64 is the network address of the /26
 - C) The mask is invalid
@@ -157,6 +172,7 @@
 </details>
 
 ### Q14. Which TWO addresses are RFC 1918 private addresses? (Choose two.)
+
 - A) 172.32.1.1
 - B) 172.20.5.5
 - C) 192.169.1.1
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Scenario: You must allocate 10.10.0.0/22 for subnets of 500, 200 and 100 hosts, largest first. What is the network address of the 100-host subnet?
+
 - A) 10.10.2.0/25
 - B) 10.10.3.0/25
 - C) 10.10.3.128/25

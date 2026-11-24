@@ -2,7 +2,10 @@
 
 15 questions. Target: 13 or more correct. Run interactively with `python3 tools/quiz_runner.py modules/01-osi-tcpip`.
 
+## Questions
+
 ### Q1. What is the PDU name at the OSI transport layer when TCP is used?
+
 - A) Frame
 - B) Packet
 - C) Segment
@@ -15,6 +18,7 @@
 </details>
 
 ### Q2. Which OSI layers does the TCP/IP "Application" layer cover?
+
 - A) Layer 7 only
 - B) Layers 5, 6 and 7
 - C) Layers 4 to 7
@@ -27,6 +31,7 @@
 </details>
 
 ### Q3. A frame arrives with EtherType 0x86DD. What does the receiver do with the payload?
+
 - A) Gives it to the ARP process
 - B) Gives it to IPv4
 - C) Gives it to IPv6
@@ -39,6 +44,7 @@
 </details>
 
 ### Q4. A packet goes from a host through three routers to a server. Which field stays the same on every link (no NAT)?
+
 - A) Source MAC address
 - B) Destination MAC address
 - C) Destination IP address
@@ -51,6 +57,7 @@
 </details>
 
 ### Q5. Which device makes forwarding decisions using only Layer 2 information?
+
 - A) Router
 - B) Switch
 - C) Stateful firewall
@@ -63,6 +70,7 @@
 </details>
 
 ### Q6. Which IPv4 header field tells the receiver that the payload is UDP?
+
 - A) Type of Service = 17
 - B) Protocol = 17
 - C) Protocol = 6
@@ -75,6 +83,7 @@
 </details>
 
 ### Q7. Which component does the data link layer add at the end of a frame?
+
 - A) TTL
 - B) Sequence number
 - C) Frame check sequence (FCS)
@@ -87,6 +96,7 @@
 </details>
 
 ### Q8. Scenario: A user can ping the default gateway but cannot reach any internet site. DNS works. At which layer do you start?
+
 - A) Layer 1
 - B) Layer 2
 - C) Layer 3
@@ -99,6 +109,7 @@
 </details>
 
 ### Q9. Why does TCP use port numbers?
+
 - A) To find the next-hop router
 - B) To identify the application process on a host
 - C) To detect bit errors on the link
@@ -111,6 +122,7 @@
 </details>
 
 ### Q10. A tcpdump line shows `length 74` for a TCP SYN with 20 bytes of TCP options. What makes up 74 bytes?
+
 - A) 14 Ethernet + 20 IP + 40 TCP
 - B) 18 Ethernet + 20 IP + 36 TCP
 - C) 14 Ethernet + 40 IP + 20 TCP
@@ -123,6 +135,7 @@
 </details>
 
 ### Q11. Which statement about encapsulation is correct?
+
 - A) Each layer reads all headers of the layers above it
 - B) Each layer adds its own header and treats the upper-layer data as payload
 - C) Only the transport layer adds a header
@@ -135,6 +148,7 @@
 </details>
 
 ### Q12. Where do most books place TLS in the OSI model?
+
 - A) Layer 2
 - B) Layer 3
 - C) Between Layers 4 and 7 (often called Layer 5/6)
@@ -147,6 +161,7 @@
 </details>
 
 ### Q13. Scenario: A Cisco interface shows `GigabitEthernet0/1 is up, line protocol is down`. Which layers are involved?
+
 - A) Layer 1 is up; Layer 2 has a problem
 - B) Layer 1 is down
 - C) Layer 3 has a problem
@@ -159,6 +174,7 @@
 </details>
 
 ### Q14. Which TWO are Layer 3 protocols? (Choose two.)
+
 - A) ICMP
 - B) ARP
 - C) OSPF
@@ -172,6 +188,7 @@
 </details>
 
 ### Q15. Scenario: In AWS, an EC2 instance sends traffic to another subnet in the same VPC. Which AWS component performs the Layer 3 forwarding?
+
 - A) The internet gateway
 - B) The implicit VPC router, configured by the subnet route table
 - C) The security group

@@ -1,6 +1,9 @@
 # Quiz 04 — IPv6
 
+## Questions
+
 ### Q1. Which is the correct compressed form of 2001:0db8:0000:0000:00a0:0000:0000:0001?
+
 - A) 2001:db8::a0::1
 - B) 2001:db8::a0:0:0:1
 - C) 2001:db8:0:0:a0::1
@@ -13,6 +16,7 @@
 </details>
 
 ### Q2. Which prefix identifies IPv6 link-local addresses?
+
 - A) fc00::/7
 - B) fe80::/10
 - C) ff00::/8
@@ -25,6 +29,7 @@
 </details>
 
 ### Q3. What replaces ARP in IPv6?
+
 - A) DHCPv6
 - B) Neighbor Discovery Protocol using ICMPv6 NS and NA
 - C) Inverse ARP
@@ -37,6 +42,7 @@
 </details>
 
 ### Q4. A router interface has MAC 00:1c:73:aa:bb:cc. What is its EUI-64 interface ID?
+
 - A) 001c:73ff:feaa:bbcc
 - B) 021c:73ff:feaa:bbcc
 - C) 021c:73fe:ffaa:bbcc
@@ -49,6 +55,7 @@
 </details>
 
 ### Q5. Which multicast address does a host use to reach all routers on the local link?
+
 - A) ff02::1
 - B) ff02::2
 - C) ff02::5
@@ -61,6 +68,7 @@
 </details>
 
 ### Q6. Scenario: A host receives an RA with M=0, O=1 and the A flag set in the prefix option. How does it configure itself?
+
 - A) Stateful DHCPv6 for address and DNS
 - B) SLAAC for the address and stateless DHCPv6 for options such as DNS
 - C) SLAAC only, with no DHCPv6
@@ -73,6 +81,7 @@
 </details>
 
 ### Q7. Where does an IPv6 host learn its default gateway?
+
 - A) From the DHCPv6 server
 - B) From the source address of Router Advertisements (a link-local address)
 - C) From the DNS server
@@ -85,6 +94,7 @@
 </details>
 
 ### Q8. Which command enables IPv6 routing and Router Advertisements on a Cisco router?
+
 - A) ipv6 enable
 - B) ipv6 unicast-routing
 - C) ipv6 address autoconfig
@@ -97,6 +107,7 @@
 </details>
 
 ### Q9. What is the solicited-node multicast address for 2001:db8:1::a:1234:5678?
+
 - A) ff02::1:ff34:5678
 - B) ff02::1:ff12:3456
 - C) ff02::1:ffa:1234
@@ -109,6 +120,7 @@
 </details>
 
 ### Q10. Which device is allowed to fragment an IPv6 packet?
+
 - A) Any router in the path
 - B) Only the source host
 - C) Only the destination host
@@ -121,6 +133,7 @@
 </details>
 
 ### Q11. Scenario: In an AWS IPv6-enabled VPC, private instances must reach the IPv6 internet for updates but must not accept inbound connections from it. What do you use?
+
 - A) NAT gateway
 - B) Internet gateway with a public route
 - C) Egress-only internet gateway
@@ -133,6 +146,7 @@
 </details>
 
 ### Q12. What is the recommended prefix length for an IPv6 LAN subnet?
+
 - A) /48
 - B) /56
 - C) /64
@@ -145,6 +159,7 @@
 </details>
 
 ### Q13. Which TWO ICMPv6 message types must a firewall permit for basic IPv6 operation on a LAN? (Choose two.)
+
 - A) Type 128 Echo Request only
 - B) Type 135/136 Neighbor Solicitation/Advertisement
 - C) Type 2 Packet Too Big
@@ -158,6 +173,7 @@
 </details>
 
 ### Q14. Scenario: A host has only an fe80:: address on its interface. Other hosts on the same VLAN have global addresses. What is the most likely cause?
+
 - A) The host's DNS is wrong
 - B) The host does not receive Router Advertisements (for example, accept_ra is disabled or RAs are filtered)
 - C) The host's MTU is 1500
@@ -170,6 +186,7 @@
 </details>
 
 ### Q15. Which address type do you use for internal-only IPv6 addressing, like RFC 1918 in IPv4?
+
 - A) Global unicast 2001:db8::/32
 - B) Unique local fd00::/8
 - C) Link-local fe80::/10
