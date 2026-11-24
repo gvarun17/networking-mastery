@@ -1,0 +1,8 @@
+{
+  "name": "networking-mastery-tools",
+  "private": true,
+  "type": "module",
+  "description": "Mermaid validation for the networking-mastery repo",
+  "scripts": { "mermaid": "node validate_mermaid.mjs" },
+  "dependencies": { "jsdom": "^25.0.1", "mermaid": "^11.4.0" }
+}
