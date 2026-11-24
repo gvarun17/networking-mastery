@@ -19,23 +19,23 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q1. Which command converts a Layer 3 switch port into a routed port?
 
-- A) switchport mode access
-- B) no switchport
-- C) ip routing
-- D) switchport nonegotiate
+- A) no switchport
+- B) switchport nonegotiate
+- C) switchport mode access
+- D) ip routing
 
 <details><summary>Answer</summary>
 
-**Answer: B.** `no switchport` makes the port a Layer 3 interface that can take an IP address. *(Domain 2)*
+**Answer: A.** `no switchport` makes the port a Layer 3 interface that can take an IP address. *(Domain 2)*
 
 </details>
 
 ### Q2. Which RSTP port role provides an alternate path to the root through a different switch and is discarding?
 
-- A) Root
+- A) Backup
 - B) Designated
 - C) Alternate
-- D) Backup
+- D) Root
 
 <details><summary>Answer</summary>
 
@@ -45,40 +45,40 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q3. A wired PC can ping its gateway but not hosts on other subnets. Other PCs in the same VLAN work. What do you check first on the PC?
 
-- A) The DNS suffix
-- B) The configured default gateway and subnet mask
-- C) The NIC duplex
-- D) The browser proxy
+- A) The configured default gateway and subnet mask
+- B) The NIC duplex
+- C) The browser proxy
+- D) The DNS suffix
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Wrong gateway or mask on one host is the usual cause when neighbours work. *(Domain 1)*
+**Answer: A.** Wrong gateway or mask on one host is the usual cause when neighbours work. *(Domain 1)*
 
 </details>
 
 ### Q4. A user reports no connectivity. `show interfaces status` shows the port as `err-disabled`. What is the next step?
 
-- A) Reload the switch
-- B) Find the cause (e.g. `show interfaces status err-disabled`, logs), fix it, then shut/no shut
-- C) Change the VLAN
-- D) Enable DTP
+- A) Find the cause (e.g. `show interfaces status err-disabled`, logs), fix it, then shut/no shut
+- B) Enable DTP
+- C) Reload the switch
+- D) Change the VLAN
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Fix the cause first (BPDU guard, port security, etc.) before re-enabling. *(Domain 2)*
+**Answer: A.** Fix the cause first (BPDU guard, port security, etc.) before re-enabling. *(Domain 2)*
 
 </details>
 
 ### Q5. Where should a standard IPv4 ACL normally be placed?
 
 - A) Close to the source
-- B) Close to the destination
-- C) On every interface
+- B) On every interface
+- C) Close to the destination
 - D) Only outbound on WAN links
 
 <details><summary>Answer</summary>
 
-**Answer: B.** It matches only the source, so placing it near the source over-blocks. *(Domain 4)*
+**Answer: C.** It matches only the source, so placing it near the source over-blocks. *(Domain 4)*
 
 </details>
 
@@ -112,12 +112,12 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 - A) 1
 - B) 2
-- C) 4
-- D) 19
+- C) 19
+- D) 4
 
 <details><summary>Answer</summary>
 
-**Answer: C.** Short costs: 10 Mbps 100, 100 Mbps 19, 1 Gbps 4, 10 Gbps 2. *(Domain 2)*
+**Answer: D.** Short costs: 10 Mbps 100, 100 Mbps 19, 1 Gbps 4, 10 Gbps 2. *(Domain 2)*
 
 </details>
 
@@ -162,14 +162,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q12. A named extended ACL has `10 permit ip any any` and `20 deny tcp any any eq 23`. Telnet still works. Why?
 
-- A) Named ACLs are processed bottom-up
-- B) The first match (entry 10) permits all traffic
+- A) The ACL needs `log`
+- B) Named ACLs are processed bottom-up
 - C) Telnet uses UDP
-- D) The ACL needs `log`
+- D) The first match (entry 10) permits all traffic
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Put specific entries before general ones; you can insert with a lower sequence number. *(Domain 4)*
+**Answer: D.** Put specific entries before general ones; you can insert with a lower sequence number. *(Domain 4)*
 
 </details>
 
@@ -177,8 +177,8 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 - A) Disables MAC learning
 - B) Dynamically learns MACs and adds them to the running configuration
-- C) Shuts the port
-- D) Sets the maximum to 1
+- C) Sets the maximum to 1
+- D) Shuts the port
 
 <details><summary>Answer</summary>
 
@@ -188,14 +188,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q14. Which command shows each switch port's status, VLAN, duplex, speed and type in one table?
 
-- A) show interfaces status
-- B) show ip interface brief
-- C) show running-config
-- D) show version
+- A) show running-config
+- B) show version
+- C) show ip interface brief
+- D) show interfaces status
 
 <details><summary>Answer</summary>
 
-**Answer: A.** `show interfaces status` is the quick access-layer overview. *(Domain 2)*
+**Answer: D.** `show interfaces status` is the quick access-layer overview. *(Domain 2)*
 
 </details>
 
@@ -214,10 +214,10 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q16. In `show cdp neighbors`, what does the `Port ID` column show?
 
-- A) The local interface
+- A) The VLAN ID
 - B) The neighbor's interface that connects to you
-- C) The VLAN ID
-- D) The TCP port
+- C) The TCP port
+- D) The local interface
 
 <details><summary>Answer</summary>
 
@@ -240,10 +240,10 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q18. `show standby brief` on R1 shows `Gi0/0 10 110 P Active local 10.1.1.3 10.1.1.1`. What is the virtual IP?
 
-- A) 10.1.1.3
+- A) 10.1.1.110
 - B) 10.1.1.1
-- C) 10.1.1.110
-- D) The IP of Gi0/0
+- C) The IP of Gi0/0
+- D) 10.1.1.3
 
 <details><summary>Answer</summary>
 
@@ -280,13 +280,13 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q21. Which component is required for WPA2-Enterprise or WPA3-Enterprise authentication?
 
 - A) A TACACS+ server
-- B) An 802.1X authentication server such as RADIUS
+- B) A syslog server
 - C) A DHCP server
-- D) A syslog server
+- D) An 802.1X authentication server such as RADIUS
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Enterprise mode uses 802.1X/EAP with a RADIUS server. *(Domain 1)*
+**Answer: D.** Enterprise mode uses 802.1X/EAP with a RADIUS server. *(Domain 1)*
 
 </details>
 
@@ -318,40 +318,40 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q24. Host A is 192.168.10.30/27 with gateway 192.168.10.33. A cannot reach other subnets. What is wrong?
 
-- A) The mask is invalid
-- B) The gateway is outside Host A's subnet (192.168.10.0/27 ends at .31)
-- C) The gateway must be .1
-- D) Host A needs a /24
+- A) Host A needs a /24
+- B) The gateway must be .1
+- C) The gateway is outside Host A's subnet (192.168.10.0/27 ends at .31)
+- D) The mask is invalid
 
 <details><summary>Answer</summary>
 
-**Answer: B.** 192.168.10.0/27 covers .0-.31; .33 is in the next subnet, so A cannot ARP for it. *(Domain 1)*
+**Answer: C.** 192.168.10.0/27 covers .0-.31; .33 is in the next subnet, so A cannot ARP for it. *(Domain 1)*
 
 </details>
 
 ### Q25. In the routing table entry `O 10.20.0.0/16 [110/30] via 10.0.12.2`, what is 110?
 
-- A) The metric
-- B) The administrative distance
-- C) The hop count
+- A) The administrative distance
+- B) The hop count
+- C) The metric
 - D) The route age
 
 <details><summary>Answer</summary>
 
-**Answer: B.** [AD/metric]: 110 is OSPF's administrative distance; 30 is the cost. *(Domain 3)*
+**Answer: A.** [AD/metric]: 110 is OSPF's administrative distance; 30 is the cost. *(Domain 3)*
 
 </details>
 
 ### Q26. What is the size of the 802.1Q tag inserted into an Ethernet frame?
 
 - A) 2 bytes
-- B) 4 bytes
-- C) 8 bytes
-- D) 12 bytes
+- B) 12 bytes
+- C) 4 bytes
+- D) 8 bytes
 
 <details><summary>Answer</summary>
 
-**Answer: B.** TPID (2 B) + TCI (2 B: PCP, DEI, 12-bit VID). *(Domain 2)*
+**Answer: C.** TPID (2 B) + TCI (2 B: PCP, DEI, 12-bit VID). *(Domain 2)*
 
 </details>
 
@@ -370,10 +370,10 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q28. What is the maximum standard segment length for 1000BASE-T?
 
-- A) 55 m
+- A) 185 m
 - B) 100 m
-- C) 185 m
-- D) 550 m
+- C) 550 m
+- D) 55 m
 
 <details><summary>Answer</summary>
 
@@ -396,14 +396,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q30. Which feature limits broadcast traffic on an access port to 5% of bandwidth?
 
-- A) storm-control broadcast level 5.00
-- B) switchport port-security maximum 5
-- C) ip dhcp snooping limit rate 5
-- D) spanning-tree bpduguard
+- A) ip dhcp snooping limit rate 5
+- B) storm-control broadcast level 5.00
+- C) spanning-tree bpduguard
+- D) switchport port-security maximum 5
 
 <details><summary>Answer</summary>
 
-**Answer: A.** Storm control can drop, trap or shut down when the threshold is exceeded. *(Domain 4)*
+**Answer: B.** Storm control can drop, trap or shut down when the threshold is exceeded. *(Domain 4)*
 
 </details>
 
@@ -448,9 +448,9 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q34. `show spanning-tree vlan 10` on SW3 shows `Gi0/2 Altn BLK 4 128.26 P2p`. What does this mean?
 
-- A) Gi0/2 is the root port
+- A) Gi0/2 is err-disabled
 - B) Gi0/2 is an alternate port in the discarding/blocking state
-- C) Gi0/2 is err-disabled
+- C) Gi0/2 is the root port
 - D) Gi0/2 is an edge port
 
 <details><summary>Answer</summary>
@@ -474,67 +474,67 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q36. You changed `router-id` under OSPF, but `show ip ospf` still shows the old ID. What must you do?
 
-- A) Nothing; it updates in 30 seconds
-- B) Run `clear ip ospf process` (or reload)
-- C) Change the area
-- D) Remove all network statements
+- A) Run `clear ip ospf process` (or reload)
+- B) Change the area
+- C) Remove all network statements
+- D) Nothing; it updates in 30 seconds
 
 <details><summary>Answer</summary>
 
-**Answer: B.** The RID is chosen when the process starts. *(Domain 3)*
+**Answer: A.** The RID is chosen when the process starts. *(Domain 3)*
 
 </details>
 
 ### Q37. `www.example.com` is a CNAME to `web.example.net`. What must exist for the name to resolve to an address?
 
-- A) A PTR for `www.example.com`
-- B) An A or AAAA record for `web.example.net`
-- C) An MX for `web.example.net`
+- A) An A or AAAA record for `web.example.net`
+- B) An MX for `web.example.net`
+- C) A PTR for `www.example.com`
 - D) Nothing else
 
 <details><summary>Answer</summary>
 
-**Answer: B.** A CNAME is an alias; the canonical name must resolve to A/AAAA. *(Domain 4)*
+**Answer: A.** A CNAME is an alias; the canonical name must resolve to A/AAAA. *(Domain 4)*
 
 </details>
 
 ### Q38. Which TWO features are best practice on a port connected to a desktop PC? (Choose 2.)
 
-- A) spanning-tree portfast
-- B) spanning-tree bpduguard enable
-- C) switchport mode trunk
-- D) channel-group 1 mode active
-- E) spanning-tree guard root
+- A) channel-group 1 mode active
+- B) spanning-tree guard root
+- C) spanning-tree bpduguard enable
+- D) switchport mode trunk
+- E) spanning-tree portfast
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Edge ports go forwarding immediately and err-disable if a switch is connected. *(Domain 2)*
+**Answer: C, E.** Edge ports go forwarding immediately and err-disable if a switch is connected. *(Domain 2)*
 
 </details>
 
 ### Q39. What is the role of a transceiver such as an SFP+ module?
 
 - A) It routes packets between VLANs
-- B) It converts electrical signals to optical (or copper) signals for a specific media type and distance
-- C) It stores the startup configuration
-- D) It provides PoE
+- B) It stores the startup configuration
+- C) It provides PoE
+- D) It converts electrical signals to optical (or copper) signals for a specific media type and distance
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Pluggable optics define the physical media, wavelength and reach. *(Domain 1)*
+**Answer: D.** Pluggable optics define the physical media, wavelength and reach. *(Domain 1)*
 
 </details>
 
 ### Q40. Which Ansible characteristic is true?
 
-- A) It needs an agent on every network device
-- B) It is agentless and connects over SSH or APIs from a control node
-- C) It only works on Windows
-- D) It requires a database server
+- A) It is agentless and connects over SSH or APIs from a control node
+- B) It only works on Windows
+- C) It requires a database server
+- D) It needs an agent on every network device
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Network modules use network_cli, netconf or httpapi connections. *(Domain 5)*
+**Answer: A.** Network modules use network_cli, netconf or httpapi connections. *(Domain 5)*
 
 </details>
 
@@ -542,9 +542,9 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 - A) Gateways at each site build the tunnel; end hosts need no VPN software
 - B) Tunnel mode protects the entire original packet with a new outer IP header
-- C) Each user installs a VPN client
+- C) It cannot carry routing protocols
 - D) It uses only TCP 443
-- E) It cannot carry routing protocols
+- E) Each user installs a VPN client
 
 <details><summary>Answer</summary>
 
@@ -554,8 +554,8 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q42. Which SNMP version supports authentication and encryption?
 
-- A) v1
-- B) v2c
+- A) v2c
+- B) v1
 - C) v3
 - D) All versions
 
@@ -567,15 +567,15 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q43. NAT is configured, but `show ip nat translations` is empty and users have no internet. Which TWO items do you check first? (Choose 2.)
 
-- A) `ip nat inside` and `ip nat outside` on the correct interfaces
-- B) The ACL matches the inside source addresses
-- C) The VTP domain
-- D) The CDP timers
-- E) The HSRP group
+- A) The CDP timers
+- B) `ip nat inside` and `ip nat outside` on the correct interfaces
+- C) The HSRP group
+- D) The VTP domain
+- E) The ACL matches the inside source addresses
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Traffic must enter an inside interface, match the ACL and exit an outside interface. *(Domain 4)*
+**Answer: B, E.** Traffic must enter an inside interface, match the ACL and exit an outside interface. *(Domain 4)*
 
 </details>
 
@@ -608,65 +608,65 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q46. Which prompt is best for getting a usable review of a routing change from a generative AI assistant?
 
 - A) 'Is this OK?'
-- B) 'You are a senior network engineer. Review this OSPF change for risks. Do not invent commands. Answer as a table: line, risk, fix.'
-- C) 'Write me a poem about OSPF.'
-- D) 'Fix my network.'
+- B) 'Write me a poem about OSPF.'
+- C) 'Fix my network.'
+- D) 'You are a senior network engineer. Review this OSPF change for risks. Do not invent commands. Answer as a table: line, risk, fix.'
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Good prompts set a persona, give clear instructions and define the output format. *(Domain 5)*
+**Answer: D.** Good prompts set a persona, give clear instructions and define the output format. *(Domain 5)*
 
 </details>
 
 ### Q47. Which command shows the root bridge ID, root port and root cost for every VLAN on a switch?
 
-- A) show spanning-tree root
+- A) show interfaces trunk
 - B) show spanning-tree blockedports
-- C) show vlan brief
-- D) show interfaces trunk
+- C) show spanning-tree root
+- D) show vlan brief
 
 <details><summary>Answer</summary>
 
-**Answer: A.** `show spanning-tree root` summarizes root information per VLAN. *(Domain 2)*
+**Answer: C.** `show spanning-tree root` summarizes root information per VLAN. *(Domain 2)*
 
 </details>
 
 ### Q48. A Cisco router must act as a SLAAC client on G0/0. Which interface command does this?
 
-- A) ipv6 address dhcp
-- B) ipv6 address autoconfig
+- A) ipv6 address autoconfig
+- B) ipv6 unicast-routing
 - C) ipv6 enable
-- D) ipv6 unicast-routing
+- D) ipv6 address dhcp
 
 <details><summary>Answer</summary>
 
-**Answer: B.** `ipv6 address autoconfig` builds an address from received RAs. `ipv6 address dhcp` uses DHCPv6. *(Domain 1)*
+**Answer: A.** `ipv6 address autoconfig` builds an address from received RAs. `ipv6 address dhcp` uses DHCPv6. *(Domain 1)*
 
 </details>
 
 ### Q49. Which statement describes cloud-based network management (for example Meraki)?
 
-- A) Devices are managed from a cloud dashboard while user traffic stays local
-- B) All user traffic must traverse the cloud
-- C) It needs no internet connection
-- D) It requires OSPF to the cloud
+- A) It requires OSPF to the cloud
+- B) It needs no internet connection
+- C) Devices are managed from a cloud dashboard while user traffic stays local
+- D) All user traffic must traverse the cloud
 
 <details><summary>Answer</summary>
 
-**Answer: A.** The management plane is in the cloud; the data plane stays on site. *(Domain 5)*
+**Answer: C.** The management plane is in the cloud; the data plane stays on site. *(Domain 5)*
 
 </details>
 
 ### Q50. Which field in a relayed DHCP DISCOVER tells the server which subnet the client is on?
 
-- A) ciaddr
-- B) giaddr
-- C) yiaddr
-- D) siaddr
+- A) siaddr
+- B) yiaddr
+- C) giaddr
+- D) ciaddr
 
 <details><summary>Answer</summary>
 
-**Answer: B.** giaddr is set by the relay to its interface address in the client subnet. *(Domain 1)*
+**Answer: C.** giaddr is set by the relay to its interface address in the client subnet. *(Domain 1)*
 
 </details>
 
@@ -698,27 +698,27 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q53. After enabling DHCP snooping, no client gets an address. The DHCP server is reached through uplink G1/0/48. What is missing?
 
-- A) `ip dhcp snooping trust` on G1/0/48
-- B) `spanning-tree portfast` on G1/0/48
-- C) Port security on G1/0/48
-- D) A static ARP entry
+- A) A static ARP entry
+- B) Port security on G1/0/48
+- C) `spanning-tree portfast` on G1/0/48
+- D) `ip dhcp snooping trust` on G1/0/48
 
 <details><summary>Answer</summary>
 
-**Answer: A.** All ports are untrusted by default; also check option 82 behaviour. *(Domain 4)*
+**Answer: D.** All ports are untrusted by default; also check option 82 behaviour. *(Domain 4)*
 
 </details>
 
 ### Q54. Which command makes a switch the root bridge for VLAN 10 by lowering its priority automatically?
 
-- A) spanning-tree vlan 10 root primary
-- B) spanning-tree vlan 10 priority 65535
-- C) spanning-tree root 10
+- A) spanning-tree root 10
+- B) spanning-tree vlan 10 root primary
+- C) spanning-tree vlan 10 priority 65535
 - D) spanning-tree mode root
 
 <details><summary>Answer</summary>
 
-**Answer: A.** root primary sets 24576 or lower than the current root. *(Domain 2)*
+**Answer: B.** root primary sets 24576 or lower than the current root. *(Domain 2)*
 
 </details>
 
@@ -750,37 +750,37 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q57. Which TWO statements about RSTP are correct? (Choose 2.)
 
-- A) It converges in about a second on point-to-point links using proposal/agreement
-- B) It defines edge ports as part of the standard
-- C) It uses five port states
+- A) It defines edge ports as part of the standard
+- B) It uses five port states
+- C) It works only on VLAN 1
 - D) It requires PAgP
-- E) It works only on VLAN 1
+- E) It converges in about a second on point-to-point links using proposal/agreement
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** RSTP adds a handshake for fast convergence and standardizes edge ports. *(Domain 2)*
+**Answer: A, E.** RSTP adds a handshake for fast convergence and standardizes edge ports. *(Domain 2)*
 
 </details>
 
 ### Q58. `show etherchannel summary` shows `Po1(SU)` and both members `(P)`. What does this mean?
 
-- A) The bundle is down
-- B) Layer 2 port-channel in use, both members bundled
+- A) Members are stand-alone
+- B) The bundle is down
 - C) Layer 3 port-channel, members suspended
-- D) Members are stand-alone
+- D) Layer 2 port-channel in use, both members bundled
 
 <details><summary>Answer</summary>
 
-**Answer: B.** S = Layer 2, U = in use, P = bundled in port-channel. *(Domain 2)*
+**Answer: D.** S = Layer 2, U = in use, P = bundled in port-channel. *(Domain 2)*
 
 </details>
 
 ### Q59. Which protocol is enabled by default on Cisco devices and shows the neighbor's device ID, platform, IP address and connected port?
 
-- A) LLDP
+- A) DTP
 - B) CDP
-- C) SNMP
-- D) DTP
+- C) LLDP
+- D) SNMP
 
 <details><summary>Answer</summary>
 
@@ -803,54 +803,54 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q61. A switch uplink is configured `switchport mode trunk`, and the neighbor is `switchport mode access`. What happens?
 
-- A) A trunk forms
-- B) The link is inconsistent: one side tags frames, the other does not, so traffic is misdelivered or dropped
-- C) EtherChannel forms
-- D) Both ports err-disable immediately
+- A) EtherChannel forms
+- B) Both ports err-disable immediately
+- C) A trunk forms
+- D) The link is inconsistent: one side tags frames, the other does not, so traffic is misdelivered or dropped
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Mode mismatches cause partial or broken connectivity; configure both ends the same. *(Domain 2)*
+**Answer: D.** Mode mismatches cause partial or broken connectivity; configure both ends the same. *(Domain 2)*
 
 </details>
 
 ### Q62. Which command must be entered before AAA method lists can be configured on IOS?
 
-- A) aaa enable
-- B) aaa new-model
+- A) tacacs enable
+- B) aaa enable
 - C) aaa authentication enable
-- D) tacacs enable
+- D) aaa new-model
 
 <details><summary>Answer</summary>
 
-**Answer: B.** `aaa new-model` activates AAA. *(Domain 4)*
+**Answer: D.** `aaa new-model` activates AAA. *(Domain 4)*
 
 </details>
 
 ### Q63. Why should every device have NTP configured before you rely on syslog?
 
-- A) NTP encrypts logs
-- B) Accurate, consistent timestamps let you correlate events across devices
+- A) Accurate, consistent timestamps let you correlate events across devices
+- B) NTP encrypts logs
 - C) Syslog requires NTP to start
 - D) NTP increases buffer size
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Also enable `service timestamps log datetime msec`. *(Domain 5)*
+**Answer: A.** Also enable `service timestamps log datetime msec`. *(Domain 5)*
 
 </details>
 
 ### Q64. You must copy a new IOS XE image to a router securely. Which TWO protocols are appropriate? (Choose 2.)
 
-- A) SCP
-- B) SFTP
-- C) TFTP
-- D) FTP
+- A) FTP
+- B) SCP
+- C) SFTP
+- D) TFTP
 - E) Telnet
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** SCP and SFTP run over SSH and encrypt the transfer; TFTP and FTP do not. *(Domain 4)*
+**Answer: B, C.** SCP and SFTP run over SSH and encrypt the transfer; TFTP and FTP do not. *(Domain 4)*
 
 </details>
 
@@ -869,9 +869,9 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q66. How many IPv4 ACLs can be applied to one interface?
 
-- A) One per interface
+- A) Unlimited
 - B) One per direction (in and out) per interface
-- C) Unlimited
+- C) One per interface
 - D) Two per VLAN
 
 <details><summary>Answer</summary>
@@ -882,14 +882,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q67. What happens when a port with BPDU guard enabled receives a BPDU?
 
-- A) The BPDU is ignored
-- B) The port goes to err-disabled
-- C) The port becomes root
-- D) The port moves to VLAN 1
+- A) The port becomes root
+- B) The port moves to VLAN 1
+- C) The BPDU is ignored
+- D) The port goes to err-disabled
 
 <details><summary>Answer</summary>
 
-**Answer: B.** BPDU guard shuts the port to stop rogue switches and loops. *(Domain 2)*
+**Answer: D.** BPDU guard shuts the port to stop rogue switches and loops. *(Domain 2)*
 
 </details>
 
@@ -909,13 +909,13 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q69. Which command creates a local user with the strongest password hashing available on modern IOS XE?
 
 - A) username admin password Cisco123
-- B) username admin secret 5 Cisco123
-- C) username admin privilege 15 algorithm-type scrypt secret Str0ng!Pass
+- B) username admin privilege 15 algorithm-type scrypt secret Str0ng!Pass
+- C) username admin secret 5 Cisco123
 - D) enable password Cisco123
 
 <details><summary>Answer</summary>
 
-**Answer: C.** scrypt (type 9) is a strong hash; `password` stores reversible or clear text. *(Domain 4)*
+**Answer: B.** scrypt (type 9) is a strong hash; `password` stores reversible or clear text. *(Domain 4)*
 
 </details>
 
@@ -934,37 +934,37 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q71. Which TWO conditions must be true for two routers to form an OSPFv2 adjacency on an Ethernet link? (Choose 2.)
 
-- A) Same area ID
+- A) Same interface bandwidth
 - B) Same hello and dead intervals
 - C) Same process ID
 - D) Same router ID
-- E) Same interface bandwidth
+- E) Same area ID
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Area, timers, subnet, authentication and stub flags must match; process IDs are local. *(Domain 3)*
+**Answer: B, E.** Area, timers, subnet, authentication and stub flags must match; process IDs are local. *(Domain 3)*
 
 </details>
 
 ### Q72. On a broadcast segment, router A has priority 1 and RID 3.3.3.3, router B priority 1 and RID 1.1.1.1, router C priority 0 and RID 9.9.9.9. All start at the same time. Which is DR?
 
-- A) Router A
-- B) Router B
-- C) Router C
-- D) None
+- A) Router B
+- B) Router A
+- C) None
+- D) Router C
 
 <details><summary>Answer</summary>
 
-**Answer: A.** Priority 0 never becomes DR. Among priority-1 routers, the highest RID (3.3.3.3) wins. *(Domain 3)*
+**Answer: B.** Priority 0 never becomes DR. Among priority-1 routers, the highest RID (3.3.3.3) wins. *(Domain 3)*
 
 </details>
 
 ### Q73. In the 2.4 GHz band, which channel set avoids overlap between neighbouring APs?
 
-- A) 1, 4, 8
+- A) 3, 6, 9
 - B) 1, 6, 11
 - C) 2, 7, 12
-- D) 3, 6, 9
+- D) 1, 4, 8
 
 <details><summary>Answer</summary>
 
@@ -974,14 +974,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q74. Which static route is a host route?
 
-- A) ip route 10.1.1.0 255.255.255.0 10.0.0.2
-- B) ip route 10.1.1.10 255.255.255.255 10.0.0.2
-- C) ip route 0.0.0.0 0.0.0.0 10.0.0.2
-- D) ip route 10.0.0.0 255.0.0.0 Null0
+- A) ip route 10.1.1.10 255.255.255.255 10.0.0.2
+- B) ip route 10.0.0.0 255.0.0.0 Null0
+- C) ip route 10.1.1.0 255.255.255.0 10.0.0.2
+- D) ip route 0.0.0.0 0.0.0.0 10.0.0.2
 
 <details><summary>Answer</summary>
 
-**Answer: B.** A /32 mask matches one host. *(Domain 3)*
+**Answer: A.** A /32 mask matches one host. *(Domain 3)*
 
 </details>
 
@@ -1000,14 +1000,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q76. A lightweight AP in local mode connects to an access switch. How should the port be configured?
 
-- A) Trunk carrying all client VLANs
-- B) Access port in the AP management VLAN
-- C) Routed port
-- D) EtherChannel
+- A) Access port in the AP management VLAN
+- B) EtherChannel
+- C) Trunk carrying all client VLANs
+- D) Routed port
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Local-mode APs tunnel client data to the WLC over CAPWAP, so they need only one VLAN. *(Domain 2)*
+**Answer: A.** Local-mode APs tunnel client data to the WLC over CAPWAP, so they need only one VLAN. *(Domain 2)*
 
 </details>
 
@@ -1026,53 +1026,53 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q78. Which Ansible option shows what would change without applying it?
 
-- A) --check (with --diff)
-- B) --force
-- C) --verbose only
+- A) --verbose only
+- B) --check (with --diff)
+- C) --force
 - D) --limit
 
 <details><summary>Answer</summary>
 
-**Answer: A.** Check mode is a dry run; --diff prints the differences. *(Domain 5)*
+**Answer: B.** Check mode is a dry run; --diff prints the differences. *(Domain 5)*
 
 </details>
 
 ### Q79. What best describes agentic AI in network operations?
 
-- A) A static script that runs one show command
-- B) An AI system that plans multi-step tasks and calls tools (show commands, telemetry queries, ticket APIs) to reach a goal
-- C) A replacement for routing protocols
-- D) A new YANG model
+- A) An AI system that plans multi-step tasks and calls tools (show commands, telemetry queries, ticket APIs) to reach a goal
+- B) A replacement for routing protocols
+- C) A new YANG model
+- D) A static script that runs one show command
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Agents reason and act through tools; guardrails and approvals keep them safe. *(Domain 5)*
+**Answer: A.** Agents reason and act through tools; guardrails and approvals keep them safe. *(Domain 5)*
 
 </details>
 
 ### Q80. What does `passive-interface g0/2` under OSPF do?
 
-- A) Removes the network from OSPF
-- B) Advertises the interface's network but stops sending hellos on it, so no neighbors form there
-- C) Makes the router DR
-- D) Disables the interface
+- A) Disables the interface
+- B) Makes the router DR
+- C) Removes the network from OSPF
+- D) Advertises the interface's network but stops sending hellos on it, so no neighbors form there
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Use it on LAN and loopback interfaces with no routers. *(Domain 3)*
+**Answer: D.** Use it on LAN and loopback interfaces with no routers. *(Domain 3)*
 
 </details>
 
 ### Q81. Mail to example.com is delivered to the wrong server. Which record do you check?
 
-- A) CNAME
-- B) MX
-- C) NS
-- D) PTR
+- A) PTR
+- B) NS
+- C) MX
+- D) CNAME
 
 <details><summary>Answer</summary>
 
-**Answer: B.** MX records list mail servers and preferences. *(Domain 4)*
+**Answer: C.** MX records list mail servers and preferences. *(Domain 4)*
 
 </details>
 
@@ -1080,8 +1080,8 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 - A) Containers each include a full guest operating system
 - B) Containers share the host kernel and package only the app and its dependencies; VMs include a full guest OS
-- C) VMs start faster than containers
-- D) Containers require a Type 2 hypervisor
+- C) Containers require a Type 2 hypervisor
+- D) VMs start faster than containers
 
 <details><summary>Answer</summary>
 
@@ -1131,9 +1131,9 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q86. Which virtual MAC format does VRRP use?
 
 - A) 0000.0c07.acXX
-- B) 0000.0c9f.fXXX
+- B) 0100.5e00.00XX
 - C) 0000.5e00.01XX
-- D) 0100.5e00.00XX
+- D) 0000.0c9f.fXXX
 
 <details><summary>Answer</summary>
 
@@ -1143,14 +1143,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q87. Which tool on a Cisco router confirms the exact route used for a specific destination?
 
-- A) show ip route 10.2.3.4
-- B) show ip interface brief
+- A) show ip interface brief
+- B) show ip route 10.2.3.4
 - C) show arp
 - D) show cdp neighbors
 
 <details><summary>Answer</summary>
 
-**Answer: A.** `show ip route <address>` performs the lookup and prints the matching entry. *(Domain 3)*
+**Answer: B.** `show ip route <address>` performs the lookup and prints the matching entry. *(Domain 3)*
 
 </details>
 
@@ -1169,10 +1169,10 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q89. Which command adds VLAN 50 to an existing trunk without removing the other allowed VLANs?
 
-- A) switchport trunk allowed vlan 50
+- A) switchport trunk vlan 50
 - B) switchport trunk allowed vlan add 50
-- C) switchport trunk vlan 50
-- D) switchport access vlan 50
+- C) switchport access vlan 50
+- D) switchport trunk allowed vlan 50
 
 <details><summary>Answer</summary>
 
@@ -1182,27 +1182,27 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q90. Clients in VLAN 40 on a Layer 3 switch receive no DHCP address. The server is 10.99.0.10 in another VLAN. Which command fixes this?
 
-- A) `ip helper-address 10.99.0.10` under interface vlan 40
+- A) `ip dhcp snooping trust` on the SVI
 - B) `ip dhcp relay` globally
-- C) `ip default-gateway 10.99.0.10`
-- D) `ip dhcp snooping trust` on the SVI
+- C) `ip helper-address 10.99.0.10` under interface vlan 40
+- D) `ip default-gateway 10.99.0.10`
 
 <details><summary>Answer</summary>
 
-**Answer: A.** The relay must be on the SVI that receives the client broadcasts. *(Domain 1)*
+**Answer: C.** The relay must be on the SVI that receives the client broadcasts. *(Domain 1)*
 
 </details>
 
 ### Q91. Which command configures an IPv4 default static route to next hop 203.0.113.1?
 
 - A) ip route 0.0.0.0 255.255.255.255 203.0.113.1
-- B) ip route 0.0.0.0 0.0.0.0 203.0.113.1
-- C) ip default-network 203.0.113.1
+- B) ip default-network 203.0.113.1
+- C) ip route 0.0.0.0 0.0.0.0 203.0.113.1
 - D) ip route default 203.0.113.1
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Network 0.0.0.0 with mask 0.0.0.0 matches everything. *(Domain 3)*
+**Answer: C.** Network 0.0.0.0 with mask 0.0.0.0 matches everything. *(Domain 3)*
 
 </details>
 
@@ -1221,10 +1221,10 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q93. What is the main advantage of a Type 1 (bare-metal) hypervisor over a Type 2 hypervisor?
 
-- A) It runs as an app on a desktop OS
+- A) It needs no CPU virtualization support
 - B) It runs directly on the hardware with less overhead, suitable for data centers
 - C) It cannot run Linux guests
-- D) It needs no CPU virtualization support
+- D) It runs as an app on a desktop OS
 
 <details><summary>Answer</summary>
 
@@ -1234,10 +1234,10 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q94. A switch port shows a steadily rising CRC error count and input errors, but no late collisions. Both ends are set to auto. What is the most likely cause?
 
-- A) A duplex mismatch
+- A) A wrong access VLAN
 - B) A damaged cable, dirty fiber connector or failing transceiver
-- C) An STP loop
-- D) A wrong access VLAN
+- C) A duplex mismatch
+- D) An STP loop
 
 <details><summary>Answer</summary>
 
@@ -1260,9 +1260,9 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q96. OSPFv3 on an IPv6-only router fails to start. No IPv4 addresses exist. What is missing?
 
-- A) An IPv6 global address
+- A) A DR
 - B) A manually configured 32-bit router ID
-- C) A DR
+- C) An IPv6 global address
 - D) Area 1
 
 <details><summary>Answer</summary>
@@ -1273,14 +1273,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q97. A host can ping its default gateway but traceroute to a remote server stops at the gateway. What does this indicate?
 
-- A) A Layer 1 problem on the host
-- B) A routing or filtering problem at or beyond the gateway
-- C) A duplex mismatch
+- A) A duplex mismatch
+- B) A Layer 1 problem on the host
+- C) A routing or filtering problem at or beyond the gateway
 - D) A wrong host VLAN
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Layer 2/3 to the gateway works; the next hop or return path fails. *(Domain 2)*
+**Answer: C.** Layer 2/3 to the gateway works; the next hop or return path fails. *(Domain 2)*
 
 </details>
 
@@ -1299,14 +1299,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q99. A client reports an RSSI of −82 dBm and an SNR of 8 dB. What is the likely user experience?
 
-- A) Excellent
-- B) Good enough for voice
-- C) Poor: low data rates, retries and disconnects
+- A) Poor: low data rates, retries and disconnects
+- B) Excellent
+- C) Good enough for voice
 - D) No effect
 
 <details><summary>Answer</summary>
 
-**Answer: C.** Good service usually needs RSSI ≥ −67 dBm and SNR ≥ 25 dB. *(Domain 1)*
+**Answer: A.** Good service usually needs RSSI ≥ −67 dBm and SNR ≥ 25 dB. *(Domain 1)*
 
 </details>
 

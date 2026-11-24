@@ -4,53 +4,53 @@
 
 ### Q1. Which signal best answers "which hosts are sending the most traffic to the database subnet?"
 
-- A) Interface counters
-- B) Flow records (NetFlow/IPFIX/sFlow or VPC Flow Logs)
-- C) Syslog
-- D) CPU metrics
+- A) Syslog
+- B) CPU metrics
+- C) Flow records (NetFlow/IPFIX/sFlow or VPC Flow Logs)
+- D) Interface counters
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Flows record source, destination, ports and volume. Interface counters show totals only.
+**Answer: C.** Flows record source, destination, ports and volume. Interface counters show totals only.
 
 </details>
 
 ### Q2. What is the main difference between sFlow and NetFlow v9?
 
-- A) sFlow uses TCP
-- B) sFlow samples packets (1 in N) and counters; NetFlow builds flow records from a flow cache
-- C) NetFlow cannot carry IPv6
-- D) sFlow is Cisco proprietary
+- A) NetFlow cannot carry IPv6
+- B) sFlow uses TCP
+- C) sFlow is Cisco proprietary
+- D) sFlow samples packets (1 in N) and counters; NetFlow builds flow records from a flow cache
 
 <details><summary>Answer</summary>
 
-**Answer: B.** sFlow is packet sampling plus counter samples. NetFlow v9/IPFIX aggregate packets into template-based flow records.
+**Answer: D.** sFlow is packet sampling plus counter samples. NetFlow v9/IPFIX aggregate packets into template-based flow records.
 
 </details>
 
 ### Q3. Which UDP port is the IANA default for IPFIX?
 
-- A) 2055
-- B) 4739
+- A) 161
+- B) 2055
 - C) 6343
-- D) 161
+- D) 4739
 
 <details><summary>Answer</summary>
 
-**Answer: B.** IPFIX 4739. sFlow 6343. NetFlow commonly 2055/9995 (not IANA-assigned). SNMP 161.
+**Answer: D.** IPFIX 4739. sFlow 6343. NetFlow commonly 2055/9995 (not IANA-assigned). SNMP 161.
 
 </details>
 
 ### Q4. Why must you use `rate()` when graphing `node_network_receive_bytes_total`?
 
-- A) The metric is a gauge
-- B) The metric is a cumulative counter; utilisation is its per-second rate of change
-- C) Prometheus requires it for all metrics
+- A) The metric is a cumulative counter; utilisation is its per-second rate of change
+- B) Prometheus requires it for all metrics
+- C) The metric is a gauge
 - D) To convert bits to bytes
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Counters only increase (and reset). `rate()` computes per-second change and handles resets.
+**Answer: A.** Counters only increase (and reset). `rate()` computes per-second change and handles resets.
 
 </details>
 
@@ -70,14 +70,14 @@
 ### Q6. Which TWO are advantages of gNMI streaming telemetry over SNMP polling? (Choose two.)
 
 - A) Higher-frequency data with lower device CPU cost
-- B) Structured data based on YANG models
-- C) It works on every legacy device
-- D) It uses UDP 161
-- E) It needs no authentication
+- B) It needs no authentication
+- C) It uses UDP 161
+- D) Structured data based on YANG models
+- E) It works on every legacy device
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Telemetry pushes YANG-modelled data efficiently. SNMP still wins on universal legacy support.
+**Answer: A, D.** Telemetry pushes YANG-modelled data efficiently. SNMP still wins on universal legacy support.
 
 </details>
 
@@ -96,62 +96,62 @@
 
 ### Q8. How does Datadog Network Performance Monitoring collect flow data on hosts and Kubernetes nodes?
 
-- A) SNMP polling of switches only
-- B) An eBPF-based system-probe in the Datadog Agent that observes connections in the kernel
-- C) Packet capture to disk
-- D) Syslog parsing
+- A) Syslog parsing
+- B) SNMP polling of switches only
+- C) An eBPF-based system-probe in the Datadog Agent that observes connections in the kernel
+- D) Packet capture to disk
 
 <details><summary>Answer</summary>
 
-**Answer: B.** The system-probe uses eBPF to collect connection-level metrics (volume, retransmits, RTT) tagged by service.
+**Answer: C.** The system-probe uses eBPF to collect connection-level metrics (volume, retransmits, RTT) tagged by service.
 
 </details>
 
 ### Q9. Which Prometheus exporter runs synthetic ICMP, HTTP, DNS and TCP probes?
 
-- A) node_exporter
-- B) snmp_exporter
-- C) blackbox_exporter
+- A) blackbox_exporter
+- B) node_exporter
+- C) snmp_exporter
 - D) pushgateway
 
 <details><summary>Answer</summary>
 
-**Answer: C.** blackbox_exporter probes targets and exposes `probe_success` and timing metrics.
+**Answer: A.** blackbox_exporter probes targets and exposes `probe_success` and timing metrics.
 
 </details>
 
 ### Q10. Scenario: Users report slowness, but 5-minute average link utilisation is only 40%. What could hide the problem?
 
-- A) DNS caching
-- B) Microbursts that fill buffers for milliseconds; check queue drops and use finer-grained telemetry
-- C) Too many dashboards
+- A) Too many dashboards
+- B) DNS caching
+- C) Microbursts that fill buffers for milliseconds; check queue drops and use finer-grained telemetry
 - D) IPv6
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Averages smooth out short bursts. Look at output drops/discards and high-resolution telemetry.
+**Answer: C.** Averages smooth out short bursts. Look at output drops/discards and high-resolution telemetry.
 
 </details>
 
 ### Q11. Why is `for: 5m` important in a Prometheus alert rule?
 
 - A) It delays scrapes
-- B) The condition must stay true for 5 minutes before the alert fires, which reduces flapping and noise
-- C) It sets the retention period
-- D) It sets the rate window
+- B) It sets the rate window
+- C) The condition must stay true for 5 minutes before the alert fires, which reduces flapping and noise
+- D) It sets the retention period
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Durations prevent alerts on brief blips.
+**Answer: C.** Durations prevent alerts on brief blips.
 
 </details>
 
 ### Q12. Flow totals from a sampled sFlow collector are 1000× lower than interface counters. What is the most likely cause?
 
-- A) The link is down
+- A) Flows are encrypted
 - B) The collector did not multiply by the sampling rate (1:1000)
-- C) Flows are encrypted
-- D) MTU mismatch
+- C) MTU mismatch
+- D) The link is down
 
 <details><summary>Answer</summary>
 
@@ -161,36 +161,36 @@
 
 ### Q13. Which is a good network SLI?
 
-- A) Number of routers
-- B) Percentage of successful synthetic probes from user locations to the service
+- A) Percentage of successful synthetic probes from user locations to the service
+- B) Number of routers
 - C) Number of VLANs
 - D) Size of the config file
 
 <details><summary>Answer</summary>
 
-**Answer: B.** SLIs measure the user experience: availability, latency, loss.
+**Answer: A.** SLIs measure the user experience: availability, latency, loss.
 
 </details>
 
 ### Q14. Which signal type is best for proving exactly why a TLS handshake fails between two hosts?
 
-- A) Flow records
+- A) Packet capture
 - B) Interface metrics
-- C) Packet capture
-- D) SNMP traps
+- C) SNMP traps
+- D) Flow records
 
 <details><summary>Answer</summary>
 
-**Answer: C.** Only packets show the handshake messages and alerts. Capture on demand because of volume and privacy.
+**Answer: A.** Only packets show the handshake messages and alerts. Capture on demand because of volume and privacy.
 
 </details>
 
 ### Q15. Scenario: Your AWS bill shows high NAT gateway data processing charges. Which observability data helps you find the cause fastest?
 
-- A) EC2 CPU metrics
+- A) Syslog from routers
 - B) VPC Flow Logs (or Datadog NPM) grouped by destination, to find large flows to S3/ECR that could use VPC endpoints
 - C) CloudTrail only
-- D) Syslog from routers
+- D) EC2 CPU metrics
 
 <details><summary>Answer</summary>
 

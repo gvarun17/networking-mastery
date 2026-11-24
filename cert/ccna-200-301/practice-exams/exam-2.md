@@ -19,40 +19,40 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q1. Which Ansible file lists the devices to manage and their variables?
 
-- A) Playbook
-- B) Inventory
-- C) Role
-- D) ansible.cfg only
+- A) Inventory
+- B) ansible.cfg only
+- C) Playbook
+- D) Role
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Playbooks define tasks; inventories define hosts and groups. *(Domain 5)*
+**Answer: A.** Playbooks define tasks; inventories define hosts and groups. *(Domain 5)*
 
 </details>
 
 ### Q2. What is the main benefit of an EtherChannel compared with two separate trunk links between the same switches?
 
-- A) STP sees one logical link, so both physical links forward and traffic is load-shared
-- B) It removes the need for VLANs
-- C) It encrypts traffic
-- D) It doubles the speed of each flow
+- A) It encrypts traffic
+- B) It doubles the speed of each flow
+- C) It removes the need for VLANs
+- D) STP sees one logical link, so both physical links forward and traffic is load-shared
 
 <details><summary>Answer</summary>
 
-**Answer: A.** Load sharing is per flow; a single flow still uses one member link. *(Domain 2)*
+**Answer: D.** Load sharing is per flow; a single flow still uses one member link. *(Domain 2)*
 
 </details>
 
 ### Q3. An IPv6 host has a global address but no default route. Which message did it probably not receive?
 
-- A) Neighbor Advertisement
-- B) Router Advertisement with a non-zero router lifetime
+- A) Router Advertisement with a non-zero router lifetime
+- B) ICMPv6 Echo Reply
 - C) DHCPv6 Reply
-- D) ICMPv6 Echo Reply
+- D) Neighbor Advertisement
 
 <details><summary>Answer</summary>
 
-**Answer: B.** The default route comes from RAs; DHCPv6 does not provide a gateway. *(Domain 1)*
+**Answer: A.** The default route comes from RAs; DHCPv6 does not provide a gateway. *(Domain 1)*
 
 </details>
 
@@ -71,42 +71,42 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q5. Which management approach configures each device individually through its own CLI?
 
-- A) Controller-based
-- B) Device-based (traditional)
-- C) Cloud-based
-- D) Infrastructure as code
+- A) Infrastructure as code
+- B) Cloud-based
+- C) Controller-based
+- D) Device-based (traditional)
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Traditional management is per device, usually SSH. *(Domain 5)*
+**Answer: D.** Traditional management is per device, usually SSH. *(Domain 5)*
 
 </details>
 
 ### Q6. Which TWO practices make an AI agent safer in a production network? (Choose 2.)
 
-- A) Least-privilege, read-only tool access by default
-- B) Human approval before configuration changes, with audit logs
-- C) Giving the agent enable-level access to all devices
+- A) Human approval before configuration changes, with audit logs
+- B) Giving the agent enable-level access to all devices
+- C) Allowing the agent to change its own permissions
 - D) Disabling logging to save storage
-- E) Allowing the agent to change its own permissions
+- E) Least-privilege, read-only tool access by default
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Restrict tools, require approvals for changes, log everything. *(Domain 5)*
+**Answer: A, E.** Restrict tools, require approvals for changes, log everything. *(Domain 5)*
 
 </details>
 
 ### Q7. Which TWO settings must match on all member ports for an EtherChannel to bundle? (Choose 2.)
 
 - A) Speed and duplex
-- B) Trunk/access mode and allowed VLANs
-- C) Interface descriptions
-- D) CDP neighbor names
-- E) Port numbers
+- B) Port numbers
+- C) Trunk/access mode and allowed VLANs
+- D) Interface descriptions
+- E) CDP neighbor names
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Members must share speed, duplex, mode, VLAN settings and native VLAN. *(Domain 2)*
+**Answer: A, C.** Members must share speed, duplex, mode, VLAN settings and native VLAN. *(Domain 2)*
 
 </details>
 
@@ -125,23 +125,23 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q9. Which IPv6 address type is automatically configured on every IPv6-enabled interface and used for neighbor discovery and routing protocol next hops?
 
-- A) Global unicast
-- B) Unique local
-- C) Link-local (fe80::/10)
-- D) Anycast
+- A) Unique local
+- B) Anycast
+- C) Global unicast
+- D) Link-local (fe80::/10)
 
 <details><summary>Answer</summary>
 
-**Answer: C.** Every interface creates a link-local address; NDP and IGP neighbors use it. *(Domain 1)*
+**Answer: D.** Every interface creates a link-local address; NDP and IGP neighbors use it. *(Domain 1)*
 
 </details>
 
 ### Q10. With the default reference bandwidth of 100 Mbps, why do Gigabit and 10-Gigabit links get the same OSPF cost?
 
-- A) OSPF ignores bandwidth
+- A) Cisco caps cost at 10
 - B) 100/1000 and 100/10000 round up to the minimum cost of 1
 - C) They use different areas
-- D) Cisco caps cost at 10
+- D) OSPF ignores bandwidth
 
 <details><summary>Answer</summary>
 
@@ -177,36 +177,36 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q13. Which command enables LLDP globally on a Cisco switch?
 
-- A) lldp enable
-- B) lldp run
-- C) cdp run lldp
-- D) lldp transmit
+- A) lldp transmit
+- B) cdp run lldp
+- C) lldp enable
+- D) lldp run
 
 <details><summary>Answer</summary>
 
-**Answer: B.** `lldp run` (global). Per-interface `lldp transmit`/`lldp receive` can then be adjusted. *(Domain 2)*
+**Answer: D.** `lldp run` (global). Per-interface `lldp transmit`/`lldp receive` can then be adjusted. *(Domain 2)*
 
 </details>
 
 ### Q14. Which value is a valid STP bridge priority?
 
-- A) 1000
-- B) 20480
-- C) 33000
-- D) 65536
+- A) 65536
+- B) 33000
+- C) 1000
+- D) 20480
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Priorities are multiples of 4096 from 0 to 61440 (20480 = 5 × 4096). *(Domain 2)*
+**Answer: D.** Priorities are multiples of 4096 from 0 to 61440 (20480 = 5 × 4096). *(Domain 2)*
 
 </details>
 
 ### Q15. How do you configure a Layer 3 EtherChannel on a multilayer switch?
 
 - A) Apply `no switchport` to the members and the port-channel, then put the IP address on the port-channel
-- B) Put IP addresses on each member port
-- C) Use `switchport mode trunk` on the port-channel
-- D) Use PAgP only
+- B) Use `switchport mode trunk` on the port-channel
+- C) Use PAgP only
+- D) Put IP addresses on each member port
 
 <details><summary>Answer</summary>
 
@@ -229,41 +229,41 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q17. A new router with OSPF priority 200 joins a LAN that already has a DR with priority 1. What happens?
 
-- A) It becomes DR immediately
-- B) Nothing until the current DR and BDR fail; OSPF DR election is not preemptive
-- C) The current DR reloads
-- D) The new router becomes BDR immediately regardless
+- A) The current DR reloads
+- B) The new router becomes BDR immediately regardless
+- C) It becomes DR immediately
+- D) Nothing until the current DR and BDR fail; OSPF DR election is not preemptive
 
 <details><summary>Answer</summary>
 
-**Answer: B.** DR/BDR election happens only when the roles are vacant. *(Domain 3)*
+**Answer: D.** DR/BDR election happens only when the roles are vacant. *(Domain 3)*
 
 </details>
 
 ### Q18. Which TWO commands verify Layer 3 connectivity and the path to a remote host from a Cisco router? (Choose 2.)
 
-- A) ping
+- A) show mac address-table
 - B) traceroute
 - C) show vlan brief
-- D) show mac address-table
+- D) ping
 - E) show spanning-tree
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** ping tests reachability; traceroute shows each hop. *(Domain 2)*
+**Answer: B, D.** ping tests reachability; traceroute shows each hop. *(Domain 2)*
 
 </details>
 
 ### Q19. What does PMF (802.11w), mandatory in WPA3, protect against?
 
-- A) Co-channel interference
-- B) Forged deauthentication/disassociation frames
-- C) DHCP starvation
-- D) Hidden nodes
+- A) DHCP starvation
+- B) Hidden nodes
+- C) Co-channel interference
+- D) Forged deauthentication/disassociation frames
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Protected Management Frames authenticate management frames. *(Domain 1)*
+**Answer: D.** Protected Management Frames authenticate management frames. *(Domain 1)*
 
 </details>
 
@@ -283,13 +283,13 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q21. What is the default OSPF hello/dead interval on broadcast and point-to-point networks?
 
 - A) 5/15 seconds
-- B) 10/40 seconds
+- B) 60/180 seconds
 - C) 30/120 seconds
-- D) 60/180 seconds
+- D) 10/40 seconds
 
 <details><summary>Answer</summary>
 
-**Answer: B.** NBMA uses 30/120. *(Domain 3)*
+**Answer: D.** NBMA uses 30/120. *(Domain 3)*
 
 </details>
 
@@ -308,14 +308,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q23. Two OSPF routers on a point-to-point Ethernet link show `FULL/  -` in `show ip ospf neighbor`. What does the `-` mean?
 
-- A) The neighbor is down
-- B) No DR/BDR election (point-to-point network type)
-- C) Authentication failed
+- A) Authentication failed
+- B) The neighbor is down
+- C) No DR/BDR election (point-to-point network type)
 - D) The neighbor is a DROTHER
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Point-to-point links do not elect a DR. *(Domain 3)*
+**Answer: C.** Point-to-point links do not elect a DR. *(Domain 3)*
 
 </details>
 
@@ -347,38 +347,38 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q26. Which TWO commands advertise interface G0/1 (10.1.12.1/30) into OSPF area 0? (Choose 2.)
 
-- A) `network 10.1.12.0 0.0.0.3 area 0` under router ospf
-- B) `ip ospf 1 area 0` under interface G0/1
-- C) `network 10.1.12.0 255.255.255.252 area 0`
-- D) `ospf area 0` globally
+- A) `ospf area 0` globally
+- B) `network 10.1.12.0 255.255.255.252 area 0`
+- C) `ip ospf 1 area 0` under interface G0/1
+- D) `network 10.1.12.0 0.0.0.3 area 0` under router ospf
 - E) `redistribute connected` only
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** OSPF network statements use wildcard masks; the interface command is an alternative. *(Domain 3)*
+**Answer: C, D.** OSPF network statements use wildcard masks; the interface command is an alternative. *(Domain 3)*
 
 </details>
 
 ### Q27. Which TWO statements about TACACS+ are correct? (Choose 2.)
 
-- A) Uses TCP port 49
-- B) Encrypts the entire packet body
-- C) Uses UDP 1812
-- D) Combines authentication and authorization
-- E) Is mainly used for 802.1X
+- A) Encrypts the entire packet body
+- B) Combines authentication and authorization
+- C) Is mainly used for 802.1X
+- D) Uses TCP port 49
+- E) Uses UDP 1812
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** TACACS+ separates AAA functions and suits device administration. *(Domain 4)*
+**Answer: A, D.** TACACS+ separates AAA functions and suits device administration. *(Domain 4)*
 
 </details>
 
 ### Q28. Which global command enables Rapid PVST+?
 
 - A) spanning-tree mode rapid-pvst
-- B) spanning-tree rstp enable
-- C) spanning-tree mode mst
-- D) spanning-tree portfast default
+- B) spanning-tree portfast default
+- C) spanning-tree rstp enable
+- D) spanning-tree mode mst
 
 <details><summary>Answer</summary>
 
@@ -401,36 +401,36 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q30. Users report one-way traffic: R1 → R3 works, replies fail. R3 has no route to R1's LAN. Which fix is correct?
 
-- A) Add a route on R3 back to R1's LAN (or advertise it in the IGP)
+- A) Enable PortFast on R3
 - B) Change R1's MTU
-- C) Enable PortFast on R3
+- C) Add a route on R3 back to R1's LAN (or advertise it in the IGP)
 - D) Add a NAT rule on R1
 
 <details><summary>Answer</summary>
 
-**Answer: A.** Every path needs a return route. *(Domain 3)*
+**Answer: C.** Every path needs a return route. *(Domain 3)*
 
 </details>
 
 ### Q31. What does the code `L` mean in `show ip route` output?
 
-- A) Learned by LDP
-- B) A local /32 route for an IP address configured on the router's own interface
-- C) A floating static route
-- D) A route learned by LLDP
+- A) A local /32 route for an IP address configured on the router's own interface
+- B) A floating static route
+- C) A route learned by LLDP
+- D) Learned by LDP
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Each interface IP creates a C (connected subnet) and an L (local host) route. *(Domain 3)*
+**Answer: A.** Each interface IP creates a C (connected subnet) and an L (local host) route. *(Domain 3)*
 
 </details>
 
 ### Q32. What is infrastructure as code for networks?
 
-- A) Typing commands faster
+- A) Storing configs on USB drives
 - B) Declaring desired network state in version-controlled files that a pipeline validates and applies
-- C) Using only GUI tools
-- D) Storing configs on USB drives
+- C) Typing commands faster
+- D) Using only GUI tools
 
 <details><summary>Answer</summary>
 
@@ -479,14 +479,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q36. A network printer must always use the same port and only its own MAC. Which feature enforces this?
 
-- A) Port security with maximum 1 and a sticky or static MAC
-- B) Root guard
-- C) DTP
-- D) LLDP
+- A) LLDP
+- B) DTP
+- C) Port security with maximum 1 and a sticky or static MAC
+- D) Root guard
 
 <details><summary>Answer</summary>
 
-**Answer: A.** Port security limits learned MACs and reacts to violations. *(Domain 2)*
+**Answer: C.** Port security limits learned MACs and reacts to violations. *(Domain 2)*
 
 </details>
 
@@ -519,27 +519,27 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q39. In VRRP, what role does the router forwarding traffic for the virtual IP hold?
 
 - A) Active
-- B) Master
-- C) Primary
-- D) Designated
+- B) Designated
+- C) Master
+- D) Primary
 
 <details><summary>Answer</summary>
 
-**Answer: B.** VRRP uses master/backup; HSRP uses active/standby. *(Domain 3)*
+**Answer: C.** VRRP uses master/backup; HSRP uses active/standby. *(Domain 3)*
 
 </details>
 
 ### Q40. Which TWO are common sources of 2.4 GHz interference? (Choose 2.)
 
 - A) Microwave ovens
-- B) Bluetooth devices
-- C) Weather radar
-- D) Fiber optic cables
+- B) Weather radar
+- C) Fiber optic cables
+- D) Bluetooth devices
 - E) 6 GHz APs
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Microwave ovens and Bluetooth share 2.4 GHz. Radar affects 5 GHz DFS channels. *(Domain 1)*
+**Answer: A, D.** Microwave ovens and Bluetooth share 2.4 GHz. Radar affects 5 GHz DFS channels. *(Domain 1)*
 
 </details>
 
@@ -559,14 +559,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q42. A trunk between SW1 and SW2 uses native VLAN 99 on SW1 and native VLAN 1 on SW2. Which TWO results are expected? (Choose 2.)
 
 - A) CDP logs a native VLAN mismatch
-- B) Untagged traffic crosses between VLAN 99 and VLAN 1
-- C) The trunk becomes an EtherChannel
-- D) All tagged VLANs stop working
-- E) STP is disabled
+- B) The trunk becomes an EtherChannel
+- C) STP is disabled
+- D) Untagged traffic crosses between VLAN 99 and VLAN 1
+- E) All tagged VLANs stop working
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Tagged VLANs still work; untagged frames land in the wrong VLAN. *(Domain 2)*
+**Answer: A, D.** Tagged VLANs still work; untagged frames land in the wrong VLAN. *(Domain 2)*
 
 </details>
 
@@ -625,9 +625,9 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q47. Which UDP ports does IKE use with and without NAT traversal?
 
 - A) 500 and 4500
-- B) 1812 and 1813
-- C) 161 and 162
-- D) 1701 and 1723
+- B) 161 and 162
+- C) 1701 and 1723
+- D) 1812 and 1813
 
 <details><summary>Answer</summary>
 
@@ -637,27 +637,27 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q48. What is the difference between an SNMP trap and an inform?
 
-- A) Traps are acknowledged; informs are not
-- B) Informs are acknowledged by the manager; traps are not
+- A) Informs are acknowledged by the manager; traps are not
+- B) There is no difference
 - C) Traps use TCP
-- D) There is no difference
+- D) Traps are acknowledged; informs are not
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Informs are retransmitted until acknowledged, so they are more reliable. *(Domain 5)*
+**Answer: A.** Informs are retransmitted until acknowledged, so they are more reliable. *(Domain 5)*
 
 </details>
 
 ### Q49. Why do dense 5 GHz deployments often use 20 MHz or 40 MHz channels instead of 80 MHz?
 
-- A) Wider channels are not supported in 5 GHz
-- B) Narrower channels give more non-overlapping channels and less co-channel interference
-- C) Narrower channels increase range tenfold
-- D) WPA3 requires 20 MHz
+- A) WPA3 requires 20 MHz
+- B) Narrower channels increase range tenfold
+- C) Wider channels are not supported in 5 GHz
+- D) Narrower channels give more non-overlapping channels and less co-channel interference
 
 <details><summary>Answer</summary>
 
-**Answer: B.** More channels means better reuse across many APs, which improves airtime efficiency. *(Domain 1)*
+**Answer: D.** More channels means better reuse across many APs, which improves airtime efficiency. *(Domain 1)*
 
 </details>
 
@@ -665,8 +665,8 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 - A) A virtual switch (vSwitch)
 - B) A WLC
-- C) A firewall appliance only
-- D) A DHCP relay
+- C) A DHCP relay
+- D) A firewall appliance only
 
 <details><summary>Answer</summary>
 
@@ -676,14 +676,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q51. `aaa authentication login default group tacacs+ local` is configured. When is the local database used?
 
-- A) Always first
-- B) Only when no TACACS+ server responds
-- C) When TACACS+ rejects the password
-- D) Never
+- A) Only when no TACACS+ server responds
+- B) When TACACS+ rejects the password
+- C) Never
+- D) Always first
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Fallback happens on error (no response), not on a failed authentication. *(Domain 4)*
+**Answer: A.** Fallback happens on error (no response), not on a failed authentication. *(Domain 4)*
 
 </details>
 
@@ -728,27 +728,27 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q55. Which command creates an IPv6 default route through next hop 2001:db8:ffff::1?
 
-- A) ipv6 route ::/0 2001:db8:ffff::1
-- B) ipv6 route 0::0/128 2001:db8:ffff::1
-- C) ipv6 default-gateway 2001:db8:ffff::1
-- D) ip route ::/0 2001:db8:ffff::1
+- A) ipv6 default-gateway 2001:db8:ffff::1
+- B) ipv6 route ::/0 2001:db8:ffff::1
+- C) ip route ::/0 2001:db8:ffff::1
+- D) ipv6 route 0::0/128 2001:db8:ffff::1
 
 <details><summary>Answer</summary>
 
-**Answer: A.** ::/0 is the IPv6 default route. *(Domain 3)*
+**Answer: B.** ::/0 is the IPv6 default route. *(Domain 3)*
 
 </details>
 
 ### Q56. Which IPv6 prefix size is recommended for point-to-point router links?
 
-- A) /64
-- B) /96
-- C) /127
+- A) /96
+- B) /127
+- C) /64
 - D) /128
 
 <details><summary>Answer</summary>
 
-**Answer: C.** RFC 6164 recommends /127 for inter-router links; /128 is a single host (loopback). *(Domain 1)*
+**Answer: B.** RFC 6164 recommends /127 for inter-router links; /128 is a single host (loopback). *(Domain 1)*
 
 </details>
 
@@ -767,66 +767,66 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q58. Which Windows command shows the IP address, mask, gateway, DNS servers and DHCP lease of all adapters?
 
-- A) ipconfig /all
-- B) netstat -r
-- C) arp -a
+- A) netstat -r
+- B) arp -a
+- C) ipconfig /all
 - D) tracert
 
 <details><summary>Answer</summary>
 
-**Answer: A.** `ipconfig /all` (Linux: `ip addr`, `ip route`, `resolvectl status`). *(Domain 1)*
+**Answer: C.** `ipconfig /all` (Linux: `ip addr`, `ip route`, `resolvectl status`). *(Domain 1)*
 
 </details>
 
 ### Q59. Which command configures PAT using the outside interface address for hosts permitted by ACL 1?
 
-- A) ip nat inside source list 1 interface g0/0 overload
-- B) ip nat outside source list 1 interface g0/0
-- C) ip nat inside source static 1 g0/0
-- D) ip nat pool 1 overload
+- A) ip nat outside source list 1 interface g0/0
+- B) ip nat inside source static 1 g0/0
+- C) ip nat pool 1 overload
+- D) ip nat inside source list 1 interface g0/0 overload
 
 <details><summary>Answer</summary>
 
-**Answer: A.** `overload` enables port address translation. *(Domain 4)*
+**Answer: D.** `overload` enables port address translation. *(Domain 4)*
 
 </details>
 
 ### Q60. Which command shows on which switch port a given MAC address was learned?
 
-- A) show arp
-- B) show mac address-table address 0050.7966.6800
-- C) show interfaces status
+- A) show interfaces status
+- B) show arp
+- C) show mac address-table address 0050.7966.6800
 - D) show cdp neighbors
 
 <details><summary>Answer</summary>
 
-**Answer: B.** The MAC address table maps MAC, VLAN and port. *(Domain 2)*
+**Answer: C.** The MAC address table maps MAC, VLAN and port. *(Domain 2)*
 
 </details>
 
 ### Q61. Which feature should you enable on distribution switch ports facing access switches to prevent a misconfigured access switch from becoming root?
 
 - A) BPDU filter
-- B) Root guard
-- C) PortFast
+- B) PortFast
+- C) Root guard
 - D) Loop guard
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Root guard puts the port in root-inconsistent state when superior BPDUs arrive. *(Domain 2)*
+**Answer: C.** Root guard puts the port in root-inconsistent state when superior BPDUs arrive. *(Domain 2)*
 
 </details>
 
 ### Q62. What does `permit tcp any any established` match?
 
-- A) Only SYN packets
-- B) TCP packets with the ACK or RST bit set (return traffic of sessions)
-- C) All TCP
-- D) Only port 179
+- A) All TCP
+- B) Only SYN packets
+- C) Only port 179
+- D) TCP packets with the ACK or RST bit set (return traffic of sessions)
 
 <details><summary>Answer</summary>
 
-**Answer: B.** A crude stateless way to allow return traffic; stateful firewalls do this properly. *(Domain 4)*
+**Answer: D.** A crude stateless way to allow return traffic; stateful firewalls do this properly. *(Domain 4)*
 
 </details>
 
@@ -845,14 +845,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q64. A static route `ip route 10.9.0.0 255.255.0.0 10.0.99.2` is missing from the routing table. 10.0.99.2 is not reachable through any other route. Why?
 
-- A) Static routes need AD 0
-- B) The recursive lookup for the next hop fails, so the route is not installed
+- A) The recursive lookup for the next hop fails, so the route is not installed
+- B) Static routes need AD 0
 - C) The mask is invalid
 - D) Static routes appear only after a reload
 
 <details><summary>Answer</summary>
 
-**Answer: B.** A next hop must resolve to a connected or other route. *(Domain 3)*
+**Answer: A.** A next hop must resolve to a connected or other route. *(Domain 3)*
 
 </details>
 
@@ -873,8 +873,8 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 - A) ip name-server 10.99.0.53 (with ip domain lookup enabled)
 - B) ip dns server 10.99.0.53
-- C) dns client 10.99.0.53
-- D) ip host dns 10.99.0.53
+- C) ip host dns 10.99.0.53
+- D) dns client 10.99.0.53
 
 <details><summary>Answer</summary>
 
@@ -884,41 +884,41 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q67. Which router interface command makes the router obtain its own IPv4 address from an ISP's DHCP server?
 
-- A) ip address dhcp
-- B) ip dhcp client enable
-- C) ip helper-address dhcp
-- D) dhcp client
+- A) ip dhcp client enable
+- B) ip address dhcp
+- C) dhcp client
+- D) ip helper-address dhcp
 
 <details><summary>Answer</summary>
 
-**Answer: A.** `ip address dhcp` configures the interface as a DHCP client. *(Domain 1)*
+**Answer: B.** `ip address dhcp` configures the interface as a DHCP client. *(Domain 1)*
 
 </details>
 
 ### Q68. A switch port connects a router subinterface design (router on a stick). How must the switch port be configured?
 
-- A) Access port
-- B) 802.1Q trunk carrying the routed VLANs
-- C) Routed port
+- A) 802.1Q trunk carrying the routed VLANs
+- B) Routed port
+- C) Access port
 - D) Port-channel only
 
 <details><summary>Answer</summary>
 
-**Answer: B.** The router uses `encapsulation dot1q <vlan>` subinterfaces; the switch side is a trunk. *(Domain 2)*
+**Answer: A.** The router uses `encapsulation dot1q <vlan>` subinterfaces; the switch side is a trunk. *(Domain 2)*
 
 </details>
 
 ### Q69. Which TWO features work together to stop a man-in-the-middle attacker who sends forged ARP replies on an access VLAN? (Choose 2.)
 
 - A) DHCP snooping
-- B) Dynamic ARP Inspection
-- C) Storm control
-- D) BPDU guard
-- E) LLDP
+- B) Storm control
+- C) Dynamic ARP Inspection
+- D) LLDP
+- E) BPDU guard
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** DAI uses the snooping bindings to reject forged ARP. *(Domain 4)*
+**Answer: A, C.** DAI uses the snooping bindings to reject forged ARP. *(Domain 4)*
 
 </details>
 
@@ -976,14 +976,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q74. A reverse lookup of 203.0.113.25 returns NXDOMAIN. Which record is missing?
 
-- A) A in the forward zone
-- B) PTR in 25.113.0.203.in-addr.arpa
-- C) MX
-- D) TXT
+- A) PTR in 25.113.0.203.in-addr.arpa
+- B) MX
+- C) TXT
+- D) A in the forward zone
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Reverse DNS uses PTR records under in-addr.arpa. *(Domain 4)*
+**Answer: A.** Reverse DNS uses PTR records under in-addr.arpa. *(Domain 4)*
 
 </details>
 
@@ -1002,15 +1002,15 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q76. Which TWO actions harden unused switch ports? (Choose 2.)
 
-- A) Shut them down
-- B) Assign them to an unused 'black hole' VLAN
-- C) Configure them as trunks
-- D) Enable DTP desirable
-- E) Set them as the native VLAN
+- A) Configure them as trunks
+- B) Shut them down
+- C) Enable DTP desirable
+- D) Set them as the native VLAN
+- E) Assign them to an unused 'black hole' VLAN
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** Shutdown plus an unused VLAN limits accidental or malicious use. *(Domain 2)*
+**Answer: B, E.** Shutdown plus an unused VLAN limits accidental or malicious use. *(Domain 2)*
 
 </details>
 
@@ -1029,14 +1029,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q78. A packet arrives for 172.16.5.9. Routes: 172.16.0.0/16 via A (OSPF), 172.16.4.0/22 via B (static AD 200), 172.16.5.0/24 via C (RIP). Which next hop is used?
 
-- A) A
-- B) B
-- C) C
-- D) Load-balanced across all
+- A) B
+- B) A
+- C) Load-balanced across all
+- D) C
 
 <details><summary>Answer</summary>
 
-**Answer: C.** Longest prefix (/24) wins before AD is considered. *(Domain 3)*
+**Answer: D.** Longest prefix (/24) wins before AD is considered. *(Domain 3)*
 
 </details>
 
@@ -1055,27 +1055,27 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q80. What does Dynamic ARP Inspection validate?
 
-- A) DNS replies
-- B) ARP packets on untrusted ports against the DHCP snooping binding table or ARP ACLs
-- C) STP BPDUs
-- D) CDP messages
+- A) ARP packets on untrusted ports against the DHCP snooping binding table or ARP ACLs
+- B) DNS replies
+- C) CDP messages
+- D) STP BPDUs
 
 <details><summary>Answer</summary>
 
-**Answer: B.** DAI stops ARP spoofing/poisoning. *(Domain 4)*
+**Answer: A.** DAI stops ARP spoofing/poisoning. *(Domain 4)*
 
 </details>
 
 ### Q81. Why might you disable CDP on an internet-facing interface?
 
-- A) It uses too much bandwidth
-- B) It reveals device model, software version and addresses to anyone connected
+- A) It disables STP
+- B) It uses too much bandwidth
 - C) It breaks OSPF
-- D) It disables STP
+- D) It reveals device model, software version and addresses to anyone connected
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Discovery protocols leak information; disable them on untrusted ports (`no cdp enable`). *(Domain 2)*
+**Answer: D.** Discovery protocols leak information; disable them on untrusted ports (`no cdp enable`). *(Domain 2)*
 
 </details>
 
@@ -1107,37 +1107,37 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q84. Which IOS command prevents a DHCP pool from leasing addresses 10.1.1.1 to 10.1.1.20?
 
-- A) ip dhcp pool exclude 10.1.1.1 10.1.1.20
-- B) ip dhcp excluded-address 10.1.1.1 10.1.1.20
-- C) no ip dhcp 10.1.1.1 10.1.1.20
-- D) ip dhcp reserve 10.1.1.1 10.1.1.20
+- A) no ip dhcp 10.1.1.1 10.1.1.20
+- B) ip dhcp reserve 10.1.1.1 10.1.1.20
+- C) ip dhcp pool exclude 10.1.1.1 10.1.1.20
+- D) ip dhcp excluded-address 10.1.1.1 10.1.1.20
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Excluded addresses are configured in global configuration mode. *(Domain 1)*
+**Answer: D.** Excluded addresses are configured in global configuration mode. *(Domain 1)*
 
 </details>
 
 ### Q85. Which TWO symptoms indicate a duplex mismatch on a 100 Mbps link? (Choose 2.)
 
-- A) Late collisions on the half-duplex side
-- B) CRC or runt errors on the full-duplex side
-- C) Err-disabled port
-- D) Giants on both sides
-- E) Native VLAN mismatch messages
+- A) Err-disabled port
+- B) Native VLAN mismatch messages
+- C) Giants on both sides
+- D) Late collisions on the half-duplex side
+- E) CRC or runt errors on the full-duplex side
 
 <details><summary>Answer</summary>
 
-**Answer: A, B.** The half-duplex end sees late collisions; the full-duplex end sees damaged frames (CRC/runts). *(Domain 1)*
+**Answer: D, E.** The half-duplex end sees late collisions; the full-duplex end sees damaged frames (CRC/runts). *(Domain 1)*
 
 </details>
 
 ### Q86. Which global command must be enabled for a multilayer switch to route between SVIs?
 
 - A) ip routing
-- B) vlan routing
-- C) ip cef only
-- D) router svi
+- B) ip cef only
+- C) router svi
+- D) vlan routing
 
 <details><summary>Answer</summary>
 
@@ -1147,36 +1147,36 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q87. `show interfaces g0/1` displays `GigabitEthernet0/1 is down, line protocol is down (notconnect)`. What do you check first?
 
-- A) The OSPF configuration
-- B) The physical connection: cable, transceiver and the device at the other end
-- C) The DHCP pool
-- D) The NAT table
+- A) The DHCP pool
+- B) The OSPF configuration
+- C) The NAT table
+- D) The physical connection: cable, transceiver and the device at the other end
 
 <details><summary>Answer</summary>
 
-**Answer: B.** down/down with notconnect means no Layer 1 signal. *(Domain 1)*
+**Answer: D.** down/down with notconnect means no Layer 1 signal. *(Domain 1)*
 
 </details>
 
 ### Q88. Which feature blocks rogue IPv6 Router Advertisements from host ports?
 
-- A) RA guard
-- B) DHCPv6 relay
-- C) BPDU guard
+- A) BPDU guard
+- B) RA guard
+- C) DHCPv6 relay
 - D) IPv6 ACL on SVI only
 
 <details><summary>Answer</summary>
 
-**Answer: A.** Attach an RA guard policy with device-role host. *(Domain 4)*
+**Answer: B.** Attach an RA guard policy with device-role host. *(Domain 4)*
 
 </details>
 
 ### Q89. How do you insert a new entry between sequence 10 and 20 in a named ACL?
 
-- A) Delete and recreate the ACL
+- A) Use `ip access-list resequence` only
 - B) Enter the ACL and add an entry with sequence number 15
-- C) Use `ip access-list resequence` only
-- D) It is not possible
+- C) It is not possible
+- D) Delete and recreate the ACL
 
 <details><summary>Answer</summary>
 
@@ -1187,13 +1187,13 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 ### Q90. A FlexConnect AP switches three SSIDs locally to VLANs 10, 20 and 30. How should its switch port be configured?
 
 - A) Access VLAN 10
-- B) Trunk with the management VLAN and VLANs 10, 20, 30 allowed
+- B) Shut down
 - C) Routed port
-- D) Shut down
+- D) Trunk with the management VLAN and VLANs 10, 20, 30 allowed
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Locally switched client VLANs must reach the AP, so a trunk is needed. *(Domain 2)*
+**Answer: D.** Locally switched client VLANs must reach the AP, so a trunk is needed. *(Domain 2)*
 
 </details>
 
@@ -1212,14 +1212,14 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q92. Which module would you use to run `show version` on Cisco IOS devices with Ansible?
 
-- A) cisco.ios.ios_command
-- B) ansible.builtin.copy
-- C) cisco.ios.ios_vlans
-- D) community.general.ping
+- A) cisco.ios.ios_vlans
+- B) community.general.ping
+- C) cisco.ios.ios_command
+- D) ansible.builtin.copy
 
 <details><summary>Answer</summary>
 
-**Answer: A.** ios_command runs operational commands; resource modules (ios_vlans, ios_interfaces) manage config. *(Domain 5)*
+**Answer: C.** ios_command runs operational commands; resource modules (ios_vlans, ios_interfaces) manage config. *(Domain 5)*
 
 </details>
 
@@ -1238,27 +1238,27 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q94. Why does a Layer 2 loop cause a broadcast storm?
 
-- A) Frames have no TTL, so broadcasts circulate and multiply endlessly
-- B) Switches drop broadcasts
+- A) Switches drop broadcasts
+- B) Frames have no TTL, so broadcasts circulate and multiply endlessly
 - C) ARP is disabled
 - D) VLANs are removed
 
 <details><summary>Answer</summary>
 
-**Answer: A.** Ethernet has no hop limit; STP exists to block loops. *(Domain 2)*
+**Answer: B.** Ethernet has no hop limit; STP exists to block loops. *(Domain 2)*
 
 </details>
 
 ### Q95. Which command sends syslog messages of severity warning and more severe to server 10.99.0.14?
 
-- A) logging host 10.99.0.14 and logging trap warnings
-- B) logging buffered 4
-- C) logging console 10.99.0.14
-- D) snmp-server host 10.99.0.14 warnings
+- A) snmp-server host 10.99.0.14 warnings
+- B) logging host 10.99.0.14 and logging trap warnings
+- C) logging buffered 4
+- D) logging console 10.99.0.14
 
 <details><summary>Answer</summary>
 
-**Answer: A.** `logging trap` sets the level sent to remote hosts. *(Domain 5)*
+**Answer: B.** `logging trap` sets the level sent to remote hosts. *(Domain 5)*
 
 </details>
 
@@ -1277,40 +1277,40 @@ Rules: no notes, one sitting, mark questions to revisit, never leave a question 
 
 ### Q97. Which port role is held by every active port on the root bridge?
 
-- A) Root
-- B) Designated
-- C) Alternate
-- D) Edge only
+- A) Edge only
+- B) Alternate
+- C) Designated
+- D) Root
 
 <details><summary>Answer</summary>
 
-**Answer: B.** The root has no root port; all its ports are designated. *(Domain 2)*
+**Answer: C.** The root has no root port; all its ports are designated. *(Domain 2)*
 
 </details>
 
 ### Q98. Which NAT type permanently maps one inside address to one outside address so external users can reach a server?
 
-- A) Dynamic NAT
-- B) PAT
-- C) Static NAT
-- D) NAT64
+- A) PAT
+- B) NAT64
+- C) Dynamic NAT
+- D) Static NAT
 
 <details><summary>Answer</summary>
 
-**Answer: C.** `ip nat inside source static 10.1.1.80 203.0.113.80`. *(Domain 4)*
+**Answer: D.** `ip nat inside source static 10.1.1.80 203.0.113.80`. *(Domain 4)*
 
 </details>
 
 ### Q99. What is at the end of every IPv4 ACL?
 
-- A) An implicit permit any
-- B) An implicit deny any
-- C) A log statement
+- A) A log statement
+- B) An implicit permit any
+- C) An implicit deny any
 - D) Nothing
 
 <details><summary>Answer</summary>
 
-**Answer: B.** Unmatched packets are dropped. *(Domain 4)*
+**Answer: C.** Unmatched packets are dropped. *(Domain 4)*
 
 </details>
 

@@ -342,6 +342,22 @@ def load_bank() -> dict[int, list[dict]]:
     return bank
 
 
+POSITIONAL = ("of the above", "Both A and B", "A and B", "None of these")
+
+
+def shuffled(item: dict) -> dict:
+    """Return a copy of a bank item with options shuffled (seeded by question text) and answers remapped."""
+    if any(p in o for o in item["o"] for p in POSITIONAL):
+        return item
+    import hashlib
+
+    order = list(range(len(item["o"])))
+    random.Random(int(hashlib.sha256(item["q"].encode()).hexdigest(), 16) % 2**32).shuffle(order)
+    mapping = {LETTERS[o]: LETTERS[k] for k, o in enumerate(order)}
+    answers = sorted(mapping[a.strip()] for a in str(item["a"]).split(","))
+    return {**item, "o": [item["o"][o] for o in order], "a": ",".join(answers)}
+
+
 def build_exam(n: int, bank: dict[int, list[dict]]) -> list[dict]:
     rng = random.Random(1000 + n)
     questions: list[dict] = []
@@ -350,7 +366,7 @@ def build_exam(n: int, bank: dict[int, list[dict]]) -> list[dict]:
         need_hand = total - COMPUTED_PER_EXAM[d]
         if len(hand) < need_hand:
             raise SystemExit(f"domain {d}: need {need_hand} hand-written questions for exam {n}, have {len(hand)}")
-        questions += hand[:need_hand]
+        questions += [shuffled(q) for q in hand[:need_hand]]
         gens = GENERATORS[d]
         for i in range(COMPUTED_PER_EXAM[d]):
             questions.append(gens[i % len(gens)](rng))
