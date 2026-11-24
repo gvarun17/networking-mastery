@@ -107,7 +107,7 @@ networking-mastery/
 | CCNA practice exams | 3 × 100 questions |
 | CCNA simulations | 9 |
 | Flashcards | 401 |
-| Glossary terms | 269 |
+| Glossary terms | 270 |
 | Interview questions with model answers | 100 |
 | Mermaid diagrams (all validated) | 114 |
 
