@@ -1,0 +1,60 @@
+# Module 17 lab: 2-spine / 2-leaf fabric, eBGP unnumbered underlay, BGP EVPN + VXLAN overlay (FRR).
+# h1 and h2 share VLAN/VNI 100 (10.100.0.0/24) across the routed fabric.
+# Deploy: sudo containerlab deploy -t m17-evpn.clab.yml
+name: m17-evpn
+
+topology:
+  defaults:
+    kind: linux
+    image: quay.io/frrouting/frr:10.2.1
+  nodes:
+    spine1:
+      binds: [../common/daemons:/etc/frr/daemons, spine1.conf:/etc/frr/frr.conf]
+      exec:
+        - sysctl -w net.ipv6.conf.all.disable_ipv6=0
+        - sysctl -w net.ipv4.ip_forward=1
+    spine2:
+      binds: [../common/daemons:/etc/frr/daemons, spine2.conf:/etc/frr/frr.conf]
+      exec:
+        - sysctl -w net.ipv6.conf.all.disable_ipv6=0
+        - sysctl -w net.ipv4.ip_forward=1
+    leaf1:
+      binds: [../common/daemons:/etc/frr/daemons, leaf1.conf:/etc/frr/frr.conf]
+      exec:
+        - sysctl -w net.ipv6.conf.all.disable_ipv6=0
+        - sysctl -w net.ipv4.ip_forward=1
+        - ip link add br100 type bridge
+        - ip link set br100 up
+        - ip link add vxlan100 type vxlan id 100 dstport 4789 local 10.255.1.1 nolearning
+        - ip link set vxlan100 master br100
+        - ip link set vxlan100 up
+        - ip link set eth3 master br100
+        - ip link set eth3 up
+    leaf2:
+      binds: [../common/daemons:/etc/frr/daemons, leaf2.conf:/etc/frr/frr.conf]
+      exec:
+        - sysctl -w net.ipv6.conf.all.disable_ipv6=0
+        - sysctl -w net.ipv4.ip_forward=1
+        - ip link add br100 type bridge
+        - ip link set br100 up
+        - ip link add vxlan100 type vxlan id 100 dstport 4789 local 10.255.1.2 nolearning
+        - ip link set vxlan100 master br100
+        - ip link set vxlan100 up
+        - ip link set eth3 master br100
+        - ip link set eth3 up
+    h1:
+      image: nicolaka/netshoot:latest
+      exec:
+        - ip addr add 10.100.0.11/24 dev eth1
+    h2:
+      image: nicolaka/netshoot:latest
+      exec:
+        - ip addr add 10.100.0.12/24 dev eth1
+  links:
+    # Containerlab sets veth MTU 9500 by default, which leaves room for the 50-byte VXLAN header.
+    - endpoints: ["leaf1:eth1", "spine1:eth1"]
+    - endpoints: ["leaf1:eth2", "spine2:eth1"]
+    - endpoints: ["leaf2:eth1", "spine1:eth2"]
+    - endpoints: ["leaf2:eth2", "spine2:eth2"]
+    - endpoints: ["leaf1:eth3", "h1:eth1"]
+    - endpoints: ["leaf2:eth3", "h2:eth1"]
