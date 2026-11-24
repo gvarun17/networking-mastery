@@ -1,0 +1,21 @@
+# Capstone 5: three FRR routers in a triangle. They start almost empty; the pipeline configures them.
+# Deploy: sudo containerlab deploy -t capstone5.clab.yml
+name: cap5
+
+topology:
+  defaults:
+    kind: linux
+    image: quay.io/frrouting/frr:10.2.1
+    binds:
+      - ../../topologies/common/daemons:/etc/frr/daemons
+      - base.conf:/etc/frr/frr.conf
+    exec:
+      - sysctl -w net.ipv4.ip_forward=1
+  nodes:
+    r1: {}
+    r2: {}
+    r3: {}
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
+    - endpoints: ["r1:eth2", "r3:eth1"]
+    - endpoints: ["r2:eth2", "r3:eth2"]

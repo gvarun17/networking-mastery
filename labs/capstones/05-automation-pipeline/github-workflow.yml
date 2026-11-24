@@ -1,0 +1,61 @@
+# Copy this file to .github/workflows/network-pipeline.yml in YOUR fork to run the full pipeline.
+# PRs: validate + render + unit tests + diff against a lab built from main.
+# Push to main: deploy to a fresh Containerlab topology on the runner and verify.
+name: network-pipeline
+
+on:
+  pull_request:
+    paths: ["labs/capstones/05-automation-pipeline/**"]
+  push:
+    branches: [main]
+    paths: ["labs/capstones/05-automation-pipeline/**"]
+  workflow_dispatch:
+
+defaults:
+  run:
+    working-directory: labs/capstones/05-automation-pipeline
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml jinja2 pytest
+      - name: Validate source of truth
+        run: python3 validate.py
+      - name: Unit tests
+        run: python3 -m pytest -q tests
+      - name: Render configs
+        run: python3 render.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rendered-configs
+          path: labs/capstones/05-automation-pipeline/build/
+
+  lab-deploy:
+    needs: validate
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml jinja2 nornir nornir-utils
+      - name: Install Containerlab
+        run: bash -c "$(curl -sL https://get.containerlab.dev)"
+      - name: Deploy lab topology
+        run: sudo containerlab deploy -t capstone5.clab.yml
+      - name: Render
+        run: python3 render.py
+      - name: Show diff (like a change ticket)
+        run: python3 deploy.py --diff
+      - name: Deploy configs
+        if: github.event_name != 'pull_request'
+        run: python3 deploy.py
+      - name: Verify BGP and reachability
+        if: github.event_name != 'pull_request'
+        run: python3 verify.py --wait 90
+      - name: Destroy lab
+        if: always()
+        run: sudo containerlab destroy -t capstone5.clab.yml --cleanup

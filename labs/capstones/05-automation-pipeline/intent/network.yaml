@@ -1,0 +1,13 @@
+# Source of truth for the capstone 5 fabric. Change this file in a pull request; the pipeline does the rest.
+routers:
+  r1: { asn: 65001, loopback: 10.255.0.1 }
+  r2: { asn: 65002, loopback: 10.255.0.2 }
+  r3: { asn: 65003, loopback: 10.255.0.3 }
+
+links:
+  - a: { router: r1, interface: eth1, ip: 10.0.12.0 }
+    b: { router: r2, interface: eth1, ip: 10.0.12.1 }
+  - a: { router: r1, interface: eth2, ip: 10.0.13.0 }
+    b: { router: r3, interface: eth1, ip: 10.0.13.1 }
+  - a: { router: r2, interface: eth2, ip: 10.0.23.0 }
+    b: { router: r3, interface: eth2, ip: 10.0.23.1 }
