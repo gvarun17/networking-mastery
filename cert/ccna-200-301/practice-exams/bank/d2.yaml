@@ -1,0 +1,241 @@
+# Domain 2.0 Switching and Network Access (hand-written).
+- q: "Which command converts a Layer 3 switch port into a routed port?"
+  o: ["switchport mode access", "no switchport", "ip routing", "switchport nonegotiate"]
+  a: B
+  e: "`no switchport` makes the port a Layer 3 interface that can take an IP address."
+- q: "Which global command must be enabled for a multilayer switch to route between SVIs?"
+  o: ["ip routing", "vlan routing", "ip cef only", "router svi"]
+  a: A
+  e: "Without `ip routing`, the switch does not route between VLAN interfaces."
+- q: "An SVI for VLAN 30 shows `Vlan30 is down, line protocol is down`. VLAN 30 exists. What is a likely reason?"
+  o: ["No access or trunk port in VLAN 30 is up (or the SVI is shut down)", "OSPF is not configured", "The IP address is wrong", "DHCP is missing"]
+  a: A
+  e: "An SVI comes up only if it is not shut and at least one port carrying that VLAN is up/forwarding."
+- q: "What is the size of the 802.1Q tag inserted into an Ethernet frame?"
+  o: ["2 bytes", "4 bytes", "8 bytes", "12 bytes"]
+  a: B
+  e: "TPID (2 B) + TCI (2 B: PCP, DEI, 12-bit VID)."
+- q: "Which statement about the 802.1Q native VLAN is true?"
+  o: ["Frames in the native VLAN are tagged with VID 0", "Frames in the native VLAN are sent untagged on the trunk", "The native VLAN must be VLAN 1", "Native VLAN mismatches are harmless"]
+  a: B
+  e: "Native VLAN traffic is untagged; mismatches leak traffic between VLANs and CDP logs a warning."
+- q: "Two switches are connected. SW1's port is `dynamic auto` and SW2's port is `dynamic auto`. What is the result?"
+  o: ["Trunk", "Access port", "Err-disabled", "EtherChannel"]
+  a: B
+  e: "Both sides wait passively, so no trunk forms. Hard-code trunk mode in production."
+- q: "Which command adds VLAN 50 to an existing trunk without removing the other allowed VLANs?"
+  o: ["switchport trunk allowed vlan 50", "switchport trunk allowed vlan add 50", "switchport trunk vlan 50", "switchport access vlan 50"]
+  a: B
+  e: "Without `add`, the command replaces the whole list and can cut off other VLANs."
+- q: "Which TWO settings must match on all member ports for an EtherChannel to bundle?"
+  o: ["Speed and duplex", "Trunk/access mode and allowed VLANs", "Interface descriptions", "CDP neighbor names", "Port numbers"]
+  a: "A,B"
+  e: "Members must share speed, duplex, mode, VLAN settings and native VLAN."
+- q: "Which protocol is the IEEE standard for EtherChannel negotiation?"
+  o: ["PAgP", "LACP", "DTP", "VTP"]
+  a: B
+  e: "LACP (802.3ad/802.1AX). PAgP is Cisco proprietary."
+- q: "`show etherchannel summary` shows `Po1(SU)` and both members `(P)`. What does this mean?"
+  o: ["The bundle is down", "Layer 2 port-channel in use, both members bundled", "Layer 3 port-channel, members suspended", "Members are stand-alone"]
+  a: B
+  e: "S = Layer 2, U = in use, P = bundled in port-channel."
+- q: "How do you configure a Layer 3 EtherChannel on a multilayer switch?"
+  o: ["Apply `no switchport` to the members and the port-channel, then put the IP address on the port-channel", "Put IP addresses on each member port", "Use `switchport mode trunk` on the port-channel", "Use PAgP only"]
+  a: A
+  e: "Routed members bundle into a routed Port-channel interface that holds the IP."
+- q: "Which access port configuration is correct for a Cisco IP phone with a PC connected behind it?"
+  o: ["switchport mode trunk with all VLANs", "switchport mode access, switchport access vlan 10, switchport voice vlan 150", "switchport mode access with only voice vlan 150", "no switchport"]
+  a: B
+  e: "Data VLAN untagged, voice VLAN tagged by the phone (learned via CDP/LLDP-MED)."
+- q: "A lightweight AP in local mode connects to an access switch. How should the port be configured?"
+  o: ["Trunk carrying all client VLANs", "Access port in the AP management VLAN", "Routed port", "EtherChannel"]
+  a: B
+  e: "Local-mode APs tunnel client data to the WLC over CAPWAP, so they need only one VLAN."
+- q: "A FlexConnect AP switches three SSIDs locally to VLANs 10, 20 and 30. How should its switch port be configured?"
+  o: ["Access VLAN 10", "Trunk with the management VLAN and VLANs 10, 20, 30 allowed", "Routed port", "Shut down"]
+  a: B
+  e: "Locally switched client VLANs must reach the AP, so a trunk is needed."
+- q: "A VMware host runs VMs in VLANs 100 and 200 using a vSwitch with VLAN tagging. How should the physical switch port be configured?"
+  o: ["Access VLAN 100", "802.1Q trunk allowing VLANs 100 and 200", "Routed port with two IPs", "Port security maximum 1"]
+  a: B
+  e: "Virtualized hosts that tag VLANs need a trunk."
+- q: "Which TWO features are best practice on a port connected to a desktop PC?"
+  o: ["spanning-tree portfast", "spanning-tree bpduguard enable", "switchport mode trunk", "channel-group 1 mode active", "spanning-tree guard root"]
+  a: "A,B"
+  e: "Edge ports go forwarding immediately and err-disable if a switch is connected."
+- q: "A network printer must always use the same port and only its own MAC. Which feature enforces this?"
+  o: ["Port security with maximum 1 and a sticky or static MAC", "Root guard", "DTP", "LLDP"]
+  a: A
+  e: "Port security limits learned MACs and reacts to violations."
+- q: "An IoT sensor network must not reach the corporate user VLAN. What is the simplest design at the access layer?"
+  o: ["Put IoT devices in their own VLAN and filter between VLANs at the L3 boundary", "Put them in VLAN 1", "Use a trunk to each sensor", "Disable STP"]
+  a: A
+  e: "Segmentation by VLAN plus ACLs/firewall rules at the gateway."
+- q: "Which protocol is enabled by default on Cisco devices and shows the neighbor's device ID, platform, IP address and connected port?"
+  o: ["LLDP", "CDP", "SNMP", "DTP"]
+  a: B
+  e: "CDP is on by default; LLDP must be enabled with `lldp run` on many IOS platforms."
+- q: "Which command enables LLDP globally on a Cisco switch?"
+  o: ["lldp enable", "lldp run", "cdp run lldp", "lldp transmit"]
+  a: B
+  e: "`lldp run` (global). Per-interface `lldp transmit`/`lldp receive` can then be adjusted."
+- q: "The network diagram says SW1 Gi1/0/24 connects to SW2 Gi1/0/1. `show cdp neighbors` on SW1 shows `SW2  Gig 1/0/23  ...  Gig 1/0/2`. What do you conclude?"
+  o: ["CDP is wrong", "The documentation is wrong: SW1 Gi1/0/23 connects to SW2 Gi1/0/2", "The link is down", "LLDP must be used instead"]
+  a: B
+  e: "CDP output shows the local interface and the neighbor's port ID; use it to validate and fix diagrams."
+- q: "In `show cdp neighbors`, what does the `Port ID` column show?"
+  o: ["The local interface", "The neighbor's interface that connects to you", "The VLAN ID", "The TCP port"]
+  a: B
+  e: "Local Intrfce = your port; Port ID = the remote device's port."
+- q: "Why might you disable CDP on an internet-facing interface?"
+  o: ["It uses too much bandwidth", "It reveals device model, software version and addresses to anyone connected", "It breaks OSPF", "It disables STP"]
+  a: B
+  e: "Discovery protocols leak information; disable them on untrusted ports (`no cdp enable`)."
+- q: "Hosts in VLAN 20 on SW1 cannot reach VLAN 20 hosts on SW2. VLAN 10 works across the same trunk. Which command shows the likely cause?"
+  o: ["show vlan brief", "show interfaces trunk", "show ip route", "show cdp neighbors"]
+  a: B
+  e: "Check the allowed and active VLAN lists on the trunk."
+- q: "A host can ping its default gateway but traceroute to a remote server stops at the gateway. What does this indicate?"
+  o: ["A Layer 1 problem on the host", "A routing or filtering problem at or beyond the gateway", "A duplex mismatch", "A wrong host VLAN"]
+  a: B
+  e: "Layer 2/3 to the gateway works; the next hop or return path fails."
+- q: "Which command shows on which switch port a given MAC address was learned?"
+  o: ["show arp", "show mac address-table address 0050.7966.6800", "show interfaces status", "show cdp neighbors"]
+  a: B
+  e: "The MAC address table maps MAC, VLAN and port."
+- q: "You must capture traffic from a server port to a laptop running Wireshark on the same switch. Which feature do you use?"
+  o: ["SPAN (monitor session)", "Port security", "BPDU filter", "DHCP snooping"]
+  a: A
+  e: "`monitor session 1 source interface g1/0/5` and `destination interface g1/0/10` mirror traffic."
+- q: "A user reports no connectivity. `show interfaces status` shows the port as `err-disabled`. What is the next step?"
+  o: ["Reload the switch", "Find the cause (e.g. `show interfaces status err-disabled`, logs), fix it, then shut/no shut", "Change the VLAN", "Enable DTP"]
+  a: B
+  e: "Fix the cause first (BPDU guard, port security, etc.) before re-enabling."
+- q: "Which TWO commands verify Layer 3 connectivity and the path to a remote host from a Cisco router?"
+  o: ["ping", "traceroute", "show vlan brief", "show mac address-table", "show spanning-tree"]
+  a: "A,B"
+  e: "ping tests reachability; traceroute shows each hop."
+- q: "Which bridge becomes the STP root?"
+  o: ["The bridge with the highest priority", "The bridge with the lowest bridge ID (priority, then MAC)", "The bridge with the most ports", "The bridge with the highest MAC"]
+  a: B
+  e: "Lowest bridge ID wins."
+- q: "Which command makes a switch the root bridge for VLAN 10 by lowering its priority automatically?"
+  o: ["spanning-tree vlan 10 root primary", "spanning-tree vlan 10 priority 65535", "spanning-tree root 10", "spanning-tree mode root"]
+  a: A
+  e: "root primary sets 24576 or lower than the current root."
+- q: "Which value is a valid STP bridge priority?"
+  o: ["1000", "20480", "33000", "65536"]
+  a: B
+  e: "Priorities are multiples of 4096 from 0 to 61440 (20480 = 5 × 4096)."
+- q: "What are the RSTP port states?"
+  o: ["Blocking, listening, learning, forwarding", "Discarding, learning, forwarding", "Down, init, full", "Active, standby, listen"]
+  a: B
+  e: "RSTP merged blocking, listening and disabled into discarding."
+- q: "Which RSTP port role provides an alternate path to the root through a different switch and is discarding?"
+  o: ["Root", "Designated", "Alternate", "Backup"]
+  a: C
+  e: "Alternate ports are pre-computed backups for the root port."
+- q: "Which port role is held by every active port on the root bridge?"
+  o: ["Root", "Designated", "Alternate", "Edge only"]
+  a: B
+  e: "The root has no root port; all its ports are designated."
+- q: "What does PortFast do on an access port?"
+  o: ["Disables STP entirely", "Moves the port to forwarding immediately, skipping the listening/learning delay", "Bundles ports", "Speeds up autonegotiation"]
+  a: B
+  e: "PortFast (RSTP edge port) is for end hosts only."
+- q: "What happens when a port with BPDU guard enabled receives a BPDU?"
+  o: ["The BPDU is ignored", "The port goes to err-disabled", "The port becomes root", "The port moves to VLAN 1"]
+  a: B
+  e: "BPDU guard shuts the port to stop rogue switches and loops."
+- q: "Which feature should you enable on distribution switch ports facing access switches to prevent a misconfigured access switch from becoming root?"
+  o: ["BPDU filter", "Root guard", "PortFast", "Loop guard"]
+  a: B
+  e: "Root guard puts the port in root-inconsistent state when superior BPDUs arrive."
+- q: "Which feature prevents an alternate or root port from moving to forwarding when BPDUs stop arriving because of a unidirectional link?"
+  o: ["Loop guard", "Root guard", "BPDU guard", "PortFast"]
+  a: A
+  e: "Loop guard moves the port to loop-inconsistent instead of forwarding."
+- q: "`show spanning-tree vlan 10` on SW3 shows `Gi0/2 Altn BLK 4 128.26 P2p`. What does this mean?"
+  o: ["Gi0/2 is the root port", "Gi0/2 is an alternate port in the discarding/blocking state", "Gi0/2 is err-disabled", "Gi0/2 is an edge port"]
+  a: B
+  e: "Altn BLK = alternate role, blocking/discarding state."
+- q: "Which global command enables Rapid PVST+?"
+  o: ["spanning-tree mode rapid-pvst", "spanning-tree rstp enable", "spanning-tree mode mst", "spanning-tree portfast default"]
+  a: A
+  e: "Rapid PVST+ runs one RSTP instance per VLAN."
+- q: "Two non-root switches share a segment, and both report the same root path cost. Which port becomes designated for that segment?"
+  o: ["The one on the switch with the lower bridge ID", "The one on the switch with the higher MAC", "Both", "Neither"]
+  a: A
+  e: "Tie-breaker after cost: lowest sender bridge ID."
+- q: "Which TWO statements about RSTP are correct?"
+  o: ["It converges in about a second on point-to-point links using proposal/agreement", "It defines edge ports as part of the standard", "It uses five port states", "It requires PAgP", "It works only on VLAN 1"]
+  a: "A,B"
+  e: "RSTP adds a handshake for fast convergence and standardizes edge ports."
+- q: "Why does a Layer 2 loop cause a broadcast storm?"
+  o: ["Frames have no TTL, so broadcasts circulate and multiply endlessly", "Switches drop broadcasts", "ARP is disabled", "VLANs are removed"]
+  a: A
+  e: "Ethernet has no hop limit; STP exists to block loops."
+- q: "Which symptom suggests a Layer 2 loop?"
+  o: ["Steady low CPU", "MAC address flapping log messages, very high CPU and link utilization", "One host with a wrong gateway", "DHCP leases expiring"]
+  a: B
+  e: "%SW_MATM-4-MACFLAP_NOTIF and saturated links are classic loop signs."
+- q: "What is the default port cost for a 1 Gbps link in short-mode STP?"
+  o: ["1", "2", "4", "19"]
+  a: C
+  e: "Short costs: 10 Mbps 100, 100 Mbps 19, 1 Gbps 4, 10 Gbps 2."
+- q: "A switch port connects a router subinterface design (router on a stick). How must the switch port be configured?"
+  o: ["Access port", "802.1Q trunk carrying the routed VLANs", "Routed port", "Port-channel only"]
+  a: B
+  e: "The router uses `encapsulation dot1q <vlan>` subinterfaces; the switch side is a trunk."
+- q: "Which subinterface command configures a router to handle VLAN 30 tagged frames?"
+  o: ["switchport access vlan 30", "encapsulation dot1Q 30", "vlan 30 encapsulation", "ip vlan 30"]
+  a: B
+  e: "Router subinterfaces use `encapsulation dot1Q <vlan-id>` (add `native` for the native VLAN)."
+- q: "Which LACP mode pair fails to form an EtherChannel?"
+  o: ["active / active", "active / passive", "passive / passive", "Both A and B"]
+  a: C
+  e: "Two passive ports never send LACPDUs."
+- q: "What is the main benefit of an EtherChannel compared with two separate trunk links between the same switches?"
+  o: ["STP sees one logical link, so both physical links forward and traffic is load-shared", "It removes the need for VLANs", "It encrypts traffic", "It doubles the speed of each flow"]
+  a: A
+  e: "Load sharing is per flow; a single flow still uses one member link."
+- q: "Which interface type gives a multilayer switch an IP address in a VLAN for inter-VLAN routing and management?"
+  o: ["Loopback", "SVI (interface vlan)", "Tunnel", "Null0"]
+  a: B
+  e: "Switch virtual interfaces are the Layer 3 gateways for VLANs."
+- q: "Which command shows each switch port's status, VLAN, duplex, speed and type in one table?"
+  o: ["show interfaces status", "show ip interface brief", "show running-config", "show version"]
+  a: A
+  e: "`show interfaces status` is the quick access-layer overview."
+- q: "Which TWO actions harden unused switch ports?"
+  o: ["Shut them down", "Assign them to an unused 'black hole' VLAN", "Configure them as trunks", "Enable DTP desirable", "Set them as the native VLAN"]
+  a: "A,B"
+  e: "Shutdown plus an unused VLAN limits accidental or malicious use."
+- q: "Which DTP-related command stops a trunk port from sending DTP frames?"
+  o: ["switchport nonegotiate", "no cdp enable", "switchport mode dynamic auto", "spanning-tree bpdufilter enable"]
+  a: A
+  e: "Use with a static `switchport mode trunk`."
+- q: "A switch uplink is configured `switchport mode trunk`, and the neighbor is `switchport mode access`. What happens?"
+  o: ["A trunk forms", "The link is inconsistent: one side tags frames, the other does not, so traffic is misdelivered or dropped", "EtherChannel forms", "Both ports err-disable immediately"]
+  a: B
+  e: "Mode mismatches cause partial or broken connectivity; configure both ends the same."
+- q: "Which command saves a switch's running configuration so VLAN-to-port settings survive a reload?"
+  o: ["copy running-config startup-config", "write erase", "reload", "show startup-config"]
+  a: A
+  e: "VLAN definitions live in vlan.dat (VTP transparent/server) and port settings in the config."
+- q: "What does a packet capture on a trunk show for frames in VLAN 20 (not native)?"
+  o: ["No tag", "An 802.1Q tag with VID 20 after the source MAC", "A VXLAN header", "An MPLS label"]
+  a: B
+  e: "Non-native VLAN frames carry an 802.1Q tag (EtherType 0x8100)."
+- q: "Which command shows the root bridge ID, root port and root cost for every VLAN on a switch?"
+  o: ["show spanning-tree root", "show spanning-tree blockedports", "show vlan brief", "show interfaces trunk"]
+  a: A
+  e: "`show spanning-tree root` summarizes root information per VLAN."
+- q: "A trunk between SW1 and SW2 uses native VLAN 99 on SW1 and native VLAN 1 on SW2. Which TWO results are expected?"
+  o: ["CDP logs a native VLAN mismatch", "Untagged traffic crosses between VLAN 99 and VLAN 1", "The trunk becomes an EtherChannel", "All tagged VLANs stop working", "STP is disabled"]
+  a: "A,B"
+  e: "Tagged VLANs still work; untagged frames land in the wrong VLAN."
+- q: "Which command shows LLDP neighbors with their system name, port description and management address?"
+  o: ["show lldp neighbors detail", "show cdp interface", "show lldp traffic", "show interfaces counters"]
+  a: A
+  e: "`show lldp neighbors detail` lists full neighbor TLVs; use it on multi-vendor links where CDP is unavailable."

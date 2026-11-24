@@ -1,0 +1,177 @@
+# Domain 4.0 Network Services and Security (hand-written).
+- q: "Which command creates a local user with the strongest password hashing available on modern IOS XE?"
+  o: ["username admin password Cisco123", "username admin secret 5 Cisco123", "username admin privilege 15 algorithm-type scrypt secret Str0ng!Pass", "enable password Cisco123"]
+  a: C
+  e: "scrypt (type 9) is a strong hash; `password` stores reversible or clear text."
+- q: "Which TWO statements about TACACS+ are correct?"
+  o: ["Uses TCP port 49", "Encrypts the entire packet body", "Uses UDP 1812", "Combines authentication and authorization", "Is mainly used for 802.1X"]
+  a: "A,B"
+  e: "TACACS+ separates AAA functions and suits device administration."
+- q: "Which protocol is typically used between a switch (authenticator) and the authentication server in 802.1X?"
+  o: ["TACACS+", "RADIUS", "LDAP over UDP", "SNMP"]
+  a: B
+  e: "RADIUS carries EAP between the authenticator and server."
+- q: "Which command must be entered before AAA method lists can be configured on IOS?"
+  o: ["aaa enable", "aaa new-model", "aaa authentication enable", "tacacs enable"]
+  a: B
+  e: "`aaa new-model` activates AAA."
+- q: "`aaa authentication login default group tacacs+ local` is configured. When is the local database used?"
+  o: ["Always first", "Only when no TACACS+ server responds", "When TACACS+ rejects the password", "Never"]
+  a: B
+  e: "Fallback happens on error (no response), not on a failed authentication."
+- q: "Which RADIUS ports are standard for authentication and accounting?"
+  o: ["UDP 1812 and 1813", "TCP 49 and 50", "UDP 161 and 162", "TCP 1645 and 1646"]
+  a: A
+  e: "1645/1646 are legacy RADIUS ports, still seen on older devices."
+- q: "You must copy a new IOS XE image to a router securely. Which TWO protocols are appropriate?"
+  o: ["SCP", "SFTP", "TFTP", "FTP", "Telnet"]
+  a: "A,B"
+  e: "SCP and SFTP run over SSH and encrypt the transfer; TFTP and FTP do not."
+- q: "Which global command enables a Cisco router to act as an SCP server for file transfers?"
+  o: ["ip scp server enable", "scp enable", "ip ssh scp", "file scp server"]
+  a: A
+  e: "SCP requires SSH and AAA authorization for the user."
+- q: "Which command copies the running configuration to an SFTP server?"
+  o: ["copy running-config sftp://admin@10.99.0.20/r1.cfg", "copy sftp running-config", "write sftp", "archive running-config"]
+  a: A
+  e: "IOS `copy` supports sftp:// and scp:// URLs."
+- q: "In Cisco NAT terminology, what is the inside local address?"
+  o: ["The public address representing the inside host", "The private address actually configured on the inside host", "The outside server address", "The NAT pool's first address"]
+  a: B
+  e: "Inside local = real private address; inside global = translated address."
+- q: "Which command configures PAT using the outside interface address for hosts permitted by ACL 1?"
+  o: ["ip nat inside source list 1 interface g0/0 overload", "ip nat outside source list 1 interface g0/0", "ip nat inside source static 1 g0/0", "ip nat pool 1 overload"]
+  a: A
+  e: "`overload` enables port address translation."
+- q: "Only one inside host at a time can reach the internet. NAT uses a pool with a single public address and no `overload`. What fixes it?"
+  o: ["Add `overload` to the NAT statement", "Remove `ip nat outside`", "Add a default route on the hosts", "Enable PortFast"]
+  a: A
+  e: "Without overload, each inside host needs its own public address."
+- q: "NAT is configured, but `show ip nat translations` is empty and users have no internet. Which TWO items do you check first?"
+  o: ["`ip nat inside` and `ip nat outside` on the correct interfaces", "The ACL matches the inside source addresses", "The VTP domain", "The CDP timers", "The HSRP group"]
+  a: "A,B"
+  e: "Traffic must enter an inside interface, match the ACL and exit an outside interface."
+- q: "Which NAT type permanently maps one inside address to one outside address so external users can reach a server?"
+  o: ["Dynamic NAT", "PAT", "Static NAT", "NAT64"]
+  a: C
+  e: "`ip nat inside source static 10.1.1.80 203.0.113.80`."
+- q: "Which DNS record type maps a hostname to an IPv6 address?"
+  o: ["A", "AAAA", "PTR", "MX"]
+  a: B
+  e: "A = IPv4, AAAA = IPv6."
+- q: "Mail to example.com is delivered to the wrong server. Which record do you check?"
+  o: ["CNAME", "MX", "NS", "PTR"]
+  a: B
+  e: "MX records list mail servers and preferences."
+- q: "A reverse lookup of 203.0.113.25 returns NXDOMAIN. Which record is missing?"
+  o: ["A in the forward zone", "PTR in 25.113.0.203.in-addr.arpa", "MX", "TXT"]
+  a: B
+  e: "Reverse DNS uses PTR records under in-addr.arpa."
+- q: "Which record delegates a subdomain to other name servers?"
+  o: ["NS", "SOA", "CNAME", "AAAA"]
+  a: A
+  e: "NS records point to the authoritative servers for a zone or subdomain."
+- q: "www.example.com is a CNAME to web.example.net. What must exist for the name to resolve to an address?"
+  o: ["A PTR for www.example.com", "An A or AAAA record for web.example.net", "An MX for web.example.net", "Nothing else"]
+  a: B
+  e: "A CNAME is an alias; the canonical name must resolve to A/AAAA."
+- q: "Which command on a Cisco router enables DNS resolution of hostnames using server 10.99.0.53?"
+  o: ["ip name-server 10.99.0.53 (with ip domain lookup enabled)", "ip dns server 10.99.0.53", "dns client 10.99.0.53", "ip host dns 10.99.0.53"]
+  a: A
+  e: "`ip domain lookup` is on by default on many platforms; `ip name-server` sets the resolver."
+- q: "Which IPsec protocol provides encryption and is identified as IP protocol 50?"
+  o: ["AH", "ESP", "IKE", "GRE"]
+  a: B
+  e: "AH (51) gives integrity only and breaks with NAT."
+- q: "Which TWO statements describe a site-to-site IPsec VPN?"
+  o: ["Gateways at each site build the tunnel; end hosts need no VPN software", "Tunnel mode protects the entire original packet with a new outer IP header", "Each user installs a VPN client", "It uses only TCP 443", "It cannot carry routing protocols"]
+  a: "A,B"
+  e: "Remote-access VPNs use clients; site-to-site VPNs connect networks."
+- q: "Which UDP ports does IKE use with and without NAT traversal?"
+  o: ["500 and 4500", "1812 and 1813", "161 and 162", "1701 and 1723"]
+  a: A
+  e: "IKE starts on 500 and moves to 4500 when NAT is detected (ESP is then UDP-encapsulated)."
+- q: "Which VPN type lets a remote employee connect a laptop to the corporate network through a browser-compatible TLS session or a lightweight client?"
+  o: ["Site-to-site IPsec", "SSL/TLS remote access VPN", "GRE tunnel", "DMVPN hub"]
+  a: B
+  e: "TLS VPNs (e.g. Cisco Secure Client) use 443 and traverse most firewalls."
+- q: "Where should a standard IPv4 ACL normally be placed?"
+  o: ["Close to the source", "Close to the destination", "On every interface", "Only outbound on WAN links"]
+  a: B
+  e: "It matches only the source, so placing it near the source over-blocks."
+- q: "What is at the end of every IPv4 ACL?"
+  o: ["An implicit permit any", "An implicit deny any", "A log statement", "Nothing"]
+  a: B
+  e: "Unmatched packets are dropped."
+- q: "Which extended ACL entry permits HTTPS from 10.10.10.0/24 to server 10.50.0.80?"
+  o: ["permit tcp 10.10.10.0 0.0.0.255 host 10.50.0.80 eq 443", "permit udp 10.10.10.0 0.0.0.255 host 10.50.0.80 eq 443", "permit tcp host 10.50.0.80 10.10.10.0 0.0.0.255 eq 443", "permit ip 10.10.10.0 255.255.255.0 10.50.0.80 eq 443"]
+  a: A
+  e: "Protocol TCP, source with wildcard, destination host, destination port."
+- q: "A named extended ACL has `10 permit ip any any` and `20 deny tcp any any eq 23`. Telnet still works. Why?"
+  o: ["Named ACLs are processed bottom-up", "The first match (entry 10) permits all traffic", "Telnet uses UDP", "The ACL needs `log`"]
+  a: B
+  e: "Put specific entries before general ones; you can insert with a lower sequence number."
+- q: "How do you insert a new entry between sequence 10 and 20 in a named ACL?"
+  o: ["Delete and recreate the ACL", "Enter the ACL and add an entry with sequence number 15", "Use `ip access-list resequence` only", "It is not possible"]
+  a: B
+  e: "Named (and numbered, in named-ACL mode) ACLs support sequence numbers."
+- q: "Which command applies ACL MGMT to restrict SSH access to the router itself?"
+  o: ["ip access-group MGMT in on every interface", "access-class MGMT in under line vty 0 15", "ip ssh access-list MGMT", "login access MGMT"]
+  a: B
+  e: "access-class filters VTY sessions."
+- q: "How many IPv4 ACLs can be applied to one interface?"
+  o: ["One per interface", "One per direction (in and out) per interface", "Unlimited", "Two per VLAN"]
+  a: B
+  e: "One ACL per interface, per direction, per protocol."
+- q: "What does `permit tcp any any established` match?"
+  o: ["Only SYN packets", "TCP packets with the ACK or RST bit set (return traffic of sessions)", "All TCP", "Only port 179"]
+  a: B
+  e: "A crude stateless way to allow return traffic; stateful firewalls do this properly."
+- q: "What does DHCP snooping do on untrusted ports?"
+  o: ["Allows all DHCP messages", "Drops server messages (OFFER, ACK) and builds a binding table from client leases", "Encrypts DHCP", "Assigns static IPs"]
+  a: B
+  e: "Only trusted ports (toward real servers) may send server messages."
+- q: "After enabling DHCP snooping, no client gets an address. The DHCP server is reached through uplink G1/0/48. What is missing?"
+  o: ["`ip dhcp snooping trust` on G1/0/48", "`spanning-tree portfast` on G1/0/48", "Port security on G1/0/48", "A static ARP entry"]
+  a: A
+  e: "All ports are untrusted by default; also check option 82 behaviour."
+- q: "What does Dynamic ARP Inspection validate?"
+  o: ["DNS replies", "ARP packets on untrusted ports against the DHCP snooping binding table or ARP ACLs", "STP BPDUs", "CDP messages"]
+  a: B
+  e: "DAI stops ARP spoofing/poisoning."
+- q: "A server with a static IP loses connectivity after DAI is enabled on its VLAN. What is the cleanest fix?"
+  o: ["Disable DHCP snooping", "Add an ARP ACL (or static binding) for the server, or trust its port if appropriate", "Change the VLAN", "Enable PortFast"]
+  a: B
+  e: "Static hosts have no DHCP binding, so DAI drops their ARP."
+- q: "Which feature limits broadcast traffic on an access port to 5% of bandwidth?"
+  o: ["storm-control broadcast level 5.00", "switchport port-security maximum 5", "ip dhcp snooping limit rate 5", "spanning-tree bpduguard"]
+  a: A
+  e: "Storm control can drop, trap or shut down when the threshold is exceeded."
+- q: "Which feature blocks rogue IPv6 Router Advertisements from host ports?"
+  o: ["RA guard", "DHCPv6 relay", "BPDU guard", "IPv6 ACL on SVI only"]
+  a: A
+  e: "Attach an RA guard policy with device-role host."
+- q: "Which port security violation mode drops traffic from unknown MACs, increments the counter and sends a syslog message without shutting the port?"
+  o: ["protect", "restrict", "shutdown", "sticky"]
+  a: B
+  e: "protect is silent; shutdown err-disables (default)."
+- q: "What does `switchport port-security mac-address sticky` do?"
+  o: ["Disables MAC learning", "Dynamically learns MACs and adds them to the running configuration", "Shuts the port", "Sets the maximum to 1"]
+  a: B
+  e: "Save the config to keep sticky addresses after reload."
+- q: "Which TWO features work together to stop a man-in-the-middle attacker who sends forged ARP replies on an access VLAN?"
+  o: ["DHCP snooping", "Dynamic ARP Inspection", "Storm control", "BPDU guard", "LLDP"]
+  a: "A,B"
+  e: "DAI uses the snooping bindings to reject forged ARP."
+- q: "Which command enables SSH version 2 only on a router that already has a hostname, domain name and RSA keys?"
+  o: ["ip ssh version 2", "ssh v2 enable", "transport ssh 2", "crypto ssh 2"]
+  a: A
+  e: "Then restrict lines with `transport input ssh`."
+- q: "Which command generates RSA keys needed for SSH?"
+  o: ["crypto key generate rsa modulus 2048", "ssh keygen 2048", "ip ssh key 2048", "crypto ca generate"]
+  a: A
+  e: "SSH requires a hostname and domain name before key generation on classic IOS."
+- q: "Which command protects the router against brute-force logins by blocking login attempts for 120 seconds after 5 failures within 60 seconds?"
+  o: ["login block-for 120 attempts 5 within 60", "security passwords min-length 5", "exec-timeout 120", "aaa lockout 5"]
+  a: A
+  e: "login block-for enables quiet mode after repeated failures."

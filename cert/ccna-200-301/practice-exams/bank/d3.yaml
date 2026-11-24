@@ -1,0 +1,137 @@
+# Domain 3.0 IP Routing (hand-written).
+- q: "In the routing table entry `O 10.20.0.0/16 [110/30] via 10.0.12.2`, what is 110?"
+  o: ["The metric", "The administrative distance", "The hop count", "The route age"]
+  a: B
+  e: "[AD/metric]: 110 is OSPF's administrative distance; 30 is the cost."
+- q: "What does the code `L` mean in `show ip route` output?"
+  o: ["Learned by LDP", "A local /32 route for an IP address configured on the router's own interface", "A floating static route", "A route learned by LLDP"]
+  a: B
+  e: "Each interface IP creates a C (connected subnet) and an L (local host) route."
+- q: "A router shows `Gateway of last resort is not set`. What happens to packets for destinations not in the table?"
+  o: ["They are flooded", "They are dropped (ICMP unreachable may be sent)", "They go to the first route", "They are sent to the DHCP server"]
+  a: B
+  e: "Without a default route, unmatched packets are dropped."
+- q: "Which command configures an IPv4 default static route to next hop 203.0.113.1?"
+  o: ["ip route 0.0.0.0 255.255.255.255 203.0.113.1", "ip route 0.0.0.0 0.0.0.0 203.0.113.1", "ip default-network 203.0.113.1", "ip route default 203.0.113.1"]
+  a: B
+  e: "Network 0.0.0.0 with mask 0.0.0.0 matches everything."
+- q: "Which command creates an IPv6 default route through next hop 2001:db8:ffff::1?"
+  o: ["ipv6 route ::/0 2001:db8:ffff::1", "ipv6 route 0::0/128 2001:db8:ffff::1", "ipv6 default-gateway 2001:db8:ffff::1", "ip route ::/0 2001:db8:ffff::1"]
+  a: A
+  e: "::/0 is the IPv6 default route."
+- q: "An IPv6 static route uses a link-local next hop fe80::2. What else must the command include?"
+  o: ["An administrative distance", "The outgoing interface", "A tag", "The keyword permanent"]
+  a: B
+  e: "Link-local addresses are only unique per link: `ipv6 route ::/0 g0/1 fe80::2`."
+- q: "Which static route is a host route?"
+  o: ["ip route 10.1.1.0 255.255.255.0 10.0.0.2", "ip route 10.1.1.10 255.255.255.255 10.0.0.2", "ip route 0.0.0.0 0.0.0.0 10.0.0.2", "ip route 10.0.0.0 255.0.0.0 Null0"]
+  a: B
+  e: "A /32 mask matches one host."
+- q: "A static route `ip route 10.9.0.0 255.255.0.0 10.0.99.2` is missing from the routing table. 10.0.99.2 is not reachable through any other route. Why?"
+  o: ["Static routes need AD 0", "The recursive lookup for the next hop fails, so the route is not installed", "The mask is invalid", "Static routes appear only after a reload"]
+  a: B
+  e: "A next hop must resolve to a connected or other route."
+- q: "A floating static route never becomes active when the primary ISP fails because the primary route is also static and its next-hop interface stays up. What fixes this?"
+  o: ["Lower the floating route's AD to 1", "Use IP SLA tracking on the primary route (or a dynamic protocol/BFD)", "Remove the primary route", "Use a host route"]
+  a: B
+  e: "Tracking removes the primary route when the remote test fails, so the floating route can install."
+- q: "Which TWO conditions must be true for two routers to form an OSPFv2 adjacency on an Ethernet link?"
+  o: ["Same area ID", "Same hello and dead intervals", "Same process ID", "Same router ID", "Same interface bandwidth"]
+  a: "A,B"
+  e: "Area, timers, subnet, authentication and stub flags must match; process IDs are local."
+- q: "Two OSPF routers on a point-to-point Ethernet link show `FULL/  -` in `show ip ospf neighbor`. What does the `-` mean?"
+  o: ["The neighbor is down", "No DR/BDR election (point-to-point network type)", "Authentication failed", "The neighbor is a DROTHER"]
+  a: B
+  e: "Point-to-point links do not elect a DR."
+- q: "Which interface command removes the DR/BDR election on a link between exactly two OSPF routers?"
+  o: ["ip ospf priority 255", "ip ospf network point-to-point", "ip ospf cost 1", "passive-interface"]
+  a: B
+  e: "The point-to-point network type also speeds up adjacency."
+- q: "On a broadcast segment, router A has priority 1 and RID 3.3.3.3, router B priority 1 and RID 1.1.1.1, router C priority 0 and RID 9.9.9.9. All start at the same time. Which is DR?"
+  o: ["Router A", "Router B", "Router C", "None"]
+  a: A
+  e: "Priority 0 never becomes DR. Among priority-1 routers, the highest RID (3.3.3.3) wins."
+- q: "A new router with OSPF priority 200 joins a LAN that already has a DR with priority 1. What happens?"
+  o: ["It becomes DR immediately", "Nothing until the current DR and BDR fail; OSPF DR election is not preemptive", "The current DR reloads", "The new router becomes BDR immediately regardless"]
+  a: B
+  e: "DR/BDR election happens only when the roles are vacant."
+- q: "How does a Cisco router choose its OSPF router ID if `router-id` is not configured?"
+  o: ["Lowest physical interface IP", "Highest up loopback IP; if none, highest up physical interface IP", "The MAC address", "Random"]
+  a: B
+  e: "Manual RID > highest loopback > highest active interface."
+- q: "You changed `router-id` under OSPF, but `show ip ospf` still shows the old ID. What must you do?"
+  o: ["Nothing; it updates in 30 seconds", "Run `clear ip ospf process` (or reload)", "Change the area", "Remove all network statements"]
+  a: B
+  e: "The RID is chosen when the process starts."
+- q: "Which TWO commands advertise interface G0/1 (10.1.12.1/30) into OSPF area 0?"
+  o: ["`network 10.1.12.0 0.0.0.3 area 0` under router ospf", "`ip ospf 1 area 0` under interface G0/1", "`network 10.1.12.0 255.255.255.252 area 0`", "`ospf area 0` globally", "`redistribute connected` only"]
+  a: "A,B"
+  e: "OSPF network statements use wildcard masks; the interface command is an alternative."
+- q: "Two OSPF neighbors are stuck in EXSTART/EXCHANGE. What is the most common cause?"
+  o: ["Area mismatch", "MTU mismatch", "Hello timer mismatch", "Different process IDs"]
+  a: B
+  e: "MTU is checked in DBD packets; area and timer mismatches stop neighbors before 2-Way."
+- q: "What does `passive-interface g0/2` under OSPF do?"
+  o: ["Removes the network from OSPF", "Advertises the interface's network but stops sending hellos on it, so no neighbors form there", "Makes the router DR", "Disables the interface"]
+  a: B
+  e: "Use it on LAN and loopback interfaces with no routers."
+- q: "With the default reference bandwidth of 100 Mbps, why do Gigabit and 10-Gigabit links get the same OSPF cost?"
+  o: ["OSPF ignores bandwidth", "100/1000 and 100/10000 round up to the minimum cost of 1", "They use different areas", "Cisco caps cost at 10"]
+  a: B
+  e: "Set `auto-cost reference-bandwidth` higher on every router."
+- q: "Which command configures OSPFv3 for IPv6 on an interface (process 1, area 0)?"
+  o: ["ipv6 ospf 1 area 0", "ospfv3 network area 0", "ip ospf 1 area 0 ipv6", "ipv6 router ospf area 0"]
+  a: A
+  e: "OSPFv3 is enabled per interface; it also needs `ipv6 unicast-routing` and a 32-bit router ID."
+- q: "OSPFv3 on an IPv6-only router fails to start. No IPv4 addresses exist. What is missing?"
+  o: ["An IPv6 global address", "A manually configured 32-bit router ID", "A DR", "Area 1"]
+  a: B
+  e: "OSPFv3 still needs an IPv4-format router ID."
+- q: "What is the default OSPF hello/dead interval on broadcast and point-to-point networks?"
+  o: ["5/15 seconds", "10/40 seconds", "30/120 seconds", "60/180 seconds"]
+  a: B
+  e: "NBMA uses 30/120."
+- q: "Which TWO statements describe HSRP?"
+  o: ["Cisco-proprietary first-hop redundancy protocol", "Active/standby routers share a virtual IP and virtual MAC", "Preemption is enabled by default", "It uses multicast 224.0.0.18", "It requires OSPF"]
+  a: "A,B"
+  e: "HSRP preemption is off by default; VRRP uses 224.0.0.18."
+- q: "`show standby brief` on R1 shows `Gi0/0 10 110 P Active local 10.1.1.3 10.1.1.1`. What is the virtual IP?"
+  o: ["10.1.1.3", "10.1.1.1", "10.1.1.110", "The IP of Gi0/0"]
+  a: B
+  e: "Columns: interface, group, priority, preempt flag, state, active, standby, virtual IP."
+- q: "In VRRP, what role does the router forwarding traffic for the virtual IP hold?"
+  o: ["Active", "Master", "Primary", "Designated"]
+  a: B
+  e: "VRRP uses master/backup; HSRP uses active/standby."
+- q: "R1 (HSRP priority 100) is active. R2 has priority 120 and `standby 1 preempt`. What happens when R2 boots after R1?"
+  o: ["R1 stays active forever", "R2 takes over as active because it has a higher priority and preempt enabled", "Both become active", "R2 becomes listen only"]
+  a: B
+  e: "Preemption lets the higher-priority router take the active role."
+- q: "Which virtual MAC format does VRRP use?"
+  o: ["0000.0c07.acXX", "0000.0c9f.fXXX", "0000.5e00.01XX", "0100.5e00.00XX"]
+  a: C
+  e: "XX is the VRRP group number in hex."
+- q: "A packet arrives for 172.16.5.9. Routes: 172.16.0.0/16 via A (OSPF), 172.16.4.0/22 via B (static AD 200), 172.16.5.0/24 via C (RIP). Which next hop is used?"
+  o: ["A", "B", "C", "Load-balanced across all"]
+  a: C
+  e: "Longest prefix (/24) wins before AD is considered."
+- q: "Which TWO routes would a router use for ECMP load sharing?"
+  o: ["Two OSPF routes to the same prefix with equal cost", "An OSPF and an EIGRP route to the same prefix", "Two routes with different prefix lengths", "Two static routes to the same prefix with the same AD", "A static and a connected route"]
+  a: "A,D"
+  e: "Equal-cost paths from the same source with the same prefix and AD are installed together."
+- q: "Which tool on a Cisco router confirms the exact route used for a specific destination?"
+  o: ["show ip route 10.2.3.4", "show ip interface brief", "show arp", "show cdp neighbors"]
+  a: A
+  e: "`show ip route <address>` performs the lookup and prints the matching entry."
+- q: "Users report one-way traffic: R1 → R3 works, replies fail. R3 has no route to R1's LAN. Which fix is correct?"
+  o: ["Add a route on R3 back to R1's LAN (or advertise it in the IGP)", "Change R1's MTU", "Enable PortFast on R3", "Add a NAT rule on R1"]
+  a: A
+  e: "Every path needs a return route."
+- q: "What is the purpose of `default-information originate` under OSPF?"
+  o: ["Learns a default route from DHCP", "Advertises the router's default route into OSPF as an external route", "Sets the router ID", "Summarizes all routes"]
+  a: B
+  e: "The ASBR must have a default route itself (or use `always`)."
+- q: "A router has two static default routes: one with AD 1 via ISP-A and one with AD 5 via ISP-B. Both next hops are reachable. Which is used?"
+  o: ["ISP-B", "ISP-A", "Both", "Neither"]
+  a: B
+  e: "Lower AD wins for the same prefix; the AD 5 route is a floating backup."

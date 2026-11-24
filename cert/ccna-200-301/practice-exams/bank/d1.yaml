@@ -1,0 +1,161 @@
+# Domain 1.0 Network Infrastructure and Connectivity (hand-written). Answer letters refer to option order.
+- q: "A switch port shows a steadily rising CRC error count and input errors, but no late collisions. Both ends are set to auto. What is the most likely cause?"
+  o: ["A duplex mismatch", "A damaged cable, dirty fiber connector or failing transceiver", "An STP loop", "A wrong access VLAN"]
+  a: B
+  e: "CRC/input errors with matching autonegotiation point to the physical layer: cabling, connectors, optics or EMI."
+- q: "Which TWO symptoms indicate a duplex mismatch on a 100 Mbps link?"
+  o: ["Late collisions on the half-duplex side", "CRC or runt errors on the full-duplex side", "Err-disabled port", "Giants on both sides", "Native VLAN mismatch messages"]
+  a: "A,B"
+  e: "The half-duplex end sees late collisions; the full-duplex end sees damaged frames (CRC/runts)."
+- q: "Which fiber type has a core of about 9 microns and is used for links of 10 km or more?"
+  o: ["OM3 multimode", "OM4 multimode", "Single-mode (OS2)", "Cat6a"]
+  a: C
+  e: "Single-mode fiber's small core allows one light path and long distances with laser optics."
+- q: "What is the maximum standard segment length for 1000BASE-T?"
+  o: ["55 m", "100 m", "185 m", "550 m"]
+  a: B
+  e: "All twisted-pair Ethernet standards up to 10GBASE-T on Cat6a are limited to 100 m."
+- q: "`show interfaces g0/1` displays `GigabitEthernet0/1 is down, line protocol is down (notconnect)`. What do you check first?"
+  o: ["The OSPF configuration", "The physical connection: cable, transceiver and the device at the other end", "The DHCP pool", "The NAT table"]
+  a: B
+  e: "down/down with notconnect means no Layer 1 signal."
+- q: "Which component lets several virtual machines share one physical server's CPU, memory and NICs?"
+  o: ["A container runtime only", "A hypervisor", "A load balancer", "A virtual switch only"]
+  a: B
+  e: "A hypervisor (Type 1 like ESXi/KVM, or Type 2) abstracts hardware and runs VMs, each with its own guest OS."
+- q: "Which statement correctly compares containers and virtual machines?"
+  o: ["Containers each include a full guest operating system", "Containers share the host kernel and package only the app and its dependencies; VMs include a full guest OS", "VMs start faster than containers", "Containers require a Type 2 hypervisor"]
+  a: B
+  e: "Containers isolate processes on a shared kernel, so they are lighter and start faster than VMs."
+- q: "Which device connects virtual machines on the same host to each other and to the physical network?"
+  o: ["A virtual switch (vSwitch)", "A WLC", "A firewall appliance only", "A DHCP relay"]
+  a: A
+  e: "The hypervisor's virtual switch forwards frames between VM vNICs and uplinks, often with VLAN tagging."
+- q: "A Windows host shows IP address 169.254.12.7. What does this mean?"
+  o: ["The host has a static private address", "The host failed to get a DHCP lease and self-assigned an APIPA address", "The host is using IPv6", "The host is behind NAT"]
+  a: B
+  e: "169.254.0.0/16 is link-local (APIPA), used when no DHCP server answers."
+- q: "Host A is 192.168.10.30/27 with gateway 192.168.10.33. A cannot reach other subnets. What is wrong?"
+  o: ["The mask is invalid", "The gateway is outside Host A's subnet (192.168.10.0/27 ends at .31)", "The gateway must be .1", "Host A needs a /24"]
+  a: B
+  e: "192.168.10.0/27 covers .0-.31; .33 is in the next subnet, so A cannot ARP for it."
+- q: "Which IPv6 address type is automatically configured on every IPv6-enabled interface and used for neighbor discovery and routing protocol next hops?"
+  o: ["Global unicast", "Unique local", "Link-local (fe80::/10)", "Anycast"]
+  a: C
+  e: "Every interface creates a link-local address; NDP and IGP neighbors use it."
+- q: "What prefix length should an IPv6 LAN segment use so SLAAC works?"
+  o: ["/48", "/56", "/64", "/127"]
+  a: C
+  e: "SLAAC builds a 64-bit interface ID, so the prefix must be /64."
+- q: "A Cisco router must act as a SLAAC client on G0/0. Which interface command does this?"
+  o: ["ipv6 address dhcp", "ipv6 address autoconfig", "ipv6 enable", "ipv6 unicast-routing"]
+  a: B
+  e: "`ipv6 address autoconfig` builds an address from received RAs. `ipv6 address dhcp` uses DHCPv6."
+- q: "Which IPv6 prefix size is recommended for point-to-point router links?"
+  o: ["/64", "/96", "/127", "/128"]
+  a: C
+  e: "RFC 6164 recommends /127 for inter-router links; /128 is a single host (loopback)."
+- q: "Which address is an IPv6 unique local address?"
+  o: ["2001:db8::1", "fe80::1", "fd3a:91c2:7b00::10", "ff02::2"]
+  a: C
+  e: "Unique local addresses use fc00::/7, in practice fd00::/8."
+- q: "In the 2.4 GHz band, which channel set avoids overlap between neighbouring APs?"
+  o: ["1, 4, 8", "1, 6, 11", "2, 7, 12", "3, 6, 9"]
+  a: B
+  e: "Only channels 1, 6 and 11 do not overlap (in most regulatory domains)."
+- q: "Why do dense 5 GHz deployments often use 20 MHz or 40 MHz channels instead of 80 MHz?"
+  o: ["Wider channels are not supported in 5 GHz", "Narrower channels give more non-overlapping channels and less co-channel interference", "Narrower channels increase range tenfold", "WPA3 requires 20 MHz"]
+  a: B
+  e: "More channels means better reuse across many APs, which improves airtime efficiency."
+- q: "Which RF characteristic describes signal loss as a wave passes through walls and furniture?"
+  o: ["Reflection", "Absorption / attenuation", "Diffraction", "Modulation"]
+  a: B
+  e: "Materials absorb RF energy and weaken the signal; water and concrete absorb a lot."
+- q: "A client reports an RSSI of −82 dBm and an SNR of 8 dB. What is the likely user experience?"
+  o: ["Excellent", "Good enough for voice", "Poor: low data rates, retries and disconnects", "No effect"]
+  a: C
+  e: "Good service usually needs RSSI ≥ −67 dBm and SNR ≥ 25 dB."
+- q: "Which TWO are common sources of 2.4 GHz interference?"
+  o: ["Microwave ovens", "Bluetooth devices", "Weather radar", "Fiber optic cables", "6 GHz APs"]
+  a: "A,B"
+  e: "Microwave ovens and Bluetooth share 2.4 GHz. Radar affects 5 GHz DFS channels."
+- q: "Which security protocol replaces the WPA2 pre-shared key exchange in WPA3-Personal?"
+  o: ["TKIP", "SAE", "EAP-TLS", "WEP"]
+  a: B
+  e: "Simultaneous Authentication of Equals resists offline dictionary attacks."
+- q: "Which component is required for WPA2-Enterprise or WPA3-Enterprise authentication?"
+  o: ["A TACACS+ server", "An 802.1X authentication server such as RADIUS", "A DHCP server", "A syslog server"]
+  a: B
+  e: "Enterprise mode uses 802.1X/EAP with a RADIUS server."
+- q: "What does PMF (802.11w), mandatory in WPA3, protect against?"
+  o: ["Co-channel interference", "Forged deauthentication/disassociation frames", "DHCP starvation", "Hidden nodes"]
+  a: B
+  e: "Protected Management Frames authenticate management frames."
+- q: "A laptop connects to Wi-Fi and authenticates successfully but receives 169.254.x.x. Other WLANs work. What is the most likely cause?"
+  o: ["Wrong PSK", "The WLAN's VLAN is missing from the WLC/AP trunk or has no DHCP relay", "The AP is in monitor mode", "The SSID is hidden"]
+  a: B
+  e: "Authentication succeeded, so the problem is in the wired path for DHCP."
+- q: "A wired PC can ping its gateway but not hosts on other subnets. Other PCs in the same VLAN work. What do you check first on the PC?"
+  o: ["The DNS suffix", "The configured default gateway and subnet mask", "The NIC duplex", "The browser proxy"]
+  a: B
+  e: "Wrong gateway or mask on one host is the usual cause when neighbours work."
+- q: "Which Windows command shows the IP address, mask, gateway, DNS servers and DHCP lease of all adapters?"
+  o: ["ipconfig /all", "netstat -r", "arp -a", "tracert"]
+  a: A
+  e: "`ipconfig /all` (Linux: `ip addr`, `ip route`, `resolvectl status`)."
+- q: "In what order are DHCPv4 messages exchanged when a client gets a new lease?"
+  o: ["Request, Offer, Discover, Acknowledge", "Discover, Offer, Request, Acknowledge", "Discover, Request, Offer, Acknowledge", "Offer, Request, Acknowledge, Discover"]
+  a: B
+  e: "DORA."
+- q: "Clients in VLAN 40 on a Layer 3 switch receive no DHCP address. The server is 10.99.0.10 in another VLAN. Which command fixes this?"
+  o: ["`ip helper-address 10.99.0.10` under interface vlan 40", "`ip dhcp relay` globally", "`ip default-gateway 10.99.0.10`", "`ip dhcp snooping trust` on the SVI"]
+  a: A
+  e: "The relay must be on the SVI that receives the client broadcasts."
+- q: "Which IOS command prevents a DHCP pool from leasing addresses 10.1.1.1 to 10.1.1.20?"
+  o: ["ip dhcp pool exclude 10.1.1.1 10.1.1.20", "ip dhcp excluded-address 10.1.1.1 10.1.1.20", "no ip dhcp 10.1.1.1 10.1.1.20", "ip dhcp reserve 10.1.1.1 10.1.1.20"]
+  a: B
+  e: "Excluded addresses are configured in global configuration mode."
+- q: "Which command shows the addresses a Cisco DHCP server has leased?"
+  o: ["show ip dhcp pool", "show ip dhcp binding", "show dhcp lease", "show ip interface brief"]
+  a: B
+  e: "`show ip dhcp binding` lists IP, client ID/MAC and expiry."
+- q: "Which field in a relayed DHCP DISCOVER tells the server which subnet the client is on?"
+  o: ["ciaddr", "giaddr", "yiaddr", "siaddr"]
+  a: B
+  e: "giaddr is set by the relay to its interface address in the client subnet."
+- q: "Which router interface command makes the router obtain its own IPv4 address from an ISP's DHCP server?"
+  o: ["ip address dhcp", "ip dhcp client enable", "ip helper-address dhcp", "dhcp client"]
+  a: A
+  e: "`ip address dhcp` configures the interface as a DHCP client."
+- q: "Which TWO problems can cause DHCP clients to receive addresses from the wrong pool?"
+  o: ["The helper address is configured on the wrong interface", "The pool network statement does not match the giaddr subnet", "The client NIC speed", "The DNS server option", "Spanning-tree PortFast"]
+  a: "A,B"
+  e: "The server matches the giaddr to a pool network; a wrong relay interface sends the wrong giaddr."
+- q: "What is the role of a transceiver such as an SFP+ module?"
+  o: ["It routes packets between VLANs", "It converts electrical signals to optical (or copper) signals for a specific media type and distance", "It stores the startup configuration", "It provides PoE"]
+  a: B
+  e: "Pluggable optics define the physical media, wavelength and reach."
+- q: "Which interface counter usually points to frames larger than the configured MTU arriving on a port?"
+  o: ["Runts", "Giants", "CRC", "Output drops"]
+  a: B
+  e: "Giants are frames above the maximum size (1518 bytes untagged without jumbo)."
+- q: "Which cabling issue often causes intermittent errors that worsen when a cable is moved?"
+  o: ["A crossover cable", "A damaged or poorly terminated connector", "A plenum jacket", "Auto-MDIX"]
+  a: B
+  e: "Bad terminations and bent cables produce intermittent physical errors."
+- q: "What is the main advantage of a Type 1 (bare-metal) hypervisor over a Type 2 hypervisor?"
+  o: ["It runs as an app on a desktop OS", "It runs directly on the hardware with less overhead, suitable for data centers", "It cannot run Linux guests", "It needs no CPU virtualization support"]
+  a: B
+  e: "Type 1 hypervisors (ESXi, KVM, Hyper-V) run on the hardware; Type 2 (VirtualBox) runs on a host OS."
+- q: "An IPv6 host has a global address but no default route. Which message did it probably not receive?"
+  o: ["Neighbor Advertisement", "Router Advertisement with a non-zero router lifetime", "DHCPv6 Reply", "ICMPv6 Echo Reply"]
+  a: B
+  e: "The default route comes from RAs; DHCPv6 does not provide a gateway."
+- q: "A user's laptop gets a valid IP from Wi-Fi but cannot resolve names, while pinging 8.8.8.8 works. What is the most likely cause?"
+  o: ["Wrong gateway", "Missing or wrong DNS server configuration", "Wrong subnet mask", "Weak RSSI"]
+  a: B
+  e: "IP connectivity works; name resolution does not."
+- q: "Which DHCP option provides the default gateway to IPv4 clients?"
+  o: ["Option 3 (Router)", "Option 6 (DNS)", "Option 43 (Vendor)", "Option 82 (Relay agent)"]
+  a: A
+  e: "Option 3 = router (default gateway); 6 = DNS; 43 = vendor info (WLC discovery); 82 = relay agent information."
