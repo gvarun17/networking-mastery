@@ -3,7 +3,7 @@
 ```mermaid
 flowchart LR
   PCA["PC-A VLAN 20<br/>10.20.0.10/24"] --- ASW["ASW Fa0/3"]
-  ASW == "Gi0/1 trunk" == DSW["DSW (SVIs 20, 30)"]
+  ASW ===|"Gi0/1 trunk"| DSW["DSW (SVIs 20, 30)"]
   DSW --- SRV["Server VLAN 30<br/>10.30.0.10/24"]
 ```
 
