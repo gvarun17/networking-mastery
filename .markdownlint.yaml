@@ -1,0 +1,11 @@
+# markdownlint-cli2 rules for this repo. Long tables and inline HTML (<details>) are intentional.
+default: true
+MD013: false        # line length: tables and commands are long
+MD033:
+  allowed_elements: [details, summary, br]
+MD024:
+  siblings_only: true
+MD041: false        # some files start with a front table
+MD036: false        # bold lines used as question labels in interview prep
+MD029: false        # ordered list numbering inside details blocks
+MD060: false        # table column style

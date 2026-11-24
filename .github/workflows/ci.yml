@@ -1,0 +1,94 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  markdown-lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: "**/*.md"
+
+  mermaid:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+      - run: npm ci
+        working-directory: tools
+      - name: Validate every Mermaid block
+        run: node tools/validate_mermaid.mjs
+
+  links:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Internal links
+        run: python3 tools/check_links.py
+      - name: External links (lychee)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --max-concurrency 8 --accept 200,206,403,429 --exclude-path node_modules './**/*.md'
+          fail: false   # external sites change often; report, do not block
+
+  python:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml jinja2 pytest
+      - name: Unit tests (tools + capstone 5)
+        run: |
+          python3 -m pytest -q tests
+          python3 -m pytest -q labs/capstones/05-automation-pipeline/tests
+      - name: Quiz and exam structure (answers exist, 15/100 questions)
+        run: python3 tools/validate_quizzes.py
+      - name: Generated content is up to date
+        run: |
+          python3 tools/gen_subnet_problems.py
+          python3 tools/build_practice_exams.py
+          python3 tools/flashcard_gen.py
+          git diff --exit-code
+      - name: Capstone 5 validate + render
+        working-directory: labs/capstones/05-automation-pipeline
+        run: python3 validate.py && python3 render.py
+      - name: No HTML files in the repo
+        run: |
+          if git ls-files | grep -Ei '\.html?$'; then echo "HTML files are not allowed"; exit 1; fi
+
+  config-syntax:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: YAML lint
+        run: |
+          pip install yamllint
+          yamllint -d '{extends: relaxed, rules: {line-length: disable, document-start: disable}}' $(git ls-files '*.yml' '*.yaml' | grep -v node_modules)
+      - name: Shell scripts
+        run: |
+          sudo apt-get install -y shellcheck
+          shellcheck -S warning $(git ls-files '*.sh')
+      - uses: hashicorp/setup-terraform@v3
+      - name: Terraform fmt and validate
+        run: |
+          for d in modules/14-cloud-networking/terraform labs/capstones/03-aws-hub-spoke-inspection/terraform; do
+            terraform -chdir=$d fmt -check -diff
+            terraform -chdir=$d init -backend=false -input=false
+            terraform -chdir=$d validate
+          done
